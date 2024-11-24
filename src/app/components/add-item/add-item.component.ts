@@ -10,21 +10,21 @@ import { Router } from '@angular/router';
   imports: [FormsModule],
   template: `
     <form (ngSubmit)="onSubmit()">
-      <h2>Register New User</h2>
+      <h2>Register New Task</h2>
       <div>
         <label for="">Id</label>
         <input type="number" [(ngModel)]="id" name="id">
       </div>
       <div>
-        <label for="name">Name of the User</label>
+        <label for="name">Name of the Task</label>
         <input type="text" [(ngModel)]="title" name="name">
       </div>
       <div>
-        <label for="time">Precio</label>
+        <label for="time">Time</label>
         <input type="number" [(ngModel)]="time" name="time">
       </div>
       <div>
-        <label for="timeLeft">Cantidad</label>
+        <label for="timeLeft">TimeLeft</label>
         <input type="number" [(ngModel)]="timeLeft" name="timeLeft">
       </div>
       <input type="submit" value="Confirm">
