@@ -5,15 +5,17 @@ import { HeaderComponent } from '../app/components/header/header.component';
 import { ItemComponent } from "./components/item/item.component";
 import { TotalComponent } from "./components/total/total.component";
 import { RouterModule } from '@angular/router';
-import { ConfigComponent } from "./components/config/config.component";
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ItemsComponent, HeaderComponent, ItemComponent, TotalComponent, ConfigComponent],  // Añade los componentes aquí
+  imports: [RouterOutlet, ItemsComponent, HeaderComponent, ItemComponent, TotalComponent],  // Añade los componentes aquí
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']  // Cambiado a styleUrls
 })
 export class AppComponent {
   title = 'ZenTask';
+  constructor(private titleService: Title){
+    this.titleService.setTitle($localize`${this.title}`)
+  }
 }

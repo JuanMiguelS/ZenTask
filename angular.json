@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "ZenTask": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es-PR": {
+            "translation": "src/locale/messages.xlf",
+            "baseHref": "es-PR/"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +22,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": ["es-PR"],
             "outputPath": "dist/zen-task",
             "index": "src/index.html",
             "browser": "src/main.ts",
