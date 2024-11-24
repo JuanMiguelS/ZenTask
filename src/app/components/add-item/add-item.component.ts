@@ -46,7 +46,7 @@ export class AddItemComponent implements OnInit {
     item.id = this.id;
     item.title = this.title;
     item.time = this.time;       // Asegúrate de que 'price' es correcto
-    item.timeLeft = this.timeLeft; // Asegúrate de que 'quantity' es correcto
+    item.timeDone = this.timeLeft; // Asegúrate de que 'quantity' es correcto
     item.completed = false;
 
     this.ItemService.addItems(item);
