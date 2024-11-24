@@ -32,7 +32,7 @@ export class ItemsComponent implements OnInit{
     this.getTotal();
   }
   getTotal(){
-   this.total = this.items.filter(x => !x.completed).map(item => item.timeLeft).reduce((acc,item)=> acc += item, 0);
+   this.total = this.items.filter(x => !x.completed).map(item => item.time - item.timeLeft).reduce((acc,item)=> acc += item, 0);
     console.log(this.total);    
   }
 }
