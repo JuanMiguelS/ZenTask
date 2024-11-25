@@ -1,7 +1,9 @@
 .menu{
- background: rgb(207, 111, 14);
+ background: rgb(14, 201, 207);
  padding: 0;
  margin: 0;   
+font-family: 'Roboto', sans-serif;
+ color: #333; 
 }
 menu ul{
     display:flex;
