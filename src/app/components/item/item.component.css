@@ -19,11 +19,11 @@ div{
     width: 50%;
     padding: 0 5px;
 }
-.price{
+.time{
     width: 15%;
     padding: 0 5px;
 }
-.quantity{
+.timeLeft{
     width: 10%;
     padding: 0 5px;
 }

@@ -3,18 +3,24 @@
     <input type="checkbox" [checked]="item.completed" (change)="onToggle(item)">
     {{item.title}}
   </div>
+
   <div class="time"> 
-    {{item.time}}
+    <p>   {{item.time}}</p>
+
   </div>
+
   <div class="timeLeft">
-    {{item.timeLeft}}
+    <p>{{item.timeDone}}</p>
+    
   </div>
+
   <div class="total">
-    {{(item.time * item.timeLeft)}}
+    {{(item.time - item.timeDone)}} 
   </div>
+
   <div class="actions">
-    <button (click)="onDelete(item)">
-      Eliminar
+    <button (click)="onDelete(item)" i18n>
+      Delete 
     </button>
   </div>
 </div>
