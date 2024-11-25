@@ -6,5 +6,6 @@ import { ConfigComponent } from './components/config/config.component';
 export const routes: Routes = [
   { path: '', component: ItemsComponent },  // Página principal
   { path: 'add', component: AddItemComponent },  // Página de agregar item
-  {path: 'app-config', component: ConfigComponent} //Pagina de Ajustes y configuración
+  {path: 'app-config', component: ConfigComponent}, //Pagina de Ajustes y configuración
+
 ];
