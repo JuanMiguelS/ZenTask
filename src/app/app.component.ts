@@ -5,7 +5,7 @@ import { HeaderComponent } from '../app/components/header/header.component';
 import { ItemComponent } from "./components/item/item.component";
 import { TotalComponent } from "./components/total/total.component";
 import { RouterModule } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -15,7 +15,4 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'ZenTask';
-  constructor(private titleService: Title){
-    this.titleService.setTitle($localize`${this.title}`)
-  }
 }

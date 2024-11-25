@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
     <form (ngSubmit)="onSubmit()">
       <h2>Register New Task</h2>
       <div>
-        <label for="">Id</label>
+        <label for="" i18n>Id</label>
         <input type="number" [(ngModel)]="id" name="id">
       </div>
       <div>
-        <label for="name">Name of the Task</label>
+        <label for="name" i18n>Name of the Task</label>
         <input type="text" [(ngModel)]="title" name="name">
       </div>
       <div>
-        <label for="time">Time</label>
+        <label for="time" i18n>Time</label>
         <input type="number" [(ngModel)]="time" name="time">
       </div>
       <div>
-        <label for="timeLeft">TimeLeft</label>
+        <label for="timeLeft" i18n>TimeLeft</label>
         <input type="number" [(ngModel)]="timeLeft" name="timeLeft">
       </div>
       <input type="submit" value="Confirm">

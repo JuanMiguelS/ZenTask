@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './config.component.css'
 })
 export class ConfigComponent {
+  constructor() {}
 
+  // Cambia el idioma
+  changeLanguage(lang: string): void {
+    
+  }
 }

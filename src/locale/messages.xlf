@@ -4,9 +4,10 @@
     <body>
       <trans-unit id="1955413914168883791" datatype="html">
         <source>Testing i18</source>
+         <target>Testeo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">2,3</context>
+          <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1737753151350322492" datatype="html">
@@ -14,6 +15,46 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.ts</context>
           <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3453929685926629133" datatype="html">
+        <source>Change Language</source>
+         <target>Cambiar de Idioma</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/config.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3815928829326879804" datatype="html">
+        <source>Main</source>
+         <target>Página Principal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="513425948349581031" datatype="html">
+        <source>Register/Login</source>
+         <target>Registrarse/Identificarse</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3008420115644088420" datatype="html">
+        <source>Configuration</source>
+         <target>Configuración</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6660925946511264619" datatype="html">
+        <source> Delete </source>
+        <target>Eliminar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/item/item.component.html</context>
+          <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
     </body>

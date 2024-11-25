@@ -1,20 +1,20 @@
 <form action="" (ngSubmit) = "onSubmit()">
     <h2>Register New Task</h2>
     <div>
-        <label for="">Id</label>
+        <label for="" i18n>Id</label>
         <input type=number name="id" id=""[(ngModel)]="id">
     </div>
     <div>
-        <label for="">Name of the User</label>
+        <label for="" i18n>Name of the User</label>
         <input type="text" name="title" id=""[(ngModel)]="title">
     </div>
     <div>
-        <label for="">Time</label>
+        <label for="" i18n>Time</label>
         <input type=number name="time" id="" [(ngModel)]="time">
     </div>
     <div>
-        <label for=""> Time Left</label>
+        <label for="" i18n> Time Left</label>
         <input type=number name="timeLeft" id="" [(ngModel)]="timeLeft">
     </div>
-    <input type="submit" value="Confirm">
+    <input type="submit" value="Confirm" i18n>
 </form>
