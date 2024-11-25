@@ -10,21 +10,21 @@ import { Router } from '@angular/router';
   imports: [FormsModule],
   template: `
     <form (ngSubmit)="onSubmit()">
-      <h2>Register New User</h2>
+      <h2>Register New Task</h2>
       <div>
-        <label for="">Id</label>
+        <label for="" i18n>Id</label>
         <input type="number" [(ngModel)]="id" name="id">
       </div>
       <div>
-        <label for="name">Name of the User</label>
+        <label for="name" i18n>Name of the Task</label>
         <input type="text" [(ngModel)]="title" name="name">
       </div>
       <div>
-        <label for="time">Precio</label>
+        <label for="time" i18n>Time</label>
         <input type="number" [(ngModel)]="time" name="time">
       </div>
       <div>
-        <label for="timeLeft">Cantidad</label>
+        <label for="timeLeft" i18n>TimeLeft</label>
         <input type="number" [(ngModel)]="timeLeft" name="timeLeft">
       </div>
       <input type="submit" value="Confirm">
@@ -46,7 +46,7 @@ export class AddItemComponent implements OnInit {
     item.id = this.id;
     item.title = this.title;
     item.time = this.time;       // Asegúrate de que 'price' es correcto
-    item.timeLeft = this.timeLeft; // Asegúrate de que 'quantity' es correcto
+    item.timeDone = this.timeLeft; // Asegúrate de que 'quantity' es correcto
     item.completed = false;
 
     this.ItemService.addItems(item);
