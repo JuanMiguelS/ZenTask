@@ -1,20 +1,16 @@
-<header class="menu">
+<div class="layout">
+  <header class="menu">
     <nav>
       <ul>
-        <li>
-            <a routerLink="/" i18n>Main Page</a>
-        </li>
-        <li>
-            <a routerLink="/add" i18n>Add New Task</a>
-        </li>
-        <li>
-          <a routerLink="/userIdentification">Register/Login</a>
-        </li>
-        <li>
-          <a routerLink="/app-config" i18n>Configuration</a>
-        </li>
+        <li><a routerLink="/" i18n>Main Page</a></li>
+        <li><a routerLink="/add" i18n>Add New Task</a></li>
+        <li><a routerLink="/userIdentification">Register/Login</a></li>
+        <li><a routerLink="/app-config" i18n>Configuration</a></li>
       </ul>
     </nav>
- </header>
+  </header>
 
- <router-outlet></router-outlet>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

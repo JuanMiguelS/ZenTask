@@ -1,19 +1,60 @@
-.menu{
- background: rgb(14, 201, 207);
- padding: 0;
- margin: 0;   
-font-family: 'Roboto', sans-serif;
- color: #333; 
+/* Contenedor principal que organiza el diseño */
+.layout {
+  display: flex; /* Flexbox para alinear elementos en fila */
+  min-height: 100vh; /* Asegura que la altura ocupe toda la ventana */
 }
-menu ul{
-    display:flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+
+/* Menú a la izquierda */
+.menu {
+  background: rgb(14, 201, 207); /* Color del menú */
+  width: 250px; /* Ancho fijo del menú */
+  flex-shrink: 0; /* Evita que el menú cambie de tamaño */
+  padding: 20px 0; /* Espaciado interno */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra a la derecha del menú */
 }
-menu ul li a {
-    display: block;
-    color:white;
-    text-decoration: none;
-    padding: 10px 15px;
+
+/* Lista vertical del menú */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+.menu ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor del contenido principal */
+.content-container {
+  flex: 1; /* Ocupa todo el espacio restante */
+  padding: 20px; /* Espaciado interno */
+  background-color: var(--card-background); /* Fondo del contenido */
+  border-radius: 8px; /* Opcional: esquinas redondeadas */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  overflow: auto; /* Maneja contenido que pueda desbordarse */
+}
+
+
+@media screen and (max-width: 768px) {
+  .menu ul {
+    flex-direction: column; /* Cambia los elementos a columna */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+  }
+
+  .menu ul li {
+    margin: 5px 0; /* Reduce el margen entre elementos */
+  }
 }
