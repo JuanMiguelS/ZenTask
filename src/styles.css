@@ -1,6 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
+/* Estilo general */
+#main-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 800px) {
+  #main-container {
+    width: 95%;
+    padding: 15px;
+  }
 }
