@@ -1,6 +1,8 @@
-<h2>Configuration</h2>
-<div>
-  <label for="language">Change Language</label>
-
-  <p>Cago en dios</p>
-</div>
+<h2>Configuration
+  <button (click)="changeLanguage('en')" class="lang-btn">
+    <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
+  </button>
+  <button (click)="changeLanguage('es')" class="lang-btn">
+    <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
+  </button>
+</h2>

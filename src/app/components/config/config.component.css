@@ -1,15 +1,97 @@
-form{
-    margin: 0 auto;
-    width: 300px;
-    display: block;
+/* Estilos generales de la página */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
-form div{
-    padding: 5px 0;
+
+/* Estilo del título con los botones de idioma a la derecha */
+/* Estilo del título con los botones de idioma a la derecha */
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
-form label{
-    display: block;
+
+/* Estilo de los botones de idioma */
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px;  /* Reduce el padding para que los botones estén más juntos */
+  margin-left: 5px; /* Reduce el espacio entre los botones */
+  transition: transform 0.3s ease;
 }
-form input[tpe=text]{
-    width: 100%;
-    padding: 5px;
+
+/* Efecto de hover para los botones */
+.lang-btn:hover {
+  transform: scale(1.1);  /* Aumenta un poco el tamaño del botón al pasar el ratón */
+}
+
+/* Estilo de las banderas */
+.flag-icon {
+  width: 30px;
+  height: 20px; /* Ajusta según el tamaño que prefieras */
+}
+/* Ajusta según el tamaño que prefieras */
+
+
+/* Estilos del formulario */
+form {
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los elementos dentro del formulario */
+form div {
+  padding: 5px 0;
+}
+
+/* Etiquetas de los campos */
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilo de los cuadros de texto */
+form select,
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white;
+  color: var(--text-color);
+  border: 2px solid var(--border-color, #d1d1d1);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo cuando se pasa el mouse sobre los cuadros de texto */
+form select:hover,
+form input[type="text"]:hover,
+form input[type="number"]:hover {
+  background-color: #f4f4f4;
+}
+
+/* Estilo para el botón de confirmación */
+form button {
+  background-color: #9e7f5a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto cuando se pasa el mouse sobre el botón */
+form button:hover {
+  background-color: #85664e;
 }
