@@ -23,4 +23,5 @@ import { TranslateModule } from '@ngx-translate/core'; // Asegúrate de que Tran
 })
 export class AppComponent {
   title = 'ZenTask';
-}
+
+  }

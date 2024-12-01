@@ -6,7 +6,6 @@
 
 /* Menú a la izquierda */
 .menu {
-  background: rgb(14, 201, 207); /* Color del menú */
   width: 250px; /* Ancho fijo del menú */
   flex-shrink: 0; /* Evita que el menú cambie de tamaño */
   padding: 20px 0; /* Espaciado interno */
@@ -23,27 +22,13 @@
 .menu ul li {
   margin: 10px 0;
 }
-
-.menu ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.menu ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 /* Contenedor del contenido principal */
 .content-container {
   flex: 1; /* Ocupa todo el espacio restante */
   padding: 20px; /* Espaciado interno */
-  background-color: var(--card-background); /* Fondo del contenido */
   border-radius: 8px; /* Opcional: esquinas redondeadas */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  background-color: #ecebc3;
   overflow: auto; /* Maneja contenido que pueda desbordarse */
 }
 
@@ -57,4 +42,29 @@
   .menu ul li {
     margin: 5px 0; /* Reduce el margen entre elementos */
   }
+}
+
+.menu {
+  background-color: #29d69f;
+  text-decoration: white;
+  width: 250px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.menu ul li a {
+  display: block;
+  color: white; /* Texto blanco */
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid white; /* Borde blanco */
+  border-radius: 4px; /* Esquinas redondeadas */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-align: center; /* Centrar el texto */
+}
+
+/* Efecto al pasar el mouse */
+.menu ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+  color: #29d69f; /* Cambia el color del texto a verde */
+  border-color: #29d69f; /* Cambia el color del borde a verde */
 }
