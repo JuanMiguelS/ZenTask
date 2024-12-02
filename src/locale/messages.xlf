@@ -11,6 +11,7 @@
       </trans-unit>
       <trans-unit id="1443594465941010771" datatype="html">
         <source>Name of the Task</source>
+        <target>Nombre de la Tarea</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
           <context context-type="linenumber">19,20</context>
@@ -18,6 +19,7 @@
       </trans-unit>
       <trans-unit id="8497528947328199741" datatype="html">
         <source>Time</source>
+        <target>Duración</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
           <context context-type="linenumber">23,24</context>
@@ -25,6 +27,7 @@
       </trans-unit>
       <trans-unit id="109419446380146556" datatype="html">
         <source>TimeLeft</source>
+        <target>Tiempo Restante</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
           <context context-type="linenumber">27,28</context>
@@ -32,6 +35,7 @@
       </trans-unit>
       <trans-unit id="87893432748167436" datatype="html">
         <source>Main Page</source>
+        <target>Página Principal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/header/header.component.html</context>
           <context context-type="linenumber">5,6</context>
@@ -39,6 +43,7 @@
       </trans-unit>
       <trans-unit id="7354010942170101634" datatype="html">
         <source>Add New Task</source>
+        <target>Añadir Nueva Tarea</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/header/header.component.html</context>
           <context context-type="linenumber">6,7</context>
@@ -46,6 +51,7 @@
       </trans-unit>
       <trans-unit id="3008420115644088420" datatype="html">
         <source>Configuration</source>
+        <target>Configuración</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/header/header.component.html</context>
           <context context-type="linenumber">8,9</context>
@@ -53,6 +59,7 @@
       </trans-unit>
       <trans-unit id="6660925946511264619" datatype="html">
         <source> Delete </source>
+        <target>Eliminar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/item/item.component.html</context>
           <context context-type="linenumber">23,24</context>
