@@ -1,12 +1,10 @@
-<trans-unit id="config-title" datatype="html">
-  <source>Configuration</source>
-  <target>Configuration</target>
-</trans-unit>
-<trans-unit id="english" datatype="html">
-  <source>English</source>
-  <target>English</target>
-</trans-unit>
-<trans-unit id="spanish" datatype="html">
-  <source>Español</source>
-  <target>Spanish</target>
-</trans-unit>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="config-title" datatype="html">
+        <source>Configuration</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
