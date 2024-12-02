@@ -1,0 +1,52 @@
+<div class="counter-page">
+    <h1>Gestión de Contadores</h1>
+  
+    <button (click)="openAddTimerDialog()">Añadir Contador</button>
+  
+    <div *ngFor="let timer of timers" class="timer">
+      <p>
+        <strong>{{ timer.name }}</strong>: {{ formatTime(timer.remaining) }}
+        <span *ngIf="timer.isResting" style="color: blue;">(Descanso)</span> <!-- Indicador de descanso -->
+
+      </p>
+      <button *ngIf="timer.isStarted && !timer.isPaused" (click)="pauseTimer(timer)">Pausar</button>
+      <button *ngIf="timer.isStarted && timer.isPaused" (click)="resumeTimer(timer)">Reanudar</button>
+      <button (click)="startTimer(timer)">Iniciar</button> <!-- Botón para iniciar -->
+      <button (click)="resetTimer(timer)">Reiniciar</button> <!-- Botón de reinicio -->
+      <button (click)="removeTimer(timer.id)">Eliminar</button>
+    </div>
+  </div>
+  
+  <!-- Diálogo para agregar contadores -->
+  <div class="dialog" *ngIf="isDialogOpen">
+    <h2>Añadir un nuevo contador</h2>
+    <label>
+      Nombre:
+      <input type="text" [(ngModel)]="timerName" /> <!-- NUEVO: Campo de nombre -->
+    </label>  
+    <label>
+      Horas:
+      <input type="number" [(ngModel)]="hours" min="0" />
+    </label>
+    <label>
+      Minutos:
+      <input type="number" [(ngModel)]="minutes" min="0" max="59" /> 
+    </label>
+    <label>
+      Segundos:
+      <input type="number" [(ngModel)]="seconds" min="0" max="59" />
+    </label>
+    <label>
+      ¿Repetir después de un descanso?
+      <input type="checkbox" [(ngModel)]="repeat" />
+    </label>
+    <div *ngIf="repeat">
+      <label>
+        Período de descanso (minutos):
+        <input type="number" [(ngModel)]="restMinutes" />
+      </label>
+    </div>
+    <button (click)="confirmAddTimer()">Aceptar</button>
+    <button (click)="closeDialog()">Cancelar</button>
+  </div>
+  
