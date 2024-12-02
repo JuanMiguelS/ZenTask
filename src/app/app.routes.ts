@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: 'add', component: AddItemComponent },
   { path: 'app-config', loadComponent: () => import('./components/config/config.component').then(m => m.ConfigComponent) },
   { path: 'app-counter-page', component: CounterPageComponent },
+  { path: '**', redirectTo: '' }, // Redirige cualquier ruta no encontrada a la raíz
 ];
