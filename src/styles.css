@@ -1,52 +1,19 @@
-/* Estilo general */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-  }
-  
-  button {
-    font-family: inherit;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Tema claro */
-  .light-theme {
-    --background-color: #ffffff;
-    --text-color: #333333;
-    --card-background: #f5f5f5;
-    --primary-color: #4A90E2;
-    --secondary-color: #7ED321;
-    --danger-color: #D0021B;
-  }
-  
-  /* Tema oscuro */
-  .dark-theme {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --card-background: #1e1e1e;
-    --primary-color: #4A90E2;
-    --secondary-color: #7ED321;
-    --danger-color: #F5A623;
-  }
-  
-  /* Tarjetas */
-  mat-card {
-    background-color: var(--card-background);
-    color: var(--text-color);
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
+:root {
+  /* Colores principales */
+  --background-color: #ecebc3; /* Fondo claro, como crema */
+  --text-color: #05611f; /* Texto principal en verde profundo */
+  --card-background: #FFFFFF; /* Fondo blanco para tarjetas o contenedores */
+
+  /* Colores secundarios */
+  --menu-background: #0B6623; /* Verde oliva para el menú lateral */
+  --header-background: #8B4513; /* Marrón tierra para el encabezado */
+
+  /* Colores de acento */
+  --button-primary: #0B6623; /* Verde profundo para botones principales */
+  --button-hover: #66FF66; /* Verde neón para botones al pasar el mouse */
+  --accent-color: #FDD835; /* Amarillo suave para acentos */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}

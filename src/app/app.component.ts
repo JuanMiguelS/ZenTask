@@ -6,7 +6,7 @@ import { HeaderComponent } from '../app/components/header/header.component';
 import { ItemComponent } from "./components/item/item.component";
 import { TotalComponent } from "./components/total/total.component";
 import { TranslateModule } from '@ngx-translate/core'; // Asegúrate de que TranslateModule esté importado
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,4 +23,14 @@ import { TranslateModule } from '@ngx-translate/core'; // Asegúrate de que Tran
 })
 export class AppComponent {
   title = 'ZenTask';
-}
+ constructor(private router: Router) {}
+
+  // Métodos para navegar a las páginas de Login y Register
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+  }

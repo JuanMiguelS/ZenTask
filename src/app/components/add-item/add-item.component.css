@@ -1,15 +1,52 @@
-form{
-    margin: 0 auto;
-    width: 300px;
-    display: block;
+/* Estilo global para el body */
+.body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
-form div{
-    padding: 5px 0;
+
+/* Estilo para el formulario */
+form {
+  width: 300px;
+  display: block;
 }
-form label{
-    display: block;
+
+/* Estilo para los campos del formulario */
+form div {
+  padding: 5px 0;
 }
-form input[tpe=text]{
-    width: 100%;
-    padding: 5px;
+
+/* Estilo de los labels */
+form label {
+  display: block;
+  color: var(--text-color); /* Asegura que el color del texto sea el correcto */
+}
+
+/* Estilo de los inputs de tipo texto */
+/* Estilo de los inputs de tipo texto */
+form input[type="text"], form input[type="number"] {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white;  /* Fondo blanco */
+  color: var(--text-color);  /* Color del texto */
+  border: 2px solid #ccc;   /* Borde más grueso (2px) */
+  border-radius: 8px;       /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo del botón de submit */
+form input[type="submit"] {
+  background-color: #9e7f5a;  /* Color del botón */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+form input[type="submit"]:hover {
+  background-color: var(--button-hover);
 }

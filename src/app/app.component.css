@@ -1,0 +1,91 @@
+/* Layout para contener el menú y el contenido */
+.layout {
+  display: flex;
+  flex-direction: column; /* Apila los elementos en una columna */
+  min-height: 100vh; /* Asegura que la altura ocupe toda la ventana */
+}
+
+/* Contenedor del título y botones */
+.header-container {
+  background-color: #29d69f; /* Fondo verde igual que el del menú */
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para el título de ZenTask *
+
+/* Contenedor para las acciones de Login y Register */
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* Estilo de los botones Login/Register */
+.action-btn {
+  padding: 10px 15px;
+  background-color: #ff8a00; /* Naranja para Login/Register */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #e77b00; /* Tono más oscuro cuando se pasa el mouse */
+}
+
+/* Contenedor principal del contenido */
+.content-container {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ecebc3;
+  overflow: auto;
+  margin-top: 20px; /* Separación para evitar que el contenido se sobreponga al header */
+}
+/* Estilo para el título de ZenTask */
+h1 {
+  font-family: 'Quicksand', sans-serif;  /* Fuente redondeada, suave */
+  font-size: 2.5rem;  /* Reducido el tamaño */
+  font-weight: 700;
+  color: #2d4b36;  /* Verde más oscuro */
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  background: linear-gradient(45deg, #6d9b6b, #a1d6a0);  /* Gradiente suave de verde */
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding: 15px 0;  /* Menos espacio vertical */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* Sombra más pronunciada */
+  transition: transform 0.3s ease, color 0.3s ease;
+  border-radius: 8px;  /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.1);  /* Fondo oscuro sutil */
+}
+
+h1:hover {
+  transform: scale(1.05);  /* Efecto de aumento al pasar el ratón */
+  color: #1c3826;  /* Tono aún más oscuro de verde al hacer hover */
+}
+
+h1::before {
+  content: '📚';  /* Icono de libro antes del título */
+  font-size: 1.5rem;  /* Reducido tamaño del icono */
+  margin-right: 10px;
+}
+
+h1::after {
+  content: '🪶';  /* Icono zen después del título */
+  font-size: 1.5rem;  /* Reducido tamaño del icono */
+  margin-left: 10px;
+}
+

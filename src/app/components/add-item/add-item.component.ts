@@ -30,7 +30,9 @@ import { Router } from '@angular/router';
       <input type="submit" value="Confirm">
     </form>
   `,
+  styleUrls: ['./add-item.component.css']  // Asegúrate de que el archivo CSS está correctamente referenciado
 })
+
 export class AddItemComponent implements OnInit {
   id: number = 0;
   title: string = '';
