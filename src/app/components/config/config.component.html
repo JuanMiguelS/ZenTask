@@ -1,9 +1,3 @@
-<h2>Configuration</h2>
-<button (click)="changeLanguage('en')" class="lang-btn">
-  <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
-</button>
-<button (click)="changeLanguage('es')" class="lang-btn">
-  <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
-</button>
-
-<p>{{ 'greeting' | translate }}</p>  <!-- Esto mostrará "Hello" o "Hola" dependiendo del idioma -->
+<h1 i18n="@@config-title">Configuration</h1>
+<button (click)="switchLanguage('en')" i18n="@@english">English</button>
+<button (click)="switchLanguage('es')" i18n="@@spanish">Español</button>

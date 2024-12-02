@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../Models/Item';
+import { AddItemComponent } from '../components/add-item/add-item.component';
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
   [x: string]: any;
 
-  items:Item[] =  [  
+  items:Item[] =  [
     { id: 0, title: 'study', time: 10.5, timeDone: 4, completed: false },
     { id: 1, title: 'work on code', time: 8, timeDone: 3, completed: false }
  ];
