@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7286430803380181008" datatype="html">
+        <source>Id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1443594465941010771" datatype="html">
+
+        <source>Nombre de la Tarea</source>
+         <target>Name of the Task</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8497528947328199741" datatype="html">
+              <source>Duración</source>
+              <target>Time</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="109419446380146556" datatype="html">
+        <target>TimeLeft</target>
+        <source>Tiempo Restante</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-item/add-item.component.ts</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="87893432748167436" datatype="html">
+        <target>Main Page</target>
+        <source>Página Principal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7354010942170101634" datatype="html">
+        <target>Add New Task</target>
+        <source>Añadir Nueva Tarea</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3008420115644088420" datatype="html">
+        <target>Configuration</target>
+        <source>Configuración</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6660925946511264619" datatype="html">
+        <target> Delete </target>
+        <source>Eliminar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/item/item.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
