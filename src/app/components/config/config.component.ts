@@ -4,8 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';  // Asegúrate de que est
 
 @Component({
   selector: 'app-config',
-  standalone: true,
-  imports: [TranslateModule],
+  standalone: true, // Si estás usando standalone component
+  imports: [TranslateModule],  // Asegúrate de que TranslateModule esté en los imports
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.css']
 })

@@ -33,4 +33,5 @@ export class AppComponent {
   goToRegister() {
     this.router.navigate(['/register']);
   }
+  
   }
