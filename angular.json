@@ -7,10 +7,8 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "es-PR": {
-            "translation": "src/locale/messages.xlf",
-            "baseHref": "es-PR/"
-          }
+          "es": "src/locale/messages.es.xlf",
+          "en": "src/locale/messages.en.xlf"
         }
       },
       "projectType": "application",
@@ -22,7 +20,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["es-PR"],
             "outputPath": "dist/zen-task",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -49,6 +46,7 @@
           },
           "configurations": {
             "production": {
+
               "budgets": [
                 {
                   "type": "initial",
