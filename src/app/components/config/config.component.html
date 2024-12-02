@@ -1,8 +1,9 @@
-<h2>Configuration
-  <button (click)="changeLanguage('en')" class="lang-btn">
-    <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
-  </button>
-  <button (click)="changeLanguage('es')" class="lang-btn">
-    <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
-  </button>
-</h2>
+<h2>Configuration</h2>
+<button (click)="changeLanguage('en')" class="lang-btn">
+  <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
+</button>
+<button (click)="changeLanguage('es')" class="lang-btn">
+  <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
+</button>
+
+<p>{{ 'greeting' | translate }}</p>  <!-- Esto mostrará "Hello" o "Hola" dependiendo del idioma -->
