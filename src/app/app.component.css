@@ -53,36 +53,39 @@
   overflow: auto;
   margin-top: 20px; /* Separación para evitar que el contenido se sobreponga al header */
 }
-
+/* Estilo para el título de ZenTask */
 h1 {
   font-family: 'Quicksand', sans-serif;  /* Fuente redondeada, suave */
-  font-size: 3rem;
+  font-size: 2.5rem;  /* Reducido el tamaño */
   font-weight: 700;
-  color: #4e8d60;  /* Verde naturaleza */
+  color: #2d4b36;  /* Verde más oscuro */
   text-align: center;
   letter-spacing: 2px;
   text-transform: capitalize;
   background: linear-gradient(45deg, #6d9b6b, #a1d6a0);  /* Gradiente suave de verde */
   -webkit-background-clip: text;
   background-clip: text;
-  padding: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+  padding: 15px 0;  /* Menos espacio vertical */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* Sombra más pronunciada */
   transition: transform 0.3s ease, color 0.3s ease;
+  border-radius: 8px;  /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.1);  /* Fondo oscuro sutil */
 }
 
 h1:hover {
   transform: scale(1.05);  /* Efecto de aumento al pasar el ratón */
-  color: #6b7f54;  /* Tono más oscuro de verde al hacer hover */
+  color: #1c3826;  /* Tono aún más oscuro de verde al hacer hover */
 }
 
 h1::before {
   content: '📚';  /* Icono de libro antes del título */
-  font-size: 2rem;
+  font-size: 1.5rem;  /* Reducido tamaño del icono */
   margin-right: 10px;
 }
 
 h1::after {
-  content: '🪶';  /* Icono zen después del título (piedra zen o símbolo de meditación) */
-  font-size: 2rem;
+  content: '🪶';  /* Icono zen después del título */
+  font-size: 1.5rem;  /* Reducido tamaño del icono */
   margin-left: 10px;
 }
+
