@@ -1,0 +1,29 @@
+.counter-page {
+    text-align: center;
+  }
+  
+  .timer {
+    margin: 10px 0;
+  }
+  
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .dialog label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .dialog input {
+    width: 50px;
+    text-align: center;
+  }
+  
