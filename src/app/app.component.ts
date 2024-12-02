@@ -8,7 +8,7 @@ import { TotalComponent } from "./components/total/total.component";
 import { TranslateModule } from '@ngx-translate/core'; // Asegúrate de que TranslateModule esté importado
 import { CounterPageComponent } from './components/counter-page/counter-page.component';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,4 +27,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'ZenTask';
-}
+ constructor(private router: Router) {}
+
+  // Métodos para navegar a las páginas de Login y Register
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+  }

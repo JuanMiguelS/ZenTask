@@ -1,11 +1,8 @@
-<h2>Configuration</h2>
-<div>
-  <label for="language">Change Language</label>
-  <div>
-    <button (click)="changeLanguage('en')">English</button>
-    <button (click)="changeLanguage('es')">Español</button>
-  </div>
-  
-  <h1>{{ 'greeting' | translate }}</h1> <!-- Muestra: Hello -->
-  <button>{{ 'CHANGE_LANGUAGE' | translate }}</button> <!-- Muestra: Change Language -->
-  
+<h2>Configuration
+  <button (click)="changeLanguage('en')" class="lang-btn">
+    <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
+  </button>
+  <button (click)="changeLanguage('es')" class="lang-btn">
+    <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
+  </button>
+</h2>
