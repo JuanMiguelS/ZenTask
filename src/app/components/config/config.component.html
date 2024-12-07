@@ -1,3 +1,8 @@
-<h1 i18n="@@config-title">Configuration</h1>
-<button (click)="switchLanguage('en')" i18n="@@english">English</button>
-<button (click)="switchLanguage('es')" i18n="@@spanish">Español</button>
+<h2 i18n="@@config-title">Settings</h2>
+
+<!-- Botones para cambiar de idioma -->
+<div>
+  <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
+    {{ lang | uppercase }} <!-- Muestra el idioma en mayúsculas -->
+  </button>
+</div>

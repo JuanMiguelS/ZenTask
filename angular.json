@@ -5,13 +5,10 @@
   "projects": {
     "ZenTask": {
       "i18n": {
+        "sourceLocale": "en",
         "locales": {
-          "es": {
-            "translation": "src/locale/messages.es.xlf"
-          },
-          "en": {
-            "translation": "src/locale/messages.en.xlf"
-          }
+          "es": "src/locale/messages.es.xlf"
+
         }
       },
       "projectType": "application",
@@ -32,9 +29,12 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+                "src/assets",
+                "src/favicon.ico",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/locale",
+                "output": "/locale"
               }
             ],
             "styles": [
@@ -108,6 +108,8 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/assets",
+              "src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "public"
