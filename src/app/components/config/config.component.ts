@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importar CommonModule
+import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
-  standalone: true, // Declarar que es un standalone component
+  standalone: true,
   selector: 'app-config',
   template: `
-    <h2 i18n="@@config-title">Settings</h2>
-    <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
-      {{ lang | uppercase }} <!-- Esto ahora funcionará -->
-    </button>
+    <h2>{{ getTranslation('config-title') }}</h2>
+
+    <div>
+      <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
+        {{ lang | uppercase }}
+      </button>
+    </div>
   `,
   styles: [
     `
@@ -21,7 +24,7 @@ import { TranslationService } from '../../services/translation.service';
       }
     `,
   ],
-  imports: [CommonModule], // Asegúrate de importar CommonModule
+  imports: [CommonModule],
 })
 export class ConfigComponent {
   supportedLanguages = ['en', 'es'];
@@ -31,5 +34,9 @@ export class ConfigComponent {
   switchLanguage(lang: string): void {
     console.log(`Idioma cambiado a: ${lang}`);
     this.translationService.changeLanguage(lang);
+  }
+
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 }
