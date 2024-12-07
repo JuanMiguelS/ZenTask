@@ -6,7 +6,7 @@ import { TranslationService } from '../../services/translation.service';
   standalone: true, // Declarar que es un standalone component
   selector: 'app-config',
   template: `
-    <h2 i18n="@@config-title">Configuración</h2>
+    <h2 i18n="@@config-title">Settings</h2>
     <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
       {{ lang | uppercase }} <!-- Esto ahora funcionará -->
     </button>

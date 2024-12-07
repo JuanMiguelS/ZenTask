@@ -3,7 +3,8 @@
   <file source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="config-title" datatype="html">
-        <source>Settings</source>
+        <source>Configuración</source>
+        <target>Settings</target>
       </trans-unit>
     </body>
   </file>
