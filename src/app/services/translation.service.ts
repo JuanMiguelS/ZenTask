@@ -1,24 +1,34 @@
-import { Inject, Injectable } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TranslationService {
-  private supportedLanguages = ['en', 'es'];
+  private currentLanguage = 'en';
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(private http: HttpClient) {}
 
   changeLanguage(lang: string): void {
-    if (this.supportedLanguages.includes(lang)) {
-      const currentUrl = this.document.location.href;
-      const newUrl = currentUrl.replace(/(\?lang=)[a-z]{2}/, `$1${lang}`);
-      this.document.location.href = newUrl;
-    }
+    this.currentLanguage = lang;
+    this.loadTranslations(lang);
+  }
+
+  private loadTranslations(lang: string): void {
+    const translationFilePath = `assets/i18n/messages.${lang}.xlf`; // Ruta correcta a los archivos
+
+    this.http.get(translationFilePath, { responseType: 'text' }).subscribe({
+      next: (translations) => {
+        console.log(`Traducciones cargadas para ${lang}:`, translations);
+        // Aquí podrías aplicar las traducciones cargadas.
+      },
+      error: (err) => {
+        console.error('Error al cargar las traducciones:', err);
+      },
+    });
   }
 
   getCurrentLanguage(): string {
-    const urlParams = new URLSearchParams(this.document.location.search);
-    return urlParams.get('lang') || 'en';
+    return this.currentLanguage;
   }
 }

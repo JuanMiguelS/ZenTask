@@ -9,7 +9,8 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes),
     provideHttpClient(),
   ],
-}).catch(err => console.error(err));
-
-// DEBUG: Confirma que las rutas se han cargado
-console.log('Rutas configuradas:', routes);
+}).then(() => {
+  // Configura el idioma inicial basado en la configuración del servicio
+  const htmlElement = document.documentElement;
+  htmlElement.lang = 'en'; // Idioma por defecto
+});

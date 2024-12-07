@@ -6,27 +6,30 @@ import { TranslationService } from '../../services/translation.service';
   standalone: true, // Declarar que es un standalone component
   selector: 'app-config',
   template: `
-    <h2>{{ 'SETTINGS.TITLE' }}</h2>
-    <button *ngFor="let lang of supportedLanguages" (click)="changeLanguage(lang)">
-      {{ lang | uppercase }}
+    <h2 i18n="@@config-title">Configuración</h2>
+    <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
+      {{ lang | uppercase }} <!-- Esto ahora funcionará -->
     </button>
   `,
-  styles: [`
-    button {
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  `],
-  imports: [CommonModule], // Importar CommonModule para habilitar pipes y otras funcionalidades básicas
+  styles: [
+    `
+      button {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    `,
+  ],
+  imports: [CommonModule], // Asegúrate de importar CommonModule
 })
 export class ConfigComponent {
   supportedLanguages = ['en', 'es'];
 
   constructor(private translationService: TranslationService) {}
 
-  changeLanguage(lang: string): void {
+  switchLanguage(lang: string): void {
+    console.log(`Idioma cambiado a: ${lang}`);
     this.translationService.changeLanguage(lang);
   }
 }
