@@ -6,7 +6,7 @@ import { TranslationService } from '../../services/translation.service';
   standalone: true,
   selector: 'app-config',
   template: `
-    <h2>{{ getTranslation('config-title') }}</h2>
+    <h2>{{ getTranslation('Settings') }}</h2>
 
     <div>
       <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
