@@ -6,6 +6,10 @@
         <source>Configuración</source>
         <target>Settings</target>
       </trans-unit>
+      <trans-unit id="totalHoursLeft">
+    <source>Total hours left</source>
+    <target>Total hours left</target>
+    </trans-unit>
     </body>
   </file>
 </xliff>

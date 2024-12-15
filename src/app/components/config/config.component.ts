@@ -39,4 +39,7 @@ export class ConfigComponent {
   getTranslation(key: string): string {
     return this.translationService.getTranslation(key);
   }
+   changeLanguage(language: string) {
+    this.translationService.changeLanguage(language);
+  }
 }
