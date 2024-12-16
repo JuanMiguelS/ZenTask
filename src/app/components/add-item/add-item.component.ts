@@ -4,7 +4,9 @@ import { Item } from '../../Models/Item';
 import { ItemService } from '../../services/item.service';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
-
+import { CounterPageComponent } from '../counter-page/counter-page.component';
+import { Timer } from '../../Models/Timer';
+import { TimerService } from '../../services/timer.service';
 @Component({
   selector: 'app-add-item',
   standalone: true,

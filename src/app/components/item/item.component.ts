@@ -2,11 +2,13 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../Models/Item';
 import { TranslationService } from '../../services/translation.service'; // Importar TranslationService
 import { CommonModule } from '@angular/common';
+import { CounterPageComponent } from '../counter-page/counter-page.component';
+import { AddItemComponent } from '../add-item/add-item.component';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [CommonModule],  // Asegúrate de incluir CommonModule
+  imports: [CommonModule, CounterPageComponent, AddItemComponent],  // Asegúrate de incluir CommonModule
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })

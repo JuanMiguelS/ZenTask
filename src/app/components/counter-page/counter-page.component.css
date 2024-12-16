@@ -1,109 +1,168 @@
-/* Estilo general para la página de contadores */
+
+/*
 .counter-page {
-  text-align: center;
-  background-color: var(--background-color);
-  padding: 20px;
-}
+    text-align: center;
+  }
+  
+  .timer {
+    margin: 10px 0;
+  }
+  
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .dialog label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .dialog input {
+    width: 50px;
+    text-align: center;
+  }
+  */
 
-/* Estilo para cada temporizador */
-.timer {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: var(--card-background);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  width: 100%;
-  max-width: 300px;
-}
+  .counter-page h1{
+    color: #0B6623
+  }
+  .counter-page {
+    text-align: center;
+    /*
+    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
+    
+    background-color: #313b3f;
+    max-width: 400px;
+    margin: 20px auto;
+    color: #d9a74a;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: sans-serif;
+    */
+    > p {
+      margin: 5px 0 15px 0;
+    }
 
-/* Estilo para los botones dentro de los contadores (Pausar, Reanudar, Iniciar, Reiniciar, Eliminar) */
-.timer button {
-  background-color: var(--background-color);  /* Color de fondo */
-  color: var(--text-color);  /* Color de texto */
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;  /* Aumento del tamaño del botón */
-  cursor: pointer;
-  margin: 10px 5px;  /* Separación entre los botones */
-  transition: background-color 0.3s ease;  /* Efecto al pasar el ratón */
-  width: auto;  /* Ajustar el ancho del botón según el texto */
-}
+    .timers-container {
+      display: flex; /* Alinea el cuadro y el botón en fila */
+      align-items: center; /* Centra verticalmente el botón respecto al cuadro */
+      gap: 10px; /* Espaciado entre el cuadro y el botón */
+      margin: 10px; /* Espaciado entre cada contador */
+  }
+  
+  .timer-box {
+      
+      background-color: #3c4448; /* Fondo del cuadro */
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+      border-radius: 8px; /* Bordes redondeados */
+      padding: 15px; /* Espaciado interno */
+      width: 300px; /* Ancho fijo o ajustable */
+      color: #d9a74a;
+      /*text-align: center; /* Centrar texto */
+      font-family: sans-serif;
+      border: 1px solid #d9a74a; /* Opcional: borde decorativo */
+      transition: transform 0.3s ease; /* Efecto visual al pasar el ratón */
+      margin: 10px;
+  }
+  
+  .timer-box:hover {
+      transform: scale(1.05); /* Amplía ligeramente el cuadro al pasar el ratón */
+  }
+  
+  .timer p {
+      margin: 10px 0;
+  }
+  
+  /* Botón eliminar */
+  .delete-button {
+    position: absolute; /* NUEVO: Posición fija dentro del cuadro */
+    top: 45px; /* NUEVO: Distancia desde el borde superior */
+    right: -100px; /* NUEVO: Distancia desde el borde derecho */
+    background-color: #ff4d4d; /* NUEVO: Color rojo para el botón de eliminar */
+    color: #fff; /* NUEVO: Texto en blanco */
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px; /* NUEVO: Tamaño más pequeño para que no destaque demasiado */
+    transition: background-color 0.3s ease; /* NUEVO: Animación para el color */
+  }
 
-.timer button:hover {
-  background-color: var(--button-hover);  /* Color de fondo al pasar el ratón */
-}
+  .delete-button:hover {
+    background-color: #cc0000; /* NUEVO: Más oscuro al pasar el ratón */
+  }
 
-/* Estilo para los botones de acción, como Pausar, Reanudar, Iniciar, etc. */
-.timer button:active {
-  transform: scale(0.98);  /* Efecto de presionar el botón */
-}
+  /* Grupo de botones principales */
+  .button-group {
+    display: flex; /* NUEVO: Flexbox para alinear botones horizontalmente */
+    left: 400px;
+    gap: 10px; /* NUEVO: Espaciado horizontal entre botones */
+    margin-top: 10px; /* NUEVO: Espaciado desde el texto superior */
+    justify-content: center; /* NUEVO: Centra los botones en el contenedor */
 
-/* Botón "Añadir Contador" con el color marrón específico */
-button.add-timer-btn {
-  background-color: #9e7f5a; /* Color marrón */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  }
 
-/* Efecto hover para el botón "Añadir Contador" */
-button.add-timer-btn:hover {
-  background-color: #85664e; /* Color marrón más oscuro al hacer hover */
-}
-
-/* Estilo para los botones dentro del diálogo */
-.dialog button {
-  background-color: var(--background-color); /* Se mantiene el mismo estilo de fondo */
-  color: var(--text-color); /* Color del texto */
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  width: 48%;  /* Mantener el tamaño proporcional */
-  margin: 5px 1%;  /* Espaciado entre botones */
-  transition: background-color 0.3s ease;
-}
-
-.dialog button:hover {
-  background-color: var(--button-hover); /* Efecto hover en el diálogo */
-}
-
-.dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 30px 40px;  /* Aumentamos el padding para hacerlo más grande */
-  z-index: 1000;
-  width: 400px;  /* Aumentamos el tamaño del cuadro */
-  max-width: 100%;  /* Para asegurar que no se desborde en pantallas pequeñas */
-  border-radius: 8px; /* Bordes redondeados */
-}
-
-/* Estilo de los labels y inputs dentro del diálogo */
-.dialog label {
-  display: block;
-  margin: 10px 0;
-}
-
-.dialog input[type="text"],
-.dialog input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  background-color: white;
-  color: var(--text-color);
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.dialog input[type="number"]:hover,
-.dialog input[type="text"]:hover {
-  background-color: #f4f4f4;
-}
+  .timer button {
+      margin: 0;
+      padding: 5px 10px;
+      background-color: #d9a74a;
+      border: none;
+      border-radius: 4px;
+      color: #313b3f;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+  }
+  
+  .timer button:hover {
+      background-color: #b88d3a; /* Color más oscuro al pasar el ratón */
+  }
+  
+    .wrapper {
+      .design,
+      .times {
+        display: grid;
+        grid-template-columns: repeat(4, calc(25% - 8px));
+        grid-column-gap: 10px;
+      }
+  
+      .dialog {
+        > p {
+          margin: 0;
+          font: normal 14px sans-serif;
+        }
+      }
+  
+      .times {
+        p {
+          letter-spacing: -5px;
+          position: relative;
+          margin: 0;
+          font: normal 40px courier, sans-serif;
+          ::ng-deep img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            display: block;
+            height: 30px;
+          }
+        }
+      }
+    }
+  
+  }
+  
+  @media screen and (max-width: 430px) {
+    .counter-page {
+      margin: 20px;
+    }
+  }

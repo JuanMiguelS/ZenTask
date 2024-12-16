@@ -1,27 +1,24 @@
-<form (ngSubmit)="onSubmit()">
-<h2>{{ getTranslation('Register New Task') }}</h2>
+<form action="" (ngSubmit) = "onSubmit()">
+    <h2>Register New Task</h2>
+    <div>
+        <label for="" i18n>Id</label>
+        <input type=number name="id" id=""[(ngModel)]="id">
+    </div>
+    <div>
+        <label for="" i18n>Name of the User</label>
+        <input type="text" name="title" id=""[(ngModel)]="title">
+    </div>
+    <div>
+        <label for="" i18n>Time</label>
+        <input type=number name="time" id="" [(ngModel)]="time">
+    </div>
+    <div>
+        <label for="" i18n> Time Left</label>
+        <input type=number name="timeLeft" id="" [(ngModel)]="timeLeft">
+    </div>
+    <input type="submit" value="Confirm" i18n>
 
-  <div>
-    <label for="id" i18n>{{ getTranslation('Id') }}</label>
-    <input type="number" [(ngModel)]="id" name="id" required>
-  </div>
-
-  <div>
-    <label for="name" i18n>{{ getTranslation('Name Of The Task') }}</label>
-    <input type="text" [(ngModel)]="title" name="name" required>
-  </div>
-
-  <div>
-    <label for="time" i18n>{{ getTranslation('Time') }}</label>
-    <input type="number" [(ngModel)]="time" name="time" required>
-  </div>
-
-  <div>
-    <label for="timeLeft" i18n>{{ getTranslation('Time Left') }}</label>
-    <input type="number" [(ngModel)]="timeLeft" name="timeLeft" required>
-  </div>
-
-  <input type="submit" value="{{ getTranslation('Confirm') }}">
+   
 </form>
 
 
