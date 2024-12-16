@@ -1,21 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Timer } from '../../Models/Timer';
 
-interface Timer {
-  id: number;
-  name: string;
-  duration: number; // Duración en segundos
-  originalDuration: number;
-  remaining: number; // Tiempo restante en segundos
-  isPaused: boolean;
-  isStarted: boolean;
-  intervalId?: any;  // Referencia al intervalo para actualizaciones
-
-  repeat: boolean;
-  restPeriod: number;
-  isResting?: boolean;
-}
 
 @Component({
   standalone: true,
@@ -47,6 +34,8 @@ export class CounterPageComponent {
   constructor() {
     this.audioContext = new AudioContext();
   }
+
+
 
   openAddTimerDialog(): void {
     this.isDialogOpen = true;
@@ -100,6 +89,30 @@ export class CounterPageComponent {
     alert('El tiempo total debe ser mayor a 0.');
   }
 }
+/*
+ngOnInit(): void {}
+
+  onSubmit() {
+    const timer = new Timer();
+    item.id = this.id;
+    item.title = this.title;
+    item.time = this.time;       // Asegúrate de que 'price' es correcto
+    item.timeDone = this.timeLeft; // Asegúrate de que 'quantity' es correcto
+    item.completed = false;
+    
+    timer.name = this.timerName;
+    timer.hours = this.hours;
+    timer.originalDuration: duration,
+    timer.remaining: duration,
+    timer.isPaused: true,
+    timer.isStarted: false,
+    timer.repeat: repeat,
+    timer.restPeriod: restPeriod
+
+    this.ItemService.addItems(item);
+    this.router.navigate(['/']);
+  } */
+
 
 initializeTimer(timer: Timer): void {
 timer.isPaused = true;

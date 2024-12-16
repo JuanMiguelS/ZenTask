@@ -9,8 +9,8 @@ export class Item {
       this.id = id;
       this.title = title;
       this.time = time; //tiempo total
-      this.timeDone = timeDone; //tiempo completado
-      this.completed = completed; //total-completado
+      this.timeDone = timeDone; //tiempo hecho hasta ese momento
+      this.completed = completed; //booleano para ver si tarea ha sido compleatada
     }
   }
   

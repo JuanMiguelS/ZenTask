@@ -3,19 +3,31 @@
   
     <button (click)="openAddTimerDialog()">Añadir Contador</button>
   
-    <div *ngFor="let timer of timers" class="timer">
-      <p>
-        <strong>{{ timer.name }}</strong>: {{ formatTime(timer.remaining) }}
-        <span *ngIf="timer.isResting" style="color: blue;">(Descanso)</span> <!-- Indicador de descanso -->
+    
 
-      </p>
-      <button *ngIf="timer.isStarted && !timer.isPaused" (click)="pauseTimer(timer)">Pausar</button>
-      <button *ngIf="timer.isStarted && timer.isPaused" (click)="resumeTimer(timer)">Reanudar</button>
-      <button (click)="startTimer(timer)">Iniciar</button> <!-- Botón para iniciar -->
-      <button (click)="resetTimer(timer)">Reiniciar</button> <!-- Botón de reinicio -->
-      <button (click)="removeTimer(timer.id)">Eliminar</button>
+      <div *ngFor="let timer of timers" class="timer-box">
+      <div class="timers-container">
+
+
+        <div class = "timer">
+        <p>
+          <strong>{{ timer.name }}</strong>: {{ formatTime(timer.remaining) }}
+          <span *ngIf="timer.isResting" style="color: blue;">(Descanso)</span> <!-- Indicador de descanso -->
+
+        </p>
+        <div class = "button-group">
+        <button (click)="startTimer(timer)">Iniciar</button> <!-- Botón para iniciar -->
+        <button *ngIf="timer.isStarted && !timer.isPaused" (click)="pauseTimer(timer)">Pausar</button>
+        <button *ngIf="timer.isStarted && timer.isPaused" (click)="resumeTimer(timer)">Reanudar</button>
+        <button (click)="resetTimer(timer)">Reiniciar</button> <!-- Botón de reinicio -->
+      
+      </div>
+      </div>
     </div>
+          <button class="delete-button" (click)="removeTimer(timer.id)">Eliminar</button>
+
   </div>
+</div>
   
   <!-- Diálogo para agregar contadores -->
   <div class="dialog" *ngIf="isDialogOpen">
