@@ -44,7 +44,25 @@
   <source>Confirm</source>
   <target>Confirmar</target>
 </trans-unit>
+  <trans-unit id="Main Page" datatype="html">
+        <source>Main Page</source>
+        <target>Página Principal</target>
+      </trans-unit>
 
+      <trans-unit id="Add New Task" datatype="html">
+        <source>Add New Task</source>
+        <target>Añadir Nueva Tarea</target>
+      </trans-unit>
+
+      <trans-unit id="Configuration" datatype="html">
+        <source>Configuration</source>
+        <target>Configuración</target>
+      </trans-unit>
+
+      <trans-unit id="Timers" datatype="html">
+        <source>Timers</source>
+        <target>Temporizadores</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
