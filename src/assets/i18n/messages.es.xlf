@@ -15,6 +15,36 @@
         <source>Delete</source>
         <target>Eliminar</target>
       </trans-unit>
+     <trans-unit id="Register New Task">
+  <source>Register New Task</source>
+  <target>Registrar nueva tarea</target>
+</trans-unit>
+
+<trans-unit id="Id">
+  <source>Id</source>
+  <target>Id</target>
+</trans-unit>
+
+<trans-unit id="Name Of The Task">
+  <source>Name of the Task</source>
+  <target>Nombre de la tarea</target>
+</trans-unit>
+
+<trans-unit id="Time">
+  <source>Time</source>
+  <target>Tiempo</target>
+</trans-unit>
+
+<trans-unit id="Time Left">
+  <source>Time Left</source>
+  <target>Tiempo restante</target>
+</trans-unit>
+
+<trans-unit id="Confirm">
+  <source>Confirm</source>
+  <target>Confirmar</target>
+</trans-unit>
+
     </body>
   </file>
 </xliff>
