@@ -5,12 +5,10 @@
   "projects": {
     "ZenTask": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en",
         "locales": {
-          "es-PR": {
-            "translation": "src/locale/messages.xlf",
-            "baseHref": "es-PR/"
-          }
+          "es": "src/locale/messages.es.xlf"
+
         }
       },
       "projectType": "application",
@@ -22,18 +20,21 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["es-PR"],
             "outputPath": "dist/zen-task",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+                "src/assets",
+                "src/favicon.ico",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/locale",
+                "output": "/locale"
               }
             ],
             "styles": [
@@ -66,6 +67,12 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "es": {
+              "localize": ["es"]
+            },
+            "en": {
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"
@@ -78,6 +85,12 @@
             },
             "development": {
               "buildTarget": "ZenTask:build:development"
+            },
+            "es": {
+              "buildTarget": "ZenTask:build:es"
+            },
+            "en": {
+              "buildTarget": "ZenTask:build:en"
             }
           },
           "defaultConfiguration": "development"
@@ -90,10 +103,13 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/assets",
+              "src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -101,7 +117,6 @@
             ],
             "styles": [
               "src/styles.css"
-              ,   "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           }

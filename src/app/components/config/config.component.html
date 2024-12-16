@@ -1,8 +1,8 @@
-<h2>Configuration
-  <button (click)="changeLanguage('en')" class="lang-btn">
-    <img src="assets/flags/uk-flag.png" alt="English" class="flag-icon">
+<h2 i18n="@@config-title">Settings</h2>
+
+<!-- Botones para cambiar de idioma -->
+<div>
+  <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
+    {{ lang | uppercase }} <!-- Muestra el idioma en mayúsculas -->
   </button>
-  <button (click)="changeLanguage('es')" class="lang-btn">
-    <img src="assets/flags/spain-flag.png" alt="Español" class="flag-icon">
-  </button>
-</h2>
+</div>

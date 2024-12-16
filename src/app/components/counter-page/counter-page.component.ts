@@ -24,7 +24,7 @@ export class CounterPageComponent {
   minutes: number = 0;
   seconds: number = 0;
   timerName: string = '';
-  
+
 
   repeat: boolean = false;
   restMinutes: number = 0;
@@ -49,7 +49,7 @@ export class CounterPageComponent {
   confirmAddTimer(): void {
     if (this.hours >= 0 && this.minutes >= 0 && this.seconds >= 0 && this.timerName.trim() !== '') {
       const restPeriod = this.repeat ? this.restMinutes * 60 : 0; // Período de descanso en segundos
-      
+
       this.addTimer(this.timerName, this.hours, this.minutes, this.seconds, this.repeat, restPeriod);
     this.closeDialog();
     } else {
@@ -120,14 +120,14 @@ timer.isStarted = true;
 }
 
   startTimer(timer: Timer): void {
-    
+
     timer.isPaused = false;
     timer.intervalId = setInterval(() => {
       if (timer.remaining > 0) {
         timer.remaining--;
       } else {
         clearInterval(timer.intervalId);
-        
+
         this.playBeep();
 
         if (timer.repeat && timer.restPeriod > 0) {
@@ -177,7 +177,7 @@ timer.isStarted = true;
     timer.isPaused = true;
     this.initializeTimer(timer); // Inicia el temporizador desde el principio
   }
-  
+
 
   removeTimer(timerId: number): void {
     const timerIndex = this.timers.findIndex(t => t.id === timerId);
@@ -208,7 +208,7 @@ timer.isStarted = true;
     gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime); // Volumen bajo
     oscillator.start(this.audioContext.currentTime); // Inicia el oscilador
     oscillator.stop(this.audioContext.currentTime + 0.29); // Detén el oscilador después de 1 segundo
-    
+
     gainNode2.gain.setValueAtTime(0.1, this.audioContext.currentTime+0.3); // Volumen bajo
     oscillator2.start(this.audioContext.currentTime+0.3); // Inicia el oscilador
     oscillator2.stop(this.audioContext.currentTime + 0.75);

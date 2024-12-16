@@ -1,24 +1,42 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';  // Asegúrate de que está importado
+import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
-  selector: 'app-config',
   standalone: true,
-  imports: [TranslateModule],
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.css']
+  selector: 'app-config',
+  template: `
+    <h2>{{ getTranslation('config-title') }}</h2>
+
+    <div>
+      <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
+        {{ lang | uppercase }}
+      </button>
+    </div>
+  `,
+  styles: [
+    `
+      button {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    `,
+  ],
+  imports: [CommonModule],
 })
 export class ConfigComponent {
-  constructor(private translate: TranslateService) {
-    // Establece el idioma por defecto
-    this.translate.setDefaultLang('en');
-    // Establece el idioma inicial si ya tienes uno predefinido
-    this.translate.use('en');
+  supportedLanguages = ['en', 'es'];
+
+  constructor(private translationService: TranslationService) {}
+
+  switchLanguage(lang: string): void {
+    console.log(`Idioma cambiado a: ${lang}`);
+    this.translationService.changeLanguage(lang);
   }
 
-  changeLanguage(language: string) {
-    console.log(`Cambiando idioma a: ${language}`);
-    this.translate.use(language);
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 }
