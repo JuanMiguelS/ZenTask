@@ -1,168 +1,188 @@
+/* Estilo global para el body */
+.body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
 
-/*
+/* Estilo para el formulario */
+form {
+  width: 300px;
+  display: block;
+}
+
+/* Estilo para los campos del formulario */
+form div {
+  padding: 5px 0;
+}
+
+/* Estilo de los labels */
+form label {
+  display: block;
+  color: var(--text-color); /* Asegura que el color del texto sea el correcto */
+}
+
+/* Estilo de los inputs de tipo texto y número */
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white; /* Fondo blanco */
+  color: var(--text-color); /* Color del texto */
+  border: 2px solid #ccc; /* Borde más grueso (2px) */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo del botón de submit */
+form input[type="submit"] {
+  background-color: #9e7f5a; /* Color del botón */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón de submit */
+form input[type="submit"]:hover {
+  background-color: var(--button-hover);
+}
+
+/* Estilo global para todos los botones */
+button {
+  padding: 10px 20px;
+  background-color: #9e7f5a; /* Fondo inicial */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover para todos los botones */
+button:hover {
+  background-color: #b88d3a; /* Color más oscuro al pasar el ratón */
+}
+
+/* Botón eliminar */
+.delete-button {
+  position: absolute; /* Posición fija dentro del cuadro */
+  top: 45px;
+  right: -100px;
+  background-color: #ff4d4d; /* Fondo rojo */
+  color: white; /* Texto blanco */
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #cc0000; /* Fondo más oscuro al pasar el ratón */
+}
+
+/* Grupo de botones principales */
+.button-group {
+  display: flex; /* Flexbox para alinear botones horizontalmente */
+  gap: 15px; /* Espaciado horizontal entre botones (aumentado) */
+  justify-content: center; /* Centra los botones en el contenedor */
+  margin-top: 10px;
+}
+
+/* Estilo específico para los botones individuales dentro de grupos */
+.button-group button {
+  margin: 0; /* Elimina márgenes internos */
+  padding: 10px 20px; /* Espaciado interno */
+}
+
+
+/* Estilo para los botones de la clase .timer */
+.timer button {
+  margin: 0;
+  background-color: #d9a74a; /* Fondo inicial */
+}
+
+.timer button:hover {
+  background-color: #b88d3a; /* Fondo más oscuro en hover */
+}
+
+/* Estilo para los contenedores */
 .counter-page {
-    text-align: center;
-  }
-  
-  .timer {
-    margin: 10px 0;
-  }
-  
-  .dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1000;
-  }
-  
-  .dialog label {
-    display: block;
-    margin: 10px 0;
-  }
-  
-  .dialog input {
-    width: 50px;
-    text-align: center;
-  }
-  */
+  text-align: center;
+}
 
-  .counter-page h1{
-    color: #0B6623
-  }
+.counter-page h1 {
+  color: #0b6623;
+}
+
+.counter-page > p {
+  margin: 5px 0 15px 0;
+}
+
+.timers-container {
+  display: flex; /* Alinea el cuadro y el botón en fila */
+  align-items: center; /* Centra verticalmente el botón respecto al cuadro */
+  gap: 10px; /* Espaciado entre el cuadro y el botón */
+  margin: 10px; /* Espaciado entre cada contador */
+}
+
+.timer-box {
+  background-color: #3c4448; /* Fondo del cuadro */
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  width: 300px; /* Ancho fijo o ajustable */
+  color: #d9a74a;
+  font-family: sans-serif;
+  border: 1px solid #d9a74a; /* Borde decorativo */
+  transition: transform 0.3s ease; /* Efecto visual al pasar el ratón */
+  margin: 10px;
+}
+
+.timer-box:hover {
+  transform: scale(1.05); /* Amplía ligeramente el cuadro al pasar el ratón */
+}
+
+.timer p {
+  margin: 10px 0;
+}
+
+/* Estilo para los cuadros de diseño */
+.wrapper .design,
+.wrapper .times {
+  display: grid;
+  grid-template-columns: repeat(4, calc(25% - 8px));
+  grid-column-gap: 10px;
+}
+
+.wrapper .dialog > p {
+  margin: 0;
+  font: normal 14px sans-serif;
+}
+
+.wrapper .times p {
+  letter-spacing: -5px;
+  position: relative;
+  margin: 0;
+  font: normal 40px courier, sans-serif;
+}
+
+.wrapper .times p::ng-deep img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  display: block;
+  height: 30px;
+}
+
+@media screen and (max-width: 430px) {
   .counter-page {
-    text-align: center;
-    /*
-    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
-    
-    background-color: #313b3f;
-    max-width: 400px;
-    margin: 20px auto;
-    color: #d9a74a;
-    border-radius: 6px;
-    padding: 10px;
-    font-family: sans-serif;
-    */
-    > p {
-      margin: 5px 0 15px 0;
-    }
-
-    .timers-container {
-      display: flex; /* Alinea el cuadro y el botón en fila */
-      align-items: center; /* Centra verticalmente el botón respecto al cuadro */
-      gap: 10px; /* Espaciado entre el cuadro y el botón */
-      margin: 10px; /* Espaciado entre cada contador */
+    margin: 20px;
   }
-  
-  .timer-box {
-      
-      background-color: #3c4448; /* Fondo del cuadro */
-      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-      border-radius: 8px; /* Bordes redondeados */
-      padding: 15px; /* Espaciado interno */
-      width: 300px; /* Ancho fijo o ajustable */
-      color: #d9a74a;
-      /*text-align: center; /* Centrar texto */
-      font-family: sans-serif;
-      border: 1px solid #d9a74a; /* Opcional: borde decorativo */
-      transition: transform 0.3s ease; /* Efecto visual al pasar el ratón */
-      margin: 10px;
-  }
-  
-  .timer-box:hover {
-      transform: scale(1.05); /* Amplía ligeramente el cuadro al pasar el ratón */
-  }
-  
-  .timer p {
-      margin: 10px 0;
-  }
-  
-  /* Botón eliminar */
-  .delete-button {
-    position: absolute; /* NUEVO: Posición fija dentro del cuadro */
-    top: 45px; /* NUEVO: Distancia desde el borde superior */
-    right: -100px; /* NUEVO: Distancia desde el borde derecho */
-    background-color: #ff4d4d; /* NUEVO: Color rojo para el botón de eliminar */
-    color: #fff; /* NUEVO: Texto en blanco */
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 12px; /* NUEVO: Tamaño más pequeño para que no destaque demasiado */
-    transition: background-color 0.3s ease; /* NUEVO: Animación para el color */
-  }
-
-  .delete-button:hover {
-    background-color: #cc0000; /* NUEVO: Más oscuro al pasar el ratón */
-  }
-
-  /* Grupo de botones principales */
-  .button-group {
-    display: flex; /* NUEVO: Flexbox para alinear botones horizontalmente */
-    left: 400px;
-    gap: 10px; /* NUEVO: Espaciado horizontal entre botones */
-    margin-top: 10px; /* NUEVO: Espaciado desde el texto superior */
-    justify-content: center; /* NUEVO: Centra los botones en el contenedor */
-
-  }
-
-  .timer button {
-      margin: 0;
-      padding: 5px 10px;
-      background-color: #d9a74a;
-      border: none;
-      border-radius: 4px;
-      color: #313b3f;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s;
-  }
-  
-  .timer button:hover {
-      background-color: #b88d3a; /* Color más oscuro al pasar el ratón */
-  }
-  
-    .wrapper {
-      .design,
-      .times {
-        display: grid;
-        grid-template-columns: repeat(4, calc(25% - 8px));
-        grid-column-gap: 10px;
-      }
-  
-      .dialog {
-        > p {
-          margin: 0;
-          font: normal 14px sans-serif;
-        }
-      }
-  
-      .times {
-        p {
-          letter-spacing: -5px;
-          position: relative;
-          margin: 0;
-          font: normal 40px courier, sans-serif;
-          ::ng-deep img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            display: block;
-            height: 30px;
-          }
-        }
-      }
-    }
-  
-  }
-  
-  @media screen and (max-width: 430px) {
-    .counter-page {
-      margin: 20px;
-    }
-  }
+}
