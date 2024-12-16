@@ -65,7 +65,7 @@ button {
 
 /* Hover para todos los botones */
 button:hover {
-  background-color: #b88d3a; /* Color más oscuro al pasar el ratón */
+  background-color: #0B6623; /* Color verde al pasar el ratón */
 }
 
 /* Botón eliminar */
@@ -88,7 +88,7 @@ button:hover {
 /* Grupo de botones principales */
 .button-group {
   display: flex; /* Flexbox para alinear botones horizontalmente */
-  gap: 15px; /* Espaciado horizontal entre botones (aumentado) */
+  gap: 20px; /* Espaciado horizontal entre botones (aumentado) */
   justify-content: center; /* Centra los botones en el contenedor */
   margin-top: 10px;
 }
@@ -98,7 +98,6 @@ button:hover {
   margin: 0; /* Elimina márgenes internos */
   padding: 10px 20px; /* Espaciado interno */
 }
-
 
 /* Estilo para los botones de la clase .timer */
 .timer button {
