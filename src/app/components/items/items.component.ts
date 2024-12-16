@@ -28,11 +28,11 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
     // Suscribirse a los cambios de idioma
     this.languageSubscription = this.translationService.getLanguageObservable().subscribe(() => {
-      this.totalMessage = this.translationService.getTranslation('totalHoursLeft');
+      this.totalMessage = this.translationService.getTranslation('Total hours left');
     });
 
     // Inicializar el mensaje de traducción
-    this.totalMessage = this.translationService.getTranslation('totalHoursLeft');
+    this.totalMessage = this.translationService.getTranslation('Total hours left');
   }
 
   ngOnDestroy(): void {

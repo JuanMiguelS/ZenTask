@@ -6,9 +6,14 @@
         <source>Settings</source>
         <target>Configuración</target>
       </trans-unit>
-      <trans-unit id="totalHoursLeft">
+      <trans-unit id="Total hours left">
        <source>Total hours left</source>
        <target>Total de horas restantes</target>
+      </trans-unit>
+      <xliff version="1.2">
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target>Eliminar</target>
       </trans-unit>
     </body>
   </file>
