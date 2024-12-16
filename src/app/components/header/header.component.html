@@ -2,12 +2,13 @@
   <header class="menu">
     <nav>
       <ul>
-        <li><a routerLink="/" i18n>Main Page</a></li>
-        <li><a routerLink="/add" i18n>Add New Task</a></li>
-        <li><a routerLink="/app-config" i18n>Configuration</a></li>
-        <li><a routerLink="/app-counter-page" i18n>Timers</a></li>
+        <li><a routerLink="/" [innerHTML]="getTranslation('Main Page')" i18n="@@Main Page"></a></li>
+        <li><a routerLink="/add" [innerHTML]="getTranslation('Add New Task')" i18n="@@Add New Task"></a></li>
+        <li><a routerLink="/app-config" [innerHTML]="getTranslation('Configuration')" i18n="@@Configuration"></a></li>
+        <li><a routerLink="/app-counter-page" [innerHTML]="getTranslation('Timers')" i18n="@@Timers"></a></li>
       </ul>
     </nav>
+
   </header>
 
   <div class="content-container">

@@ -2,9 +2,65 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext">
     <body>
-      <trans-unit id="config-title" datatype="html">
+      <trans-unit id="Settings" datatype="html">
         <source>Configuración</source>
         <target>Settings</target>
+      </trans-unit>
+      <trans-unit id="Total hours left">
+    <source>Total hours left</source>
+    <target>Total hours left</target>
+    </trans-unit>
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="Register New Task">
+  <source>Register New Task</source>
+  <target>Register New Task</target>
+</trans-unit>
+
+<trans-unit id="Id">
+  <source>Id</source>
+  <target>Id</target>
+</trans-unit>
+
+<trans-unit id="Name Of TheTask">
+  <source>Name of the Task</source>
+  <target>Name of the Task</target>
+</trans-unit>
+
+<trans-unit id="Time">
+  <source>Time</source>
+  <target>Time</target>
+</trans-unit>
+
+<trans-unit id="Time Left">
+  <source>Time Left</source>
+  <target>Time Left</target>
+</trans-unit>
+
+<trans-unit id="Confirm">
+  <source>Confirm</source>
+  <target>Confirm</target>
+</trans-unit>
+ <trans-unit id="Main Page" datatype="html">
+        <source>Main Page</source>
+        <target>Main Page</target>
+      </trans-unit>
+
+      <trans-unit id="Add New Task" datatype="html">
+        <source>Add New Task</source>
+        <target>Add New Task</target>
+      </trans-unit>
+
+      <trans-unit id="Configuration" datatype="html">
+        <source>Configuration</source>
+        <target>Configuration</target>
+      </trans-unit>
+
+      <trans-unit id="Timers" datatype="html">
+        <source>Timers</source>
+        <target>Timers</target>
       </trans-unit>
     </body>
   </file>

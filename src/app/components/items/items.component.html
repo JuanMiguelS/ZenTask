@@ -1,11 +1,9 @@
 <div class="main-container">
-
- <app-total message="total of hours left: " [total]="total" ></app-total>
-    <div *ngFor="let item of items" class="item">
-      <app-item [item]="item"
-        (deleteItem)="deleteItem($event)"
-        (toggleItem)="toggleItem($event)">
-      </app-item>
-    </div>
-  </div> 
-  
+  <app-total [message]="totalMessage" [total]="total"></app-total>
+  <div *ngFor="let item of items" class="item">
+    <app-item [item]="item"
+      (deleteItem)="deleteItem($event)"
+      (toggleItem)="toggleItem($event)">
+    </app-item>
+  </div>
+</div>
