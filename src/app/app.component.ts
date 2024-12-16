@@ -29,13 +29,5 @@ export class AppComponent {
   title = 'ZenTask';
  constructor(private router: Router) {}
 
-  // Métodos para navegar a las páginas de Login y Register
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  goToRegister() {
-    this.router.navigate(['/register']);
-  }
 
   }

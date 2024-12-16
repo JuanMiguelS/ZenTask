@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs'; // Importar BehaviorSubject
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,16 @@ import { map } from 'rxjs/operators';
 export class TranslationService {
   private currentLanguage = 'en';
   private translations: any = {}; // Aquí guardaremos las traducciones
+  private languageSubject: BehaviorSubject<string> = new BehaviorSubject<string>(this.currentLanguage); // Subject para emitir cambios de idioma
 
   constructor(private http: HttpClient) {}
 
   changeLanguage(lang: string): void {
     this.currentLanguage = lang;
+    this.languageSubject.next(lang); // Emitir el cambio de idioma
     this.loadTranslations(lang);
   }
+
   private loadTranslations(lang: string): void {
     const translationFilePath = `assets/i18n/messages.${lang}.xlf`;
 
@@ -52,7 +56,6 @@ export class TranslationService {
     });
   }
 
-
   getTranslation(key: string): string {
     return this.translations[key] || key;
   }
@@ -60,4 +63,9 @@ export class TranslationService {
   getCurrentLanguage(): string {
     return this.currentLanguage;
   }
+
+  getLanguageObservable() {
+    return this.languageSubject.asObservable(); // Observable para que los componentes se suscriban a los cambios
+  }
 }
+
