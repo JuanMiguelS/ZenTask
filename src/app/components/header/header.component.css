@@ -68,3 +68,25 @@
   color: #29d69f; /* Cambia el color del texto a verde */
   border-color: #29d69f; /* Cambia el color del borde a verde */
 }
+/* Estilo base para los botones del header */
+/* Estilo base para los botones del header */
+nav ul li a {
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: 'Quicksand', sans-serif; /* Fuente suave y redondeada */
+  font-size: 1rem; /* Ajusta el tamaño */
+  font-weight: 600;
+  color: white; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  background: linear-gradient(45deg, #6d9b6b, #a1d6a0); /* Gradiente suave de verde */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en los botones */
+nav ul li a:hover {
+  transform: scale(1.05); /* Efecto de aumento */
+  background: linear-gradient(45deg, #5b8b5a, #8bc894); /* Gradiente más oscuro */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+}
