@@ -1,0 +1,37 @@
+.calendar-container {
+  padding: 20px;
+}
+
+.add-event-btn {
+  margin-bottom: 20px;
+  background-color: navy;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para los días de la semana */
+  gap: 5px;
+}
+
+.day-name {
+  font-weight: bold;
+  text-align: center;
+  background-color: #c8e6c9;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.day-cell {
+  text-align: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
