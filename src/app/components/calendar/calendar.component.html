@@ -1,13 +1,39 @@
 <div class="calendar-container">
-  <button class="add-event-btn">+ Añadir evento</button>
+  <div class="calendar-header">
+    <button (click)="goToPreviousMonth()">←</button> <!-- NUEVO -->
+    <h2>{{ currentMonthName | titlecase }} {{ viewDate.getFullYear() }}</h2>
+    <button (click)="goToNextMonth()">→</button> <!-- NUEVO -->
+
+    <select (change)="changeMonth($any($event.target).value)" [value]="selectedMonthIndex" class="month-selector"> <!-- NUEVO -->
+      <option *ngFor="let month of availableMonths; index as i" [value]="i">{{ month.label | titlecase }}</option>
+    </select>
+  </div>
+
+  <button class="add-event-btn" (click)="addEvent()">+ Añadir evento</button>
 
   <div class="calendar-grid">
     <!-- Días de la semana -->
     <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
 
     <!-- Días del mes -->
-    <div class="day-cell" *ngFor="let day of daysInMonth">{{ day }}</div>
+    <div
+      class="day-cell"
+      *ngFor="let day of daysInMonth"
+      (click)="selectDate(day)"
+      [class.selected]="selectedDate?.getTime() === day.getTime()"
+    >
+      <div class="day-number">{{ day.getDate() }}</div>
+      
+
+      <div class="event" *ngFor="let event of getEventsForDay(day)">
+        <span class="event-title"><strong>-{{ event.title }}</strong></span>
+        <button class="delete-btn" (click)="deleteEvent(event); $event.stopPropagation()">x</button>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
 
 
