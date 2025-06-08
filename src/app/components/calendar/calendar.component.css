@@ -1,0 +1,155 @@
+/* Contenedor general */
+.calendar-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Cabecera del calendario */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Botones de navegación */
+.calendar-header button {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+  background-color: #4338ca;
+}
+
+/* Selector de mes */
+.month-selector {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Botón añadir evento */
+.add-event-btn {
+  background-color: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-event-btn:hover {
+  background-color: #059669;
+}
+
+/* Grid del calendario */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+/* Nombres de los días */
+.day-name {
+  text-align: center;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Días del mes */
+.day-cell {
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.day-cell:hover {
+  transform: scale(1.1); /* ✅ Se "hincha" */
+  background-color: #e0f2fe;
+}
+
+/* Día seleccionado */
+.day-cell.selected {
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Número del día */
+.day-number {
+  font-size: 1.1rem;
+}
+
+/* Lista de eventos dentro de un día */
+.event-list {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+/* Elemento individual de evento */
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 4px;
+  gap: 6px;
+  
+}
+
+.event-title {
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  white-space: normal;
+  
+  line-height: 1.2em;
+  overflow: hidden;
+  display: block;
+}
+
+/* Botón eliminar evento */
+.delete-btn {
+  flex-shrink: 0;
+  background-color: white;
+  border: 1px solid red;
+  color: red;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 6px;
+  height: 24px;
+  line-height: 1;
+}
+
+.delete-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+
+

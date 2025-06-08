@@ -9,6 +9,11 @@ import { TranslateModule } from '@ngx-translate/core'; // Asegúrate de que Tran
 import { CounterPageComponent } from './components/counter-page/counter-page.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CalendarModule } from 'angular-calendar';
+import { DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './components/calendar/calendar.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,13 +23,18 @@ import { Router } from '@angular/router';
     ItemsComponent,
     HeaderComponent,
     CounterPageComponent,
+    CalendarComponent,
     ItemComponent,
     TotalComponent,
     TranslateModule // Asegúrate de que TranslateModule está en los imports del componente
+    
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
 export class AppComponent {
   title = 'ZenTask';
  constructor(private router: Router) {}
