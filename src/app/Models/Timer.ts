@@ -25,7 +25,7 @@ export class Timer {
                     this.isPaused = isPaused;
                     this.isStarted = isStarted;
                     this.repeat = repeat;
-                    this.restPeriod = restPeriod;
+                    this.restPeriod = restPeriod
                 }
      
   }
