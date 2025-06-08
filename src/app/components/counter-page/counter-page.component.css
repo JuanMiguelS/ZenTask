@@ -134,7 +134,7 @@ button:hover {
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
   border-radius: 8px; /* Bordes redondeados */
   padding: 15px; /* Espaciado interno */
-  width: 300px; /* Ancho fijo o ajustable */
+  width: 330px; /* Ancho fijo o ajustable */
   color: #d9a74a;
   font-family: sans-serif;
   border: 1px solid #d9a74a; /* Borde decorativo */
