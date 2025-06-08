@@ -13,7 +13,7 @@ import { CalendarModule } from 'angular-calendar';
 import { DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './components/calendar/calendar.component';
-
+import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,8 +26,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     CalendarComponent,
     ItemComponent,
     TotalComponent,
-    TranslateModule // Asegúrate de que TranslateModule está en los imports del componente
-
+    TranslateModule, // Asegúrate de que TranslateModule está en los imports del componente
+    NgClass
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -37,7 +37,20 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 
 export class AppComponent {
   title = 'ZenTask';
- constructor(private router: Router) {}
+  isDarkMode = false;
 
+  constructor(private router: Router) {}
 
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    const body = document.body;
+    body.classList.toggle('dark-mode', this.isDarkMode);
+    body.classList.toggle('light-mode', !this.isDarkMode);
   }
+
+
+
+}
+
+
+

@@ -90,3 +90,40 @@ nav ul li a:hover {
   background: linear-gradient(45deg, #5b8b5a, #8bc894); /* Gradiente más oscuro */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
 }
+.qr-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.qr-block {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(45deg, #6d9b6b, #a1d6a0);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.qr-title {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.qr-link {
+  transform: scale(1.05);
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.qr-link:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}

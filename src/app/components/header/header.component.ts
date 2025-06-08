@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
 import { CommonModule } from '@angular/common';
+import { QRCodeModule } from 'angularx-qrcode';
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule, QRCodeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
