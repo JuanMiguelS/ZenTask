@@ -129,6 +129,13 @@ export class CalendarComponent implements OnInit {
     this.viewDate = new Date(year, month, 1);
     this.generateCalendar();
   }
+
+  hasEventsInMonth(month: number, year: number): boolean {
+    return this.events.some(event =>
+      event.start.getFullYear() === year && event.start.getMonth() === month
+    );
+  }
+
 }
   
 

@@ -5,7 +5,10 @@
     <button (click)="goToNextMonth()">→</button> <!-- NUEVO -->
 
     <select (change)="changeMonth($any($event.target).value)" [value]="selectedMonthIndex" class="month-selector"> <!-- NUEVO -->
-      <option *ngFor="let month of availableMonths; index as i" [value]="i">{{ month.label | titlecase }}</option>
+      <option *ngFor="let month of availableMonths; index as i" [value]="i">
+        {{ month.label | titlecase }}
+        {{ hasEventsInMonth(month.month, month.year) ? '✔️' : '' }}
+      </option>
     </select>
   </div>
 
