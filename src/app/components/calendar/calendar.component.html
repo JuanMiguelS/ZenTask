@@ -15,6 +15,9 @@
     <!-- Días de la semana -->
     <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
 
+   <!-- DÍAS VACÍOS AL INICIO DEL MES -->
+    <div class="day-cell empty" *ngFor="let _ of emptyStartDays"></div>
+
     <!-- Días del mes -->
     <div
       class="day-cell"
@@ -26,7 +29,7 @@
       
 
       <div class="event" *ngFor="let event of getEventsForDay(day)">
-        <span class="event-title"><strong>-{{ event.title }}</strong></span>
+        <span class="event-title"><strong>{{event.title}}</strong></span>
         <button class="delete-btn" (click)="deleteEvent(event); $event.stopPropagation()">x</button>
       </div>
     </div>

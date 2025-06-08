@@ -117,20 +117,23 @@
   align-items: center;
   justify-content: space-between;
   font-weight: bold;
-  margin-top: 4px;
+  margin-top: 16px;
   gap: 6px;
-  
+  max-width: 100%; /* Asegura que no se limite el ancho arbitrariamente */
 }
 
+
+
 .event-title {
-  flex-grow: 1;
-  overflow-wrap: break-word;
   white-space: normal;
-  
+  word-break: normal;
+  overflow-wrap: break-word;
   line-height: 1.2em;
   overflow: hidden;
   display: block;
 }
+
+
 
 /* Botón eliminar evento */
 .delete-btn {
@@ -149,6 +152,12 @@
 .delete-btn:hover {
   background-color: red;
   color: white;
+}
+
+.day-cell.empty {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 

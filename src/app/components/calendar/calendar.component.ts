@@ -13,6 +13,7 @@ export class CalendarComponent implements OnInit {
 
   weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   daysInMonth: Date[] = [];
+  emptyStartDays: number[] = [];
   currentMonthName: string = '';
   currentYear: number = 2025;
   startDayOfWeek: number = 0;
@@ -63,6 +64,7 @@ export class CalendarComponent implements OnInit {
 
     const totalDays = endDate.getDate();
     this.daysInMonth = Array.from({ length: totalDays }, (_, i) => new Date(year, month, i + 1));
+    this.emptyStartDays = Array.from({ length: this.startDayOfWeek }, (_, i) => i);
   }
 
   selectDate(date: Date): void { // NUEVO
@@ -76,16 +78,18 @@ export class CalendarComponent implements OnInit {
     }
     const title = prompt('Introduce el título del evento:');
     if (title) {
+      const formattedTitle = title.replace(/- /g, '-\u00A0'); // reemplaza "- " por "- " (espacio no separable)
       this.events = [
         ...this.events,
-        {
-          title,
-          start: this.selectedDate,
-          allDay: true
-        }
-      ];
+      {
+        title: formattedTitle,
+        start: this.selectedDate,
+        allDay: true
+      }
+     ];
       alert(`Evento "${title}" añadido.`);
-    }
+}
+
   }
 
   getEventsForDay(day: Date): any[] {
