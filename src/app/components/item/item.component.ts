@@ -34,4 +34,5 @@ export class ItemComponent implements OnInit {
   getDeleteButtonText(): string {
     return this.translationService.getTranslation('Delete');
   }
+
 }

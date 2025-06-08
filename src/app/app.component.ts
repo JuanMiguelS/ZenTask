@@ -27,7 +27,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     ItemComponent,
     TotalComponent,
     TranslateModule // Asegúrate de que TranslateModule está en los imports del componente
-    
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
