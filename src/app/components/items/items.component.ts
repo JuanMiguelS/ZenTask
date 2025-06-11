@@ -6,6 +6,8 @@ import { TotalComponent } from "../total/total.component";
 import { ItemService } from '../../services/item.service';
 import { TranslationService } from '../../services/translation.service'; // Importa TranslationService
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { TimerService } from '../../services/timer.service';
 
 @Component({
   selector: 'app-items',
@@ -20,7 +22,9 @@ export class ItemsComponent implements OnInit, OnDestroy {
   totalMessage: string = ''; // Mensaje de total con traducción
   private languageSubscription: Subscription | undefined; // Inicializa como undefined
 
-  constructor(private itemService: ItemService, private translationService: TranslationService) {}
+  constructor(private itemService: ItemService, private translationService: TranslationService,
+              private timerService: TimerService, private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.items = this.itemService.getItems();
@@ -54,5 +58,10 @@ export class ItemsComponent implements OnInit, OnDestroy {
   getTotal() {
     this.total = this.items.filter(x => !x.completed).map(item => item.time - item.timeDone).reduce((acc, item) => acc += item, 0);
     console.log(this.total);
+  }
+
+    sendToTimer(item: Item) {
+    this.timerService.addTaskToTimer(item); // Usa tu método ya implementado
+    this.router.navigate(['/timers']); // Redirige a la página de temporizadores
   }
 }

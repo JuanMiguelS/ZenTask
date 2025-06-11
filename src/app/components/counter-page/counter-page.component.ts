@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Timer } from '../../Models/Timer';
+import { TimerService } from '../../services/timer.service';
 
 
 @Component({
@@ -15,8 +16,8 @@ import { Timer } from '../../Models/Timer';
 
 
 
-export class CounterPageComponent {
-  timers: Timer[] = [];
+export class CounterPageComponent implements OnInit {
+  timers!: Timer[];
   private nextId = 1;
 
   isDialogOpen = false;
@@ -31,8 +32,13 @@ export class CounterPageComponent {
 
   private audioContext: AudioContext;
 
-  constructor() {
+  constructor(private timerService: TimerService) {
     this.audioContext = new AudioContext();
+  }
+
+    // 🔧 MODIFICADO: Obtenemos los timers del servicio
+  ngOnInit(): void {
+    this.timers = this.timerService.getTimers();
   }
 
 
