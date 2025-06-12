@@ -183,9 +183,10 @@
         <target>Create Timer</target>
       </trans-unit>
 
-      <trans-unit id="calendar-upcoming-events">
+      <trans-unit id="calendar-upcoming-events" datatype="html">
         <source>You have {count} event(s) in the next 7 days.</source>
       </trans-unit>
+ 
 
 
 

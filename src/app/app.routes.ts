@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { ItemsComponent } from './components/items/items.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { CounterPageComponent } from './components/counter-page/counter-page.component';
-import {CalendarComponent} from './components/calendar/calendar.component'
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ColorPuzzleComponent } from './components/color-puzzle/color-puzzle.component';
 
 export const routes: Routes = [
   { path: '', component: ItemsComponent },
@@ -11,5 +12,7 @@ export const routes: Routes = [
   { path: 'app-counter-page', component: CounterPageComponent },
   { path: 'app-calendar', component: CalendarComponent},
   { path: 'timers', component: CounterPageComponent},
+  { path: 'game', component: ColorPuzzleComponent},
   { path: '**', redirectTo: '' }, // Redirige cualquier ruta no encontrada a la raíz
+  
 ];

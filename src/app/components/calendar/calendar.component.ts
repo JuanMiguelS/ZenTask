@@ -59,7 +59,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
         this.generateWeekDays();
         this.generateMonthRange();
         this.generateCalendar();
-        this.checkUpcomingEvents();
+        //this.checkUpcomingEvents();
         this.cdRef.detectChanges();
       }
     });

@@ -189,10 +189,11 @@
         <target>Crear Temporizador</target>
       </trans-unit>
 
-      <trans-unit id="calendar-upcoming-events">
+      <trans-unit id="calendar-upcoming-events" datatype="html">
         <source>You have {count} event(s) in the next 7 days.</source>
         <target>Tienes {count} evento(s) en los próximos 7 días.</target>
       </trans-unit>
+
 
 
 
