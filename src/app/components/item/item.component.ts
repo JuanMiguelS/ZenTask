@@ -93,5 +93,18 @@ startDragging(event: MouseEvent): void {
   getTranslation(key: string): string {
     return this.translationService.getTranslation(key); // Usamos el servicio para obtener la traducción
   }
+formatTime(totalSeconds: number): string {
+  if (typeof totalSeconds !== 'number' || isNaN(totalSeconds)) return '00:00:00';
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  return `${this.pad(hours)}:${this.pad(minutes)}:${this.pad(seconds)}`;
+}
+
+pad(n: number): string {
+  return n < 10 ? '0' + n : n.toString();
+}
+  
 
 }

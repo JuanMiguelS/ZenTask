@@ -4,17 +4,17 @@
     {{item.title}}
   </div>
 
-  <div class="time">
-    <p>{{item.time}}</p>
-  </div>
+<div class="time">
+  <p>{{ formatTime(item.time) }}</p>
+</div>
 
-  <div class="timeLeft">
-    <p>{{item.timeDone}}</p>
-  </div>
+<div class="timeLeft">
+  <p>{{ formatTime(item.timeDone) }}</p>
+</div>
 
-  <div class="total">
-    {{ (item.time - item.timeDone) }}
-  </div>
+<div class="total">
+  <p>{{ formatTime(item.time - item.timeDone) }}</p>
+</div>
 
   <div class="actions">
 <button (click)="onAskDelete(item)">

@@ -6,9 +6,9 @@
         <source>Language</source>
         <target>Idioma</target>
       </trans-unit>
-      <trans-unit id="Total hours left">
-       <source>Total hours left</source>
-       <target>Total de horas restantes</target>
+      <trans-unit id="Total time left">
+       <source>Total tme left</source>
+       <target>Tiempo total restante</target>
       </trans-unit>
 
       <trans-unit id="Delete">
