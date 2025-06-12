@@ -42,3 +42,8 @@ h2{
   color: var(--text-color);
   margin-top: 0.5rem;
 }
+.header-label {
+  font-weight: 900; /* más grueso que bold */
+  font-size: 1.25rem;  /* ajusta si lo quieres más grande */
+  color: var(--text-color); /* para mantener coherencia */
+}
