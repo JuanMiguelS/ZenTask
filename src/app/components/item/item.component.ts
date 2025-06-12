@@ -65,6 +65,10 @@ startDragging(event: MouseEvent): void {
   const modal = (event.target as HTMLElement).closest('.confirm-content') as HTMLElement;
   if (!modal) return;
 
+  // Eliminar el transform para permitir el movimiento libre
+  modal.style.transform = 'none';
+
+  // Guardar la posición inicial del cursor
   this.dragOffsetX = event.clientX - modal.offsetLeft;
   this.dragOffsetY = event.clientY - modal.offsetTop;
   this.isDragging = true;
