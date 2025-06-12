@@ -1,0 +1,30 @@
+<div class="game-container">
+  <h2>Color Puzzle</h2>
+
+  <!-- Selector de color -->
+  <div class="color-selector">
+    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color">
+    </button>
+  </div>
+
+  <!-- Cuadrícula de bloques de colores -->
+  <div class="grid">
+    <div *ngFor="let row of grid; let i = index">
+      <div *ngFor="let block of row; let j = index" class="grid-block"
+        [style.background-color]="block"
+        (click)="changeColor(i, j)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Contador de movimientos -->
+  <div class="moves-count">
+    <p>Movimientos restantes: {{ moves }}</p>
+  </div>
+
+  <!-- Botones para reiniciar o generar otro puzzle -->
+  <div class="controls">
+    <button (click)="restartGame()">Reiniciar</button>
+    <button (click)="generateNewPuzzle()">Hacer otro</button>
+  </div>
+</div>

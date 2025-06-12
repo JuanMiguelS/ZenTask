@@ -1,0 +1,54 @@
+.game-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.color-selector {
+  margin-bottom: 20px;
+}
+
+.color-selector button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 50%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 50px); /* Cuadrícula de 5x5 */
+  grid-gap: 5px;
+  justify-content: center;
+}
+
+.grid-block {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.moves-count {
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.controls button:hover {
+  background-color: #45a049;
+}

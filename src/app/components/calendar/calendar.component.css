@@ -185,6 +185,22 @@
   transform: translateY(0); /* ✨ Animación ascendente */
 }
 
+.calendar-toast-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+
+.calendar-toast-close:hover {
+  color: #000;
+}
+
 
 
 
