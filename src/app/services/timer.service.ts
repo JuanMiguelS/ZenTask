@@ -1,55 +1,36 @@
-import { Injectable } from "@angular/core";
-import { Timer } from "../Models/Timer";
-import { Item } from '../Models/Item'; // Asegúrate de importar esto
+import { Injectable } from '@angular/core';
+import { Timer } from '../Models/Timer';
+import { Item } from '../Models/Item';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-
-    providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class TimerService {
-    private timers: Timer[] = [];
-    private nextId = 1;
-  
-    addTimer(timer: Timer): void {
-      timer.id = this.nextId++;
-      this.timers.push(timer);
-    }
-  
-    getTimers(): Timer[] {
-      return this.timers;
-    }
-  
-    removeTimer(id: number): void {
-      this.timers = this.timers.filter(timer => timer.id !== id);
-    }
+  private timersSubject = new BehaviorSubject<Timer[]>([]);
+  private nextId = 1;
 
-    addTaskToTimer(item: Item): void {
-  const duration = (item.time - item.timeDone) * 3600; // horas a segundos
-  const timer: Timer = {
-    id: 0, // se asigna automáticamente en addTimer()
-    name: item.title,
-    duration: duration,
-    originalDuration: duration,
-    remaining: duration,
-    isPaused: true,
-    isStarted: true,
-    repeat: false,
-    restPeriod: 0
-  };
+  getTimers() {
+    return this.timersSubject.asObservable(); // Para suscribirse
+  }
 
-  this.addTimer(timer);
-}
+  addTimer(timer: Timer): void {
+    timer.id = this.nextId++;
+    const current = this.timersSubject.getValue();
+    this.timersSubject.next([...current, timer]);
+  }
 
-      // Opcional: crear directamente desde título de tarea
-  createTimerFromTask(title: string): void {
-    const defaultDuration = 1500; // 25 minutos en segundos
+  removeTimer(id: number): void {
+    const filtered = this.timersSubject.getValue().filter(t => t.id !== id);
+    this.timersSubject.next(filtered);
+  }
+
+  addTaskToTimer(item: Item): void {
+    const duration = (item.time - item.timeDone) * 3600;
     const timer: Timer = {
-      id: 0, // será reemplazado en addTimer
-      name: title,
-      duration: defaultDuration,
-      originalDuration: defaultDuration,
-      remaining: defaultDuration,
+      id: 0,
+      name: item.title,
+      duration,
+      originalDuration: duration,
+      remaining: duration,
       isPaused: true,
       isStarted: false,
       repeat: false,
@@ -57,4 +38,8 @@ export class TimerService {
     };
     this.addTimer(timer);
   }
+
+  clearTimers(): void {
+    this.timersSubject.next([]);
   }
+}

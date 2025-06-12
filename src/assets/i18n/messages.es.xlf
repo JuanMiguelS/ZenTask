@@ -63,6 +63,141 @@
         <source>Timers</source>
         <target>Temporizadores</target>
       </trans-unit>
+
+      <trans-unit id="Calendar" datatype="html">
+        <source>Calendar</source>
+        <target>Calendario</target>
+      </trans-unit>
+
+      <trans-unit id="Add Event" datatype="html">
+        <source>Add Event</source>
+        <target>Añadir Evento</target>
+      </trans-unit>
+      
+      <trans-unit id="calendar-select-day-alert" datatype="html">
+        <source>Select a day from the calendar before introducing an event.</source>
+        <target>Selecciona un día del calendario antes de añadir un evento.</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-prompt-title" datatype="html">
+        <source>Introduce the name of the event:</source>
+        <target>Introduce el nombre del evento:</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-event-added" datatype="html">
+        <source>Event "{title}" added.</source>
+        <target>Evento "{title}" añadido.</target>
+      </trans-unit>
+
+      <trans-unit id="TimerManagementTitle" datatype="html">
+        <source>Management of Timers</source>
+        <target>Gestión de temporizadores</target>
+      </trans-unit>
+
+      <trans-unit id="AddTimerBtn" datatype="html">
+        <source>Add Timer</source>
+        <target>Añadir temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="RestLabel" datatype="html">
+        <source>(Rest)</source>
+        <target>(Descanso)</target>
+      </trans-unit>
+
+      <trans-unit id="BeginBtn" datatype="html">
+        <source>Begin</source>
+        <target>Iniciar</target>
+      </trans-unit>
+
+      <trans-unit id="PauseBtn" datatype="html">
+        <source>Pause</source>
+        <target>Pausar</target>
+      </trans-unit>
+
+      <trans-unit id="ResumeBtn" datatype="html">
+        <source>Resume</source>
+        <target>Reanudar</target>
+      </trans-unit>
+
+      <trans-unit id="RestartBtn" datatype="html">
+        <source>Restart</source>
+        <target>Reiniciar</target>
+      </trans-unit>
+
+      <trans-unit id="RemoveBtn" datatype="html">
+        <source>✖</source>
+        <target>✖</target> <!-- Esto normalmente no se traduce, es un símbolo -->
+      </trans-unit>
+
+      <trans-unit id="AddNewTimerTitle" datatype="html">
+        <source>Add new Timer</source>
+        <target>Añadir nuevo temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="TimerNameLabel" datatype="html">
+        <source>Name:</source>
+        <target>Nombre:</target>
+      </trans-unit>
+
+      <trans-unit id="HoursLabel" datatype="html">
+        <source>Hours:</source>
+        <target>Horas:</target>
+      </trans-unit>
+
+      <trans-unit id="MinutesLabel" datatype="html">
+        <source>Minutes:</source>
+        <target>Minutos:</target>
+      </trans-unit>
+
+      <trans-unit id="SecondsLabel" datatype="html">
+        <source>Seconds:</source>
+        <target>Segundos:</target>
+      </trans-unit>
+
+      <trans-unit id="RepeatLabel" datatype="html">
+        <source>Repeat after rest?</source>
+        <target>¿Repetir tras descanso?</target>
+      </trans-unit>
+
+      <trans-unit id="RestPeriodLabel" datatype="html">
+        <source>Rest Period (minutes):</source>
+        <target>Tiempo de descanso (minutos):</target>
+      </trans-unit>
+
+      <trans-unit id="ConfirmBtn" datatype="html">
+        <source>Confirm</source>
+        <target>Confirmar</target>
+      </trans-unit>
+
+      <trans-unit id="CancelBtn" datatype="html">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+      </trans-unit>
+
+      <trans-unit id="InvalidTimerAlert" datatype="html">
+        <source>Please enter a valid name and correct time values.</source>
+        <target>Por favor, introduce un nombre válido y valores de tiempo correctos.</target>
+      </trans-unit>
+
+      <trans-unit id="TotalTimeZeroAlert" datatype="html">
+        <source>Total time must be greater than 0.</source>
+        <target>El tiempo total debe ser mayor a 0.</target>
+      </trans-unit>
+
+      <trans-unit id="Create Timer" datatype="html">
+        <source>Create Timer</source>
+        <target>Crear Temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-upcoming-events">
+        <source>You have {count} event(s) in the next 7 days.</source>
+        <target>Tienes {count} evento(s) en los próximos 7 días.</target>
+      </trans-unit>
+
+
+
+
+
     </body>
   </file>
 </xliff>

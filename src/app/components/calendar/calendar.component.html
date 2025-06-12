@@ -12,7 +12,8 @@
     </select>
   </div>
 
-  <button class="add-event-btn" (click)="addEvent()">+ Añadir evento</button>
+  <button class="add-event-btn" (click)="addEvent()" *ngIf="!loadingTranslations">
+    + {{ translatedAddEvent }} </button>
 
   <div class="calendar-grid">
     <!-- Días de la semana -->
@@ -35,9 +36,12 @@
         <span class="event-title"><strong>{{event.title}}</strong></span>
         <button class="delete-btn" (click)="deleteEvent(event); $event.stopPropagation()">x</button>
       </div>
+      
     </div>
   </div>
 </div>
+
+
 
 
 

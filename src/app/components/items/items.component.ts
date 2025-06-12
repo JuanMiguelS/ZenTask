@@ -4,43 +4,50 @@ import { ItemComponent } from '../item/item.component';
 import { CommonModule } from '@angular/common';
 import { TotalComponent } from "../total/total.component";
 import { ItemService } from '../../services/item.service';
-import { TranslationService } from '../../services/translation.service'; // Importa TranslationService
+import { TranslationService } from '../../services/translation.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { TimerService } from '../../services/timer.service';
+import { TranslatePipe } from '../../pipes/translate.pipe'; // ✅ Asegúrate que esta ruta es correcta
 
 @Component({
-  selector: 'app-items',
   standalone: true,
-  imports: [ItemComponent, CommonModule, TotalComponent],
+  selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  styleUrls: ['./items.component.css'],
+  imports: [
+    ItemComponent,
+    CommonModule,
+    TotalComponent,
+    TranslatePipe // ✅ Importar el pipe
+  ]
 })
 export class ItemsComponent implements OnInit, OnDestroy {
   total: number = 0;
   items: Item[] = [];
-  totalMessage: string = ''; // Mensaje de total con traducción
-  private languageSubscription: Subscription | undefined; // Inicializa como undefined
+  totalMessage: string = '';
+  private languageSubscription: Subscription | undefined;
 
-  constructor(private itemService: ItemService, private translationService: TranslationService,
-              private timerService: TimerService, private router: Router
+  constructor(
+    private itemService: ItemService,
+    private translationService: TranslationService,
+    private timerService: TimerService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.items = this.itemService.getItems();
     this.getTotal();
 
-    // Suscribirse a los cambios de idioma
+    // Suscribirse a los cambios de idioma si se usa totalMessage
     this.languageSubscription = this.translationService.getLanguageObservable().subscribe(() => {
       this.totalMessage = this.translationService.getTranslation('Total hours left');
     });
 
-    // Inicializar el mensaje de traducción
     this.totalMessage = this.translationService.getTranslation('Total hours left');
   }
 
   ngOnDestroy(): void {
-    // Desuscribirse para evitar fugas de memoria
     if (this.languageSubscription) {
       this.languageSubscription.unsubscribe();
     }
@@ -56,12 +63,14 @@ export class ItemsComponent implements OnInit, OnDestroy {
   }
 
   getTotal() {
-    this.total = this.items.filter(x => !x.completed).map(item => item.time - item.timeDone).reduce((acc, item) => acc += item, 0);
-    console.log(this.total);
+    this.total = this.items
+      .filter(x => !x.completed)
+      .map(item => item.time - item.timeDone)
+      .reduce((acc, item) => acc += item, 0);
   }
 
-    sendToTimer(item: Item) {
-    this.timerService.addTaskToTimer(item); // Usa tu método ya implementado
-    this.router.navigate(['/timers']); // Redirige a la página de temporizadores
+  sendToTimer(item: Item) {
+    this.timerService.addTaskToTimer(item);
+    this.router.navigate(['/timers']);
   }
 }

@@ -5,6 +5,12 @@
       <trans-unit id="config-title" datatype="html">
         <source>Settings</source>
       </trans-unit>
+
+      <trans-unit id="Add Event" datatype="html">
+        <source>Add Event</source>
+        <target>Add Event</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

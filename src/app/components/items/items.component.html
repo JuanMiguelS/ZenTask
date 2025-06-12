@@ -8,10 +8,9 @@
       (toggleItem)="toggleItem($event)">
     </app-item>
 
-    <!-- Botón para enviar a timer -->
-    <button (click)="sendToTimer(item)" class="send-to-timer-btn">
-      Enviar a Timer
-    </button>
+    <!-- Botón dentro de la tarjeta -->
+    <div class="create-timer-button-container">
+      <button (click)="sendToTimer(item)">{{ 'Create Timer' | translate }}</button>
+    </div>
   </div>
 </div>
-

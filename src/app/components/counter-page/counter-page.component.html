@@ -1,64 +1,74 @@
 <div class="counter-page">
-    <h1>Gestión de Contadores</h1>
-  
-    <button (click)="openAddTimerDialog()">Añadir Contador</button>
-  
-    
+  <h1>{{ 'TimerManagementTitle' | translate }}</h1>
 
-      <div *ngFor="let timer of timers" class="timer-box">
-      <div class="timers-container">
+  <button class="add-timer-btn" (click)="openAddTimerDialog()">
+    {{ 'AddTimerBtn' | translate }}
+  </button>
 
-
-        <div class = "timer">
+  <div class="timers-container">
+    <div *ngFor="let timer of timers" class="timer-box">
+      <div class="timer">
         <p>
           <strong>{{ timer.name }}</strong>: {{ formatTime(timer.remaining) }}
-          <span *ngIf="timer.isResting" style="color: blue;">(Descanso)</span> <!-- Indicador de descanso -->
-
+          <span *ngIf="timer.isResting" class="rest-label">{{ 'RestLabel' | translate }}</span>
         </p>
-        <div class = "button-group">
-        <button (click)="startTimer(timer)">Iniciar</button> <!-- Botón para iniciar -->
-        <button *ngIf="timer.isStarted && !timer.isPaused" (click)="pauseTimer(timer)">Pausar</button>
-        <button *ngIf="timer.isStarted && timer.isPaused" (click)="resumeTimer(timer)">Reanudar</button>
-        <button (click)="resetTimer(timer)">Reiniciar</button> <!-- Botón de reinicio -->
-      
-      </div>
-      </div>
-    </div>
-          <button class="delete-button" (click)="removeTimer(timer.id)">Eliminar</button>
 
+        <div class="button-group">
+          <button *ngIf="!timer.isStarted" (click)="startTimer(timer)">
+            {{ 'BeginBtn' | translate }}
+          </button>
+          <button *ngIf="timer.isStarted && !timer.isPaused" (click)="pauseTimer(timer)">
+            {{ 'PauseBtn' | translate }}
+          </button>
+          <button *ngIf="timer.isStarted && timer.isPaused" (click)="resumeTimer(timer)">
+            {{ 'ResumeBtn' | translate }}
+          </button>
+          <button (click)="resetTimer(timer)">
+            {{ 'RestartBtn' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <button class="delete-button" (click)="removeTimer(timer.id)"> {{ 'RemoveBtn' | translate }}</button>
+    </div>
   </div>
-</div>
-  
-  <!-- Diálogo para agregar contadores -->
+
   <div class="dialog" *ngIf="isDialogOpen">
-    <h2>Añadir un nuevo contador</h2>
+    <h2>{{ 'AddNewTimerTitle' | translate }}</h2>
+
     <label>
-      Nombre:
-      <input type="text" [(ngModel)]="timerName" /> <!-- NUEVO: Campo de nombre -->
-    </label>  
+      {{ 'TimerNameLabel' | translate }}
+      <input type="text" [(ngModel)]="timerName" />
+    </label>
+
     <label>
-      Horas:
+      {{ 'HoursLabel' | translate }}
       <input type="number" [(ngModel)]="hours" min="0" />
     </label>
+
     <label>
-      Minutos:
-      <input type="number" [(ngModel)]="minutes" min="0" max="59" /> 
+      {{ 'MinutesLabel' | translate }}
+      <input type="number" [(ngModel)]="minutes" min="0" max="59" />
     </label>
+
     <label>
-      Segundos:
+      {{ 'SecondsLabel' | translate }}
       <input type="number" [(ngModel)]="seconds" min="0" max="59" />
     </label>
+
     <label>
-      ¿Repetir después de un descanso?
+      {{ 'RepeatLabel' | translate }}
       <input type="checkbox" [(ngModel)]="repeat" />
     </label>
+
     <div *ngIf="repeat">
       <label>
-        Período de descanso (minutos):
+        {{ 'RestPeriodLabel' | translate }}
         <input type="number" [(ngModel)]="restMinutes" />
       </label>
     </div>
-    <button (click)="confirmAddTimer()">Aceptar</button>
-    <button (click)="closeDialog()">Cancelar</button>
+
+    <button (click)="confirmAddTimer()">{{ 'ConfirmBtn' | translate }}</button>
+    <button (click)="closeDialog()">{{ 'CancelBtn' | translate }}</button>
   </div>
-  
+</div>
