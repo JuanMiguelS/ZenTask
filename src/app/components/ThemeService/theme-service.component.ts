@@ -1,42 +1,50 @@
+// src/app/services/theme.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private darkModeSubject = new BehaviorSubject<boolean>(false);
+  private isDarkMode = false;
 
   constructor() {
+    this.loadTheme();
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    this.applyTheme();
+    this.saveTheme();
+  }
+
+  isDarkTheme() {
+    return this.isDarkMode;
+  }
+
+  private loadTheme() {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const savedMode = localStorage.getItem('darkMode');
-      const isDark = savedMode === 'true';
-      this.darkModeSubject.next(isDark);
-      this.updateBodyClass(isDark);
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        this.isDarkMode = savedTheme === 'dark';
+      } else {
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        this.isDarkMode = systemPrefersDark;
+      }
+      this.applyTheme();
     }
   }
 
-  toggleDarkMode(): void {
-    const isDark = !this.darkModeSubject.value;
-    this.setDarkMode(isDark);
-  }
-
-  setDarkMode(isDark: boolean): void {
-    this.darkModeSubject.next(isDark);
+  private saveTheme() {
     if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('darkMode', String(isDark));
+      localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
     }
-    this.updateBodyClass(isDark);
   }
 
-  isDarkMode(): boolean {
-    return this.darkModeSubject.value;
-  }
-
-  private updateBodyClass(isDark: boolean): void {
+  private applyTheme() {
     if (typeof document !== 'undefined') {
-      document.body.classList.toggle('dark-mode', isDark);
-      document.body.classList.toggle('light-mode', !isDark);
+      const body = document.body;
+      body.classList.toggle('dark-theme', this.isDarkMode);
+      body.classList.toggle('light-theme', !this.isDarkMode);
     }
   }
 }

@@ -16,6 +16,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { NgClass } from '@angular/common';
 import { EventNotificationService } from './services/event-notification.service';
 
+import { ThemeService } from './components/ThemeService/theme-service.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -41,7 +42,9 @@ export class AppComponent {
   title = 'ZenTask';
   isDarkMode = false;
 
-  constructor(private router: Router, private eventNotificationService: EventNotificationService) {}
+  constructor(private router: Router, private eventNotificationService: EventNotificationService,
+    public themeService : ThemeService,
+  ) {}
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;

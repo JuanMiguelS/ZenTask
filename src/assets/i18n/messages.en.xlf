@@ -3,8 +3,8 @@
   <file source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="Settings" datatype="html">
-        <source>Configuración</source>
-        <target>Settings</target>
+        <source>Idioma</source>
+        <target>Language</target>
       </trans-unit>
       <trans-unit id="Total hours left">
     <source>Total hours left</source>
@@ -187,6 +187,47 @@
         <source>You have {count} event(s) in the next 7 days.</source>
       </trans-unit>
  
+
+      <trans-unit id="Confirm">
+        <source>Confirmar</source>
+        <target>Confirm</target>
+      </trans-unit>
+       <trans-unit id="Yes">
+        <source>Si</source>
+        <target>Yes</target>
+      </trans-unit>
+       <trans-unit id="Are you sure you want to eliminate this task?">
+        <source>¿Estás de acuerdo que quieres eliminar esta tarea?</source>
+        <target>Are you sure you want to eliminate this task?</target>
+      </trans-unit>
+     <trans-unit id="Title">
+        <source>Título</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="Total Time">
+        <source>Tiempo Total</source>
+        <target>Total Time</target>
+      </trans-unit>
+      <trans-unit id="Time Done">
+        <source>Tiempo Completado</source>
+        <target>Time Done</target>
+      </trans-unit>
+      <trans-unit id="Time Left">
+        <source>Tiempo Restante</source>
+        <target>Time Left</target>
+      </trans-unit>
+      <trans-unit id="Action">
+        <source>Acción</source>
+        <target>Action</target>
+      </trans-unit>
+      <trans-unit id="Background Music?">
+        <source>¿Música de Fondo?</source>
+        <target>Background Music?</target>
+      </trans-unit>
+
+
+
+
 
 
 

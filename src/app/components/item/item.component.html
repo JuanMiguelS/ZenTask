@@ -17,11 +17,27 @@
   </div>
 
   <div class="actions">
-    <button (click)="onDelete(item)">
-      {{ getDeleteButtonText() }} <!-- Traducir dinámicamente el texto del botón -->
-    </button>
+<button (click)="onAskDelete(item)">
+  {{ getDeleteButtonText() }}
+</button>
 
 
 
+  </div>
+</div>
+
+
+
+
+<div class="confirm-dialog" *ngIf="showConfirmDialog">
+  <div class="confirm-content" #modalBox>
+    <div class="confirm-header" (mousedown)="startDragging($event)">
+      {{getTranslation('Confirm') }}
+    </div>
+    <p>{{  getTranslation('Are you sure you want to eliminate this task?') }}</p>
+    <div class="confirm-buttons">
+      <button (click)="confirmDelete()">✔️ {{  getTranslation('Yes') }}</button>
+      <button (click)="closeDialog()">❌ {{ getTranslation('No') }}</button>
+    </div>
   </div>
 </div>

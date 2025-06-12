@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
+import { QRCodeComponent, QRCodeModule } from 'angularx-qrcode';
 
 @Component({
   standalone: true,
@@ -13,6 +14,16 @@ import { TranslationService } from '../../services/translation.service';
         {{ lang | uppercase }}
       </button>
     </div>
+    <div class="qr-block">
+  <h3 class="qr-title">🚀 Zentask Web App For Mobile</h3>
+  <div class="qr-container">
+    <qrcode
+      [qrdata]="'https://zentask.app'"
+      [width]="128"
+      [errorCorrectionLevel]="'M'">
+    </qrcode>
+  </div>
+</div>
   `,
   styles: [
     `
@@ -24,7 +35,7 @@ import { TranslationService } from '../../services/translation.service';
       }
     `,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, QRCodeModule],
 })
 export class ConfigComponent {
   supportedLanguages = ['en', 'es'];
