@@ -15,7 +15,7 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  
+
 }
 
 /* Estilo para el título de ZenTask *
@@ -90,18 +90,6 @@ h1::after {
   margin-left: 10px;
 }
 
-.theme-toggle-btn {
-  background-color: var(--button-primary);
-  color: var(--text-color);
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
 .theme-toggle-btn:hover {
   background-color: var(--button-hover);
   transform: scale(1.1);
@@ -109,7 +97,35 @@ h1::after {
 
 body.dark-mode h1 {
   color: var(--accent-color);
-  background: none;
-  box-shadow: none;
-  text-shadow: 2px 2px 4px rgba(199, 157, 242, 0.5);
+  background-color: rgba(255, 255, 255, 0.05); /* claro pero visible */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* mismo sombreado */
+  text-shadow: none; /* opcional */
+
+  background-clip: text;
+  padding: 15px 0;  /* Menos espacio vertical */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* Sombra más pronunciada */
+  transition: transform 0.3s ease, color 0.3s ease;
+  border-radius: 8px;  /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.1);  /* Fondo oscuro sutil */
 }
+
+body.dark-mode .theme-toggle-btn {
+  background-color: rgba(255, 255, 255, 0.1); /* ajusta según contraste */
+}
+.theme-toggle-btn {
+  background-color: rgba(0, 0, 0, 0.1); /* mismo fondo translúcido */
+  color: var(--text-color);
+  border: none;
+  padding: 10px;
+  border-radius: 8px; /* igual que el h1 */
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* misma sombra */
+
+}
+
+
+
+
+

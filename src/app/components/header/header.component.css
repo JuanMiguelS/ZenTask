@@ -127,3 +127,15 @@ nav ul li a:hover {
   color: #ffd700;
   text-decoration: underline;
 }
+/* En el CSS de cualquier componente */
+/* En cualquier componente */
+.card {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+}
+
+button.primary {
+  background-color: var(--accent-color);
+  color: white;
+}
