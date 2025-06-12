@@ -226,6 +226,10 @@
         <source>Action</source>
         <target>Acción</target>
       </trans-unit>
+      <trans-unit id="Background Music?">
+        <source>Background Music?</source>
+        <target>¿Música de Fondo?</target>
+      </trans-unit>
 
 
 

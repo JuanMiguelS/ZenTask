@@ -2,6 +2,7 @@
     text-align: center;
     padding: 10px 0;
     color: var(--text-color)
+
 }
 h2{
     margin:0
@@ -21,7 +22,9 @@ h2{
   justify-content: space-between;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  background-color: #f4f4dc;
+   border: 3px solid #006400; /* verde oscuro */
+  border-radius: 8px;
+  background-color: #ffffff;
   border-radius: 0.5rem;
   margin-bottom: 0.75rem;
   margin-top: 1.5rem; /* o 10px, 2em, etc. */
@@ -29,4 +32,13 @@ h2{
 .header-row > div {
   flex: 1;
   text-align: center;
+}
+.total-box {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 4px solid #006400; /* verde oscuro */
+  border-radius: 12px;
+  background-color: #ffffff; /* verde claro muy suave */
+  color: var(--text-color);
+  margin-top: 0.5rem;
 }
