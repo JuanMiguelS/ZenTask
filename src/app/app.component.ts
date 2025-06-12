@@ -15,6 +15,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NgClass } from '@angular/common';
 import { EventNotificationService } from './services/event-notification.service';
+import { ColorPuzzleComponent } from './components/color-puzzle/color-puzzle.component';
 
 import { ThemeService } from './components/ThemeService/theme-service.component';
 @Component({
@@ -27,6 +28,7 @@ import { ThemeService } from './components/ThemeService/theme-service.component'
     HeaderComponent,
     CounterPageComponent,
     CalendarComponent,
+    ColorPuzzleComponent,
     ItemComponent,
     TotalComponent,
     TranslateModule, // Asegúrate de que TranslateModule está en los imports del componente

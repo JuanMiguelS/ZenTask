@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'app-counter-page', component: CounterPageComponent },
   { path: 'app-calendar', component: CalendarComponent},
   { path: 'timers', component: CounterPageComponent},
-  { path: 'game', component: ColorPuzzleComponent},
+  { path: 'app-color-puzzle', component: ColorPuzzleComponent },
   { path: '**', redirectTo: '' }, // Redirige cualquier ruta no encontrada a la raíz
   
 ];

@@ -1,122 +1,117 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TranslationService } from '../../services/translation.service';
-import { Subscription } from 'rxjs';
-import { TranslatePipe } from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-color-puzzle',
   standalone: true,
   templateUrl: './color-puzzle.component.html',
-  styleUrls: ['./color-puzzle.component.css'], 
-  imports: [FormsModule, CommonModule, TranslatePipe]
-
+  styleUrls: ['./color-puzzle.component.css'],
+  imports: [CommonModule]
 })
-export class ColorPuzzleComponent implements OnInit, OnDestroy {
-  gridSize: number = 10;
-  colors: string[] = ['red', 'green', 'blue', 'yellow'];
+export class ColorPuzzleComponent implements OnInit {
   grid: string[][] = [];
-  selectedColor: string = '';
-  goalColor: string = '';
-  movesLeft: number = 4;
-  message: string = '';
+  colors: string[] = ['#FF5733', '#33FF57', '#5733FF', '#F9F9F9'];
+  selectedColor: string = '#FF5733'; // Color por defecto
+  moves: number = 10; // Número de movimientos disponibles
+  timer: number = 30; // 30 segundos para completar el puzzle
+  timerInterval: any;
 
-  translatedVictory: string = '';
-  translatedDefeat: string = '';
+  // Niveles de dificultad
+difficultyLevels: {
+  easy: { size: number; moves: number };
+  medium: { size: number; moves: number };
+  hard: { size: number; moves: number };
+} = {
+  easy: { size: 5, moves: 10 },
+  medium: { size: 7, moves: 15 },
+  hard: { size: 10, moves: 20 }
+};
 
-  private langSub!: Subscription;
 
-  constructor(private translationService: TranslationService) {}
+currentLevel: 'easy' | 'medium' | 'hard' = 'easy'; // Asegúrate de que sea uno de los valores posibles
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.goalColor = this.getRandomColor();
-    this.initializeGrid();
-    this.loadTranslations();
+    this.initGrid();
+    this.startTimer(); // Iniciar el temporizador al principio
+  }
 
-    this.langSub = this.translationService.getLanguageObservable().subscribe(() => {
-      this.loadTranslations();
-      if (this.message === this.translatedVictory || this.message === this.translatedDefeat) {
-        // Volver a aplicar traducción si estaba visible
-        this.updateMessageAfterLangChange();
+  initGrid(): void {
+    const size = this.difficultyLevels[this.currentLevel].size;
+    this.moves = this.difficultyLevels[this.currentLevel].moves;
+    this.grid = [];
+    for (let i = 0; i < size; i++) {
+      this.grid[i] = [];
+      for (let j = 0; j < size; j++) {
+        const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        this.grid[i].push(color);
       }
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.langSub?.unsubscribe();
-  }
-
-  loadTranslations(): void {
-    this.translatedVictory = this.translationService.getTranslation('puzzle-victory');
-    this.translatedDefeat = this.translationService.getTranslation('puzzle-defeat');
-  }
-
-  updateMessageAfterLangChange(): void {
-    if (this.checkVictory()) {
-      this.message = this.translatedVictory;
-    } else if (this.movesLeft === 0) {
-      this.message = this.translatedDefeat;
     }
+    console.log(this.grid); // Verifica la cuadrícula generada
   }
 
-  getRandomColor(): string {
-    const randomIndex = Math.floor(Math.random() * this.colors.length);
-    return this.colors[randomIndex];
-  }
-
-  initializeGrid(): void {
-    this.grid = Array.from({ length: this.gridSize }, () =>
-      Array.from({ length: this.gridSize }, () => this.getRandomColor())
-    );
-    this.selectedColor = this.colors[0];
-    this.message = '';
-    this.movesLeft = 4;
-  }
-
-  setColor(color: string): void {
+  selectColor(color: string): void {
     this.selectedColor = color;
   }
 
-  handleCellClick(x: number, y: number): void {
-    const targetColor = this.grid[x][y];
-    if (this.selectedColor === targetColor || this.movesLeft <= 0) return;
+  changeColor(row: number, col: number): void {
+    if (this.moves <= 0) return;
 
-    this.floodFill(x, y, targetColor, this.selectedColor);
-    this.movesLeft--;
+    const targetColor = this.grid[row][col];
+    if (targetColor === this.selectedColor) return; // No hacer nada si ya es el color seleccionado
 
-    if (this.checkVictory()) {
-      this.message = this.translatedVictory;
-    } else if (this.movesLeft === 0) {
-      this.message = this.translatedDefeat;
-    }
+    // Realizar cambio de color (se puede mejorar implementando un algoritmo similar al de Flood Fill)
+    this.fillColor(row, col, targetColor);
+
+    this.moves--;
   }
 
-  floodFill(x: number, y: number, targetColor: string, replacementColor: string): void {
-    if (
-      x < 0 || y < 0 ||
-      x >= this.gridSize || y >= this.gridSize ||
-      this.grid[x][y] !== targetColor ||
-      this.grid[x][y] === replacementColor
-    ) {
+  fillColor(row: number, col: number, targetColor: string): void {
+    // Aquí implementamos la lógica para cambiar el color de todos los bloques conectados al color seleccionado
+    if (row < 0 || row >= 5 || col < 0 || col >= 5 || this.grid[row][col] !== targetColor) {
       return;
     }
 
-    this.grid[x][y] = replacementColor;
+    this.grid[row][col] = this.selectedColor;
 
-    this.floodFill(x + 1, y, targetColor, replacementColor);
-    this.floodFill(x - 1, y, targetColor, replacementColor);
-    this.floodFill(x, y + 1, targetColor, replacementColor);
-    this.floodFill(x, y - 1, targetColor, replacementColor);
+    // Recursividad para llenar bloques adyacentes
+    this.fillColor(row - 1, col, targetColor);
+    this.fillColor(row + 1, col, targetColor);
+    this.fillColor(row, col - 1, targetColor);
+    this.fillColor(row, col + 1, targetColor);
   }
 
-  checkVictory(): boolean {
-    const firstColor = this.grid[0][0];
-    return this.grid.every(row => row.every(cell => cell === firstColor));
+  // Inicia el temporizador
+  startTimer() {
+    this.timerInterval = setInterval(() => {
+      if (this.timer > 0) {
+        this.timer--;
+      } else {
+        this.endGame();
+        clearInterval(this.timerInterval); // Detener el temporizador cuando se acaba
+      }
+    }, 1000);
   }
 
-  resetGame(): void {
-    this.goalColor = this.getRandomColor();
-    this.initializeGrid();
+  // Finaliza el juego cuando se acaba el tiempo
+  endGame() {
+    alert('¡Tiempo agotado! El juego ha terminado.');
+    // Puedes agregar lógica para finalizar el juego o permitir reiniciar
+  }
+
+  // Reinicia el puzzle con la misma cuadrícula y número de movimientos
+  restartGame() {
+    this.moves = this.difficultyLevels[this.currentLevel].moves;  // Reinicia los movimientos según el nivel
+    this.timer = 30;  // Reinicia el temporizador
+    this.startTimer();  // Reinicia el temporizador
+  }
+
+  // Genera un nuevo puzzle con una combinación distinta
+  generateNewPuzzle() {
+    this.initGrid();  // Genera una nueva cuadrícula con colores aleatorios
+    this.moves = this.difficultyLevels[this.currentLevel].moves;  // Reinicia los movimientos según el nivel
+    this.timer = 30;  // Reinicia el temporizador
+    this.startTimer();  // Inicia el temporizador nuevamente
   }
 }

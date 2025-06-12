@@ -1,35 +1,30 @@
-<div class="puzzle-container">
-  <h2>{{ 'Color Puzzle' | translate }}</h2>
-  <p>{{ 'Goal' | translate }}: <span [style.color]="goalColor">{{ goalColor }}</span></p>
-  <p>{{ 'Moves left' | translate }}: {{ movesLeft }}</p>
+<div class="game-container">
+  <h2>Color Puzzle</h2>
 
+  <!-- Selector de color -->
   <div class="color-selector">
-    <label *ngFor="let color of colors" class="color-option">
-      <input type="radio" name="color" [value]="color" [(ngModel)]="selectedColor" />
-      <span [ngStyle]="{ 'background-color': color }" class="color-box"></span>
-    </label>
+    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color">
+    </button>
   </div>
 
+  <!-- Cuadrícula de bloques de colores -->
   <div class="grid">
-    <div
-      *ngFor="let row of grid; let y = index"
-      class="row"
-    >
-      <div
-        *ngFor="let cell of row; let x = index"
-        class="cell"
-        [ngStyle]="{ 'background-color': cell }"
-        (click)="handleClick(x, y)"
-      ></div>
+    <div *ngFor="let row of grid; let i = index">
+      <div *ngFor="let block of row; let j = index" class="grid-block"
+        [style.background-color]="block"
+        (click)="changeColor(i, j)">
+      </div>
     </div>
   </div>
 
-  <div *ngIf="gameWon" class="game-message win">
-    🎉 {{ 'You won!' | translate }}
-  </div>
-  <div *ngIf="gameOver && !gameWon" class="game-message lose">
-    😞 {{ 'Game over!' | translate }}
+  <!-- Contador de movimientos -->
+  <div class="moves-count">
+    <p>Movimientos restantes: {{ moves }}</p>
   </div>
 
-  <button (click)="resetGame()">{{ 'Restart' | translate }}</button>
+  <!-- Botones para reiniciar o generar otro puzzle -->
+  <div class="controls">
+    <button (click)="restartGame()">Reiniciar</button>
+    <button (click)="generateNewPuzzle()">Hacer otro</button>
+  </div>
 </div>
