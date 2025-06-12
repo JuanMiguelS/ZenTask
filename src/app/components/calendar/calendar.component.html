@@ -5,15 +5,22 @@
     <button (click)="goToNextMonth()">→</button> <!-- NUEVO -->
 
     <select (change)="changeMonth($any($event.target).value)" [value]="selectedMonthIndex" class="month-selector"> <!-- NUEVO -->
-      <option *ngFor="let month of availableMonths; index as i" [value]="i">{{ month.label | titlecase }}</option>
+      <option *ngFor="let month of availableMonths; index as i" [value]="i">
+        {{ month.label | titlecase }}
+        {{ hasEventsInMonth(month.month, month.year) ? '✔️' : '' }}
+      </option>
     </select>
   </div>
 
-  <button class="add-event-btn" (click)="addEvent()">+ Añadir evento</button>
+  <button class="add-event-btn" (click)="addEvent()" *ngIf="!loadingTranslations">
+    + {{ translatedAddEvent }} </button>
 
   <div class="calendar-grid">
     <!-- Días de la semana -->
     <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
+
+   <!-- DÍAS VACÍOS AL INICIO DEL MES -->
+    <div class="day-cell empty" *ngFor="let _ of emptyStartDays"></div>
 
     <!-- Días del mes -->
     <div
@@ -26,12 +33,15 @@
       
 
       <div class="event" *ngFor="let event of getEventsForDay(day)">
-        <span class="event-title"><strong>-{{ event.title }}</strong></span>
+        <span class="event-title"><strong>{{event.title}}</strong></span>
         <button class="delete-btn" (click)="deleteEvent(event); $event.stopPropagation()">x</button>
       </div>
+      
     </div>
   </div>
 </div>
+
+
 
 
 
