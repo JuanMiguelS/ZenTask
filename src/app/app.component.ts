@@ -14,6 +14,7 @@ import { DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NgClass } from '@angular/common';
+import { ThemeService } from './components/ThemeService/theme-service.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -39,7 +40,9 @@ export class AppComponent {
   title = 'ZenTask';
   isDarkMode = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    public themeService : ThemeService,
+  ) {}
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
