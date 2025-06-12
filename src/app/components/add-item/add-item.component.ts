@@ -4,9 +4,7 @@ import { Item } from '../../Models/Item';
 import { ItemService } from '../../services/item.service';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
-import { CounterPageComponent } from '../counter-page/counter-page.component';
-import { Timer } from '../../Models/Timer';
-import { TimerService } from '../../services/timer.service';
+
 @Component({
   selector: 'app-add-item',
   standalone: true,
@@ -14,47 +12,62 @@ import { TimerService } from '../../services/timer.service';
   template: `
     <form (ngSubmit)="onSubmit()">
       <h2>{{ getTranslation('Register New Task') }}</h2>
+
       <div>
-        <label for="id" i18n>{{ getTranslation('Id') }}</label>
+        <label for="id">{{ getTranslation('Id') }}</label>
         <input type="number" [(ngModel)]="id" name="id" required>
       </div>
+
       <div>
-        <label for="name" i18n>{{ getTranslation('Name Of The Task') }}</label>
-        <input type="text" [(ngModel)]="title" name="name" required>
+        <label for="title">{{ getTranslation('Name Of The Task') }}</label>
+        <input type="text" [(ngModel)]="title" name="title" required>
       </div>
+
       <div>
-        <label for="time" i18n>{{ getTranslation('Time') }}</label>
-        <input type="number" [(ngModel)]="time" name="time" required>
+        <label for="hour">{{ getTranslation('Hours') }}</label>
+        <input type="number" [(ngModel)]="hour" name="hour" min="0" required>
       </div>
+
       <div>
-        <label for="timeLeft" i18n>{{ getTranslation('Time Left') }}</label>
-        <input type="number" [(ngModel)]="timeLeft" name="timeLeft" required>
+        <label for="minute">{{ getTranslation('Minutes') }}</label>
+        <input type="number" [(ngModel)]="minute" name="minute" min="0" required>
       </div>
-      <input type="submit" value="{{ getTranslation('Confirm') }}">
+
+      <div>
+        <label for="sec">{{ getTranslation('Seconds') }}</label>
+        <input type="number" [(ngModel)]="sec" name="sec" min="0" required>
+      </div>
+
+      <input type="submit" [value]="getTranslation('Confirm')">
     </form>
   `,
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  id: number = 0;
-  title: string = '';
-  time: number = 0;
-  timeLeft: number = 0;
+  id = 0;
+  title = '';
+  hour = 0;
+  minute = 0;
+  sec = 0;
 
   constructor(
     private itemService: ItemService,
     private router: Router,
-    private translationService: TranslationService // Inyectamos el servicio de traducción
+    private translationService: TranslationService
   ) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  onSubmit(): void {
     const item = new Item();
     item.id = this.id;
     item.title = this.title;
-    item.time = this.time;
-    item.timeDone = this.timeLeft;
+    item.hour = this.hour;
+    item.minute = this.minute;
+    item.sec = this.sec;
+
+    item.time = (this.hour * 3600) + (this.minute * 60) + this.sec;
+    item.timeDone = 0; // se inicia sin tiempo completado
     item.completed = false;
 
     this.itemService.addItems(item);
@@ -62,6 +75,6 @@ export class AddItemComponent implements OnInit {
   }
 
   getTranslation(key: string): string {
-    return this.translationService.getTranslation(key); // Usamos el servicio para obtener la traducción
+    return this.translationService.getTranslation(key);
   }
 }

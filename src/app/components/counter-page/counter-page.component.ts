@@ -40,9 +40,35 @@ export class CounterPageComponent implements OnInit, OnDestroy {
     if (this.timersSub) {
       this.timersSub.unsubscribe();
     }
+    this.timers.forEach(timer => clearInterval(timer.intervalId));
   }
 
+  // ------------------
+  // Esta función convierte string tipo "1.05:0" o "2700:00:00" a segundos
+  parseTimeStringToSeconds(timeStr: string): number {
+    if (!timeStr) return 0;
+    const cleanStr = timeStr.replace(/\./g, ':');
+    const parts = cleanStr.split(':').map(p => parseInt(p, 10));
+
+    if (parts.length === 3) {
+      const [h, m, s] = parts;
+      if ([h,m,s].some(isNaN)) return 0;
+      return h * 3600 + m * 60 + s;
+    } else if (parts.length === 2) {
+      const [m, s] = parts;
+      if ([m,s].some(isNaN)) return 0;
+      return m * 60 + s;
+    } else if (parts.length === 1) {
+      const s = parts[0];
+      if (isNaN(s)) return 0;
+      return s;
+    }
+    return 0;
+  }
+  // ------------------
+
   openAddTimerDialog(): void {
+    this.resetDialogInputs();
     this.isDialogOpen = true;
   }
 
@@ -52,9 +78,13 @@ export class CounterPageComponent implements OnInit, OnDestroy {
   }
 
   confirmAddTimer(): void {
-    if (this.hours >= 0 && this.minutes >= 0 && this.seconds >= 0 && this.timerName.trim() !== '') {
-      const restPeriod = this.repeat ? this.restMinutes * 60 : 0;
-      this.addTimer(this.timerName, this.hours, this.minutes, this.seconds, this.repeat, restPeriod);
+    const h = Number(this.hours);
+    const m = Number(this.minutes);
+    const s = Number(this.seconds);
+    const restPeriod = this.repeat ? Number(this.restMinutes) * 60 : 0;
+
+    if (h >= 0 && m >= 0 && s >= 0 && this.timerName.trim() !== '') {
+      this.addTimer(this.timerName, h, m, s, this.repeat, restPeriod);
       this.closeDialog();
     } else {
       alert(this.translationService.getTranslation('InvalidTimerAlert'));
@@ -90,13 +120,28 @@ export class CounterPageComponent implements OnInit, OnDestroy {
     }
   }
 
+addTimerFromParts(
+  name: string,
+  hours: number,
+  minutes: number,
+  seconds: number,
+  repeat: boolean,
+  restMinutes: number
+): void {
+  this.timerService.addTimerFromParts(name, hours, minutes, seconds, repeat, restMinutes);
+}
+
+
   startTimer(timer: Timer): void {
+    if (timer.intervalId) {
+      clearInterval(timer.intervalId);
+    }
     timer.isPaused = false;
     timer.isStarted = true;
     timer.intervalId = setInterval(() => {
-      if (timer.remaining > 0) {
+      if (!timer.isPaused && timer.remaining > 0) {
         timer.remaining--;
-      } else {
+      } else if (timer.remaining <= 0) {
         clearInterval(timer.intervalId);
         this.playBeep();
         if (timer.repeat && timer.restPeriod > 0) {
@@ -107,13 +152,16 @@ export class CounterPageComponent implements OnInit, OnDestroy {
   }
 
   startRestPeriod(timer: Timer): void {
+    if (timer.intervalId) {
+      clearInterval(timer.intervalId);
+    }
     timer.remaining = timer.restPeriod;
     timer.isResting = true;
     timer.isPaused = false;
     timer.intervalId = setInterval(() => {
-      if (timer.remaining > 0) {
+      if (!timer.isPaused && timer.remaining > 0) {
         timer.remaining--;
-      } else {
+      } else if (timer.remaining <= 0) {
         clearInterval(timer.intervalId);
         timer.remaining = timer.duration;
         timer.isResting = false;
@@ -140,6 +188,7 @@ export class CounterPageComponent implements OnInit, OnDestroy {
     timer.remaining = timer.originalDuration;
     timer.isPaused = true;
     timer.isStarted = false;
+    timer.isResting = false;
   }
 
   removeTimer(timerId: number): void {
@@ -157,11 +206,12 @@ export class CounterPageComponent implements OnInit, OnDestroy {
     oscillator.start();
     oscillator.stop(this.audioContext.currentTime + 0.5);
   }
+formatTime(seconds: number): string {
+  const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+  const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+  const s = (seconds % 60).toString().padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
 
-  formatTime(seconds: number): string {
-    const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
-    const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
-    const s = (seconds % 60).toString().padStart(2, '0');
-    return `${h}:${m}:${s}`;
-  }
+
 }
