@@ -1,41 +1,46 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Timer } from '../../Models/Timer';
-
+import { TimerService } from '../../services/timer.service';
+import { Subscription } from 'rxjs';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   standalone: true,
   selector: 'app-counter-page',
   templateUrl: './counter-page.component.html',
   styleUrls: ['./counter-page.component.css'],
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, TranslatePipe]
 })
-
-
-
-
-export class CounterPageComponent {
+export class CounterPageComponent implements OnInit, OnDestroy {
   timers: Timer[] = [];
-  private nextId = 1;
+  private timersSub!: Subscription;
 
   isDialogOpen = false;
-  hours: number = 0;
-  minutes: number = 0;
-  seconds: number = 0;
-  timerName: string = '';
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
+  timerName = '';
+  repeat = false;
+  restMinutes = 0;
 
+  private audioContext = new AudioContext();
 
-  repeat: boolean = false;
-  restMinutes: number = 0;
+  constructor(private timerService: TimerService, private translationService: TranslationService ) {}
 
-  private audioContext: AudioContext;
-
-  constructor() {
-    this.audioContext = new AudioContext();
+  ngOnInit(): void {
+    this.timersSub = this.timerService.getTimers().subscribe(timers => {
+      this.timers = timers;
+    });
   }
 
-
+  ngOnDestroy(): void {
+    if (this.timersSub) {
+      this.timersSub.unsubscribe();
+    }
+  }
 
   openAddTimerDialog(): void {
     this.isDialogOpen = true;
@@ -48,13 +53,11 @@ export class CounterPageComponent {
 
   confirmAddTimer(): void {
     if (this.hours >= 0 && this.minutes >= 0 && this.seconds >= 0 && this.timerName.trim() !== '') {
-      const restPeriod = this.repeat ? this.restMinutes * 60 : 0; // Período de descanso en segundos
-
+      const restPeriod = this.repeat ? this.restMinutes * 60 : 0;
       this.addTimer(this.timerName, this.hours, this.minutes, this.seconds, this.repeat, restPeriod);
-    this.closeDialog();
+      this.closeDialog();
     } else {
-    alert('Por favor, introduce un nombre válido y valores de tiempo correctos.');
-
+      alert(this.translationService.getTranslation('InvalidTimerAlert'));
     }
   }
 
@@ -70,87 +73,48 @@ export class CounterPageComponent {
   addTimer(name: string, hours: number, minutes: number, seconds: number, repeat: boolean, restPeriod: number): void {
     const duration = hours * 3600 + minutes * 60 + seconds;
     if (duration > 0) {
-    const newTimer: Timer = {
-      id: this.nextId++,
-      name: this.timerName,
-      duration: duration,
-      originalDuration: duration,
-      remaining: duration,
-      isPaused: true,
-      isStarted: false,
-      repeat: repeat,
-      restPeriod: restPeriod
-    };
-
-    this.timers.push(newTimer);
-    //this.startTimer(newTimer);
-    this.initializeTimer(newTimer);
-  } else {
-    alert('El tiempo total debe ser mayor a 0.');
+      const newTimer: Timer = {
+        id: 0,
+        name,
+        duration,
+        originalDuration: duration,
+        remaining: duration,
+        isPaused: true,
+        isStarted: false,
+        repeat,
+        restPeriod
+      };
+      this.timerService.addTimer(newTimer);
+    } else {
+      alert(this.translationService.getTranslation('TotalTimeZeroAlert'));
+    }
   }
-}
-/*
-ngOnInit(): void {}
-
-  onSubmit() {
-    const timer = new Timer();
-    item.id = this.id;
-    item.title = this.title;
-    item.time = this.time;       // Asegúrate de que 'price' es correcto
-    item.timeDone = this.timeLeft; // Asegúrate de que 'quantity' es correcto
-    item.completed = false;
-    
-    timer.name = this.timerName;
-    timer.hours = this.hours;
-    timer.originalDuration: duration,
-    timer.remaining: duration,
-    timer.isPaused: true,
-    timer.isStarted: false,
-    timer.repeat: repeat,
-    timer.restPeriod: restPeriod
-
-    this.ItemService.addItems(item);
-    this.router.navigate(['/']);
-  } */
-
-
-initializeTimer(timer: Timer): void {
-timer.isPaused = true;
-timer.isStarted = true;
-}
 
   startTimer(timer: Timer): void {
-
     timer.isPaused = false;
+    timer.isStarted = true;
     timer.intervalId = setInterval(() => {
       if (timer.remaining > 0) {
         timer.remaining--;
       } else {
         clearInterval(timer.intervalId);
-
         this.playBeep();
-
         if (timer.repeat && timer.restPeriod > 0) {
-          // Configurar el temporizador para descansar y reiniciarse
           this.startRestPeriod(timer);
         }
       }
     }, 1000);
   }
 
-
   startRestPeriod(timer: Timer): void {
-    timer.remaining = timer.restPeriod; // Configura el tiempo de descanso
+    timer.remaining = timer.restPeriod;
     timer.isResting = true;
     timer.isPaused = false;
-
     timer.intervalId = setInterval(() => {
       if (timer.remaining > 0) {
         timer.remaining--;
       } else {
         clearInterval(timer.intervalId);
-
-        // Reiniciar el temporizador original
         timer.remaining = timer.duration;
         timer.isResting = false;
         this.startTimer(timer);
@@ -158,14 +122,14 @@ timer.isStarted = true;
     }, 1000);
   }
 
-  pauseTimer(timer: Timer): void { // NUEVO: Función para pausar el temporizador
+  pauseTimer(timer: Timer): void {
     if (!timer.isPaused) {
       clearInterval(timer.intervalId);
       timer.isPaused = true;
     }
   }
 
-  resumeTimer(timer: Timer): void { // NUEVO: Función para reanudar el temporizador
+  resumeTimer(timer: Timer): void {
     if (timer.isPaused) {
       this.startTimer(timer);
     }
@@ -173,47 +137,26 @@ timer.isStarted = true;
 
   resetTimer(timer: Timer): void {
     clearInterval(timer.intervalId);
-    timer.remaining = timer.originalDuration; // Reinicia el tiempo restante
+    timer.remaining = timer.originalDuration;
     timer.isPaused = true;
-    this.initializeTimer(timer); // Inicia el temporizador desde el principio
+    timer.isStarted = false;
   }
-
 
   removeTimer(timerId: number): void {
-    const timerIndex = this.timers.findIndex(t => t.id === timerId);
-    if (timerIndex > -1) {
-      clearInterval(this.timers[timerIndex].intervalId);
-      this.timers.splice(timerIndex, 1);
-    }
+    this.timerService.removeTimer(timerId);
   }
 
-  playBeep(): void { // NUEVO: Método para generar el sonido
-    const oscillator = this.audioContext.createOscillator(); // Crea un oscilador
-    const gainNode = this.audioContext.createGain(); // Controla el volumen
-    const oscillator2 = this.audioContext.createOscillator(); // Crea un oscilador
-    const gainNode2 = this.audioContext.createGain();
-
-    oscillator.type = 'sine'; // Tipo de onda: sine, square, triangle, sawtooth
-    oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime); // Frecuencia del tono (440 Hz = La)
-    oscillator2.type = 'sine'; // Tipo de onda: sine, square, triangle, sawtooth
-    oscillator2.frequency.setValueAtTime(600, this.audioContext.currentTime);
-
-    // Conectar oscilador al control de volumen, y este a la salida
+  playBeep(): void {
+    const oscillator = this.audioContext.createOscillator();
+    const gainNode = this.audioContext.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime);
     oscillator.connect(gainNode);
     gainNode.connect(this.audioContext.destination);
-    oscillator2.connect(gainNode);
-    gainNode2.connect(this.audioContext.destination);
-
-    // Configurar el volumen y duración del sonido
-    gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime); // Volumen bajo
-    oscillator.start(this.audioContext.currentTime); // Inicia el oscilador
-    oscillator.stop(this.audioContext.currentTime + 0.29); // Detén el oscilador después de 1 segundo
-
-    gainNode2.gain.setValueAtTime(0.1, this.audioContext.currentTime+0.3); // Volumen bajo
-    oscillator2.start(this.audioContext.currentTime+0.3); // Inicia el oscilador
-    oscillator2.stop(this.audioContext.currentTime + 0.75);
+    gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime);
+    oscillator.start();
+    oscillator.stop(this.audioContext.currentTime + 0.5);
   }
-
 
   formatTime(seconds: number): string {
     const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
@@ -222,5 +165,3 @@ timer.isStarted = true;
     return `${h}:${m}:${s}`;
   }
 }
-
-

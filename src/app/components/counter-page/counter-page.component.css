@@ -1,187 +1,128 @@
-/* Estilo global para el body */
-.body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+.counter-page {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e8f5e9; /* verde claro */
+  min-height: 100vh;
 }
 
-/* Estilo para el formulario */
-form {
-  width: 300px;
-  display: block;
+h1 {
+  margin-bottom: 1rem;
+  color: #1b5e20; /* verde oscuro */
 }
 
-/* Estilo para los campos del formulario */
-form div {
-  padding: 5px 0;
-}
-
-/* Estilo de los labels */
-form label {
-  display: block;
-  color: var(--text-color); /* Asegura que el color del texto sea el correcto */
-}
-
-/* Estilo de los inputs de tipo texto y número */
-form input[type="text"],
-form input[type="number"] {
-  width: 100%;
-  padding: 10px 20px;
-  background-color: white; /* Fondo blanco */
-  color: var(--text-color); /* Color del texto */
-  border: 2px solid #ccc; /* Borde más grueso (2px) */
-  border-radius: 8px; /* Bordes redondeados */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Estilo del botón de submit */
-form input[type="submit"] {
-  background-color: #9e7f5a; /* Color del botón */
-  color: white;
+.add-timer-btn,
+button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
   border: none;
-  padding: 10px 20px;
-  width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-/* Efecto hover para el botón de submit */
-form input[type="submit"]:hover {
-  background-color: var(--button-hover);
-}
-
-/* Estilo global para todos los botones */
-button {
-  padding: 10px 20px;
-  background-color: #9e7f5a; /* Fondo inicial */
+.add-timer-btn {
+  background-color: #2e7d32; /* verde oscuro brillante */
   color: white;
-  border: none;
-  border-radius: 8px; /* Bordes redondeados */
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
-/* Hover para todos los botones */
-button:hover {
-  background-color: #0B6623; /* Color verde al pasar el ratón */
-}
-
-/* Botón eliminar */
-.delete-button {
-  position: absolute; /* Posición fija dentro del cuadro */
-  top: 45px;
-  right: -100px;
-  background-color: #ff4d4d; /* Fondo rojo */
-  color: white; /* Texto blanco */
-  border-radius: 4px;
-  padding: 5px 10px;
-  font-size: 12px;
-  transition: background-color 0.3s ease;
-}
-
-.delete-button:hover {
-  background-color: #cc0000; /* Fondo más oscuro al pasar el ratón */
-}
-
-/* Grupo de botones principales */
-.button-group {
-  display: flex; /* Flexbox para alinear botones horizontalmente */
-  gap: 20px; /* Espaciado horizontal entre botones (aumentado) */
-  justify-content: center; /* Centra los botones en el contenedor */
-  margin-top: 10px;
-}
-
-/* Estilo específico para los botones individuales dentro de grupos */
-.button-group button {
-  margin: 0; /* Elimina márgenes internos */
-  padding: 10px 20px; /* Espaciado interno */
-}
-
-/* Estilo para los botones de la clase .timer */
-.timer button {
-  margin: 0;
-  background-color: #d9a74a; /* Fondo inicial */
-}
-
-.timer button:hover {
-  background-color: #b88d3a; /* Fondo más oscuro en hover */
-}
-
-/* Estilo para los contenedores */
-.counter-page {
-  text-align: center;
-}
-
-.counter-page h1 {
-  color: #0b6623;
-}
-
-.counter-page > p {
-  margin: 5px 0 15px 0;
+.add-timer-btn:hover {
+  background-color: #1b5e20;
 }
 
 .timers-container {
-  display: flex; /* Alinea el cuadro y el botón en fila */
-  align-items: center; /* Centra verticalmente el botón respecto al cuadro */
-  gap: 10px; /* Espaciado entre el cuadro y el botón */
-  margin: 10px; /* Espaciado entre cada contador */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .timer-box {
-  background-color: #3c4448; /* Fondo del cuadro */
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  border-radius: 8px; /* Bordes redondeados */
-  padding: 15px; /* Espaciado interno */
-  width: 330px; /* Ancho fijo o ajustable */
-  color: #d9a74a;
-  font-family: sans-serif;
-  border: 1px solid #d9a74a; /* Borde decorativo */
-  transition: transform 0.3s ease; /* Efecto visual al pasar el ratón */
-  margin: 10px;
+  position: relative;
+  width: 280px;
+  padding: 1rem;
+  border: 1px solid #c8e6c9; /* borde verde claro */
+  border-radius: 12px;
+  background-color: #f1f8e9; /* fondo verde pálido */
+  box-shadow: 1px 1px 5px rgba(27, 94, 32, 0.2); /* sombra verde oscuro */
+  transition: transform 0.2s ease;
 }
 
 .timer-box:hover {
-  transform: scale(1.05); /* Amplía ligeramente el cuadro al pasar el ratón */
+  transform: scale(1.03);
 }
 
-.timer p {
-  margin: 10px 0;
-}
-
-/* Estilo para los cuadros de diseño */
-.wrapper .design,
-.wrapper .times {
-  display: grid;
-  grid-template-columns: repeat(4, calc(25% - 8px));
-  grid-column-gap: 10px;
-}
-
-.wrapper .dialog > p {
-  margin: 0;
-  font: normal 14px sans-serif;
-}
-
-.wrapper .times p {
-  letter-spacing: -5px;
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
-  margin: 0;
-  font: normal 40px courier, sans-serif;
 }
 
-.wrapper .times p::ng-deep img {
+.rest-label {
+  color: #33691e; /* azul verdoso */
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.button-group button {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #a5d6a7; /* verde medio */
+  color: #1b5e20;
+  border: none;
+  border-radius: 6px;
+}
+
+.button-group button:hover {
+  background-color: #81c784; /* verde claro brillante */
+}
+
+.delete-button {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  display: block;
-  height: 30px;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #d32f2f; /* rojo intenso */
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
 }
 
-@media screen and (max-width: 430px) {
-  .counter-page {
-    margin: 20px;
-  }
+.delete-button:hover {
+  color: #b71c1c; /* rojo más oscuro */
+}
+
+.dialog {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #c8e6c9;
+  background: #ffffff;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.dialog label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  color: #1b5e20;
+}
+
+.dialog input[type='text'],
+.dialog input[type='number'] {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #a5d6a7;
+  background-color: #f1f8e9;
+  color: #1b5e20;
 }
