@@ -12,13 +12,14 @@
     </nav>
 
   <div class="qr-block">
-          <h3 class="qr-title"> 🎧 Background Music? </h3>
+          <h3 class="qr-title"> 🎧 {{ getTranslation('Background Music?') }}</h3>
+
             <div class="qr-container">
             <qrcode [qrdata]="'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
             [width]="128"
             [errorCorrectionLevel]="'M'"></qrcode>
   </div>
-          <a class="qr-link" href="'https://www.youtube.com/watch?v=jfKfPfyJRdk'"target="_blank" rel="noopener noreferrer">
+          <a class="qr-link" href="https://www.youtube.com/live/jfKfPfyJRdk?si=sM0dc3wvtc-5c3jt"target="_blank" rel="noopener noreferrer">
           🔗 Lofi Music
       </a>
   </div>
