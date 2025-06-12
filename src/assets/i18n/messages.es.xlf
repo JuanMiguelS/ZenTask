@@ -3,8 +3,8 @@
   <file source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="Settings" datatype="html">
-        <source>Settings</source>
-        <target>Configuración</target>
+        <source>Language</source>
+        <target>Idioma</target>
       </trans-unit>
       <trans-unit id="Total hours left">
        <source>Total hours left</source>
@@ -73,7 +73,7 @@
         <source>Add Event</source>
         <target>Añadir Evento</target>
       </trans-unit>
-      
+
       <trans-unit id="calendar-select-day-alert" datatype="html">
         <source>Select a day from the calendar before introducing an event.</source>
         <target>Selecciona un día del calendario antes de añadir un evento.</target>

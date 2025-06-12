@@ -32,11 +32,11 @@
 <div class="confirm-dialog" *ngIf="showConfirmDialog">
   <div class="confirm-content" #modalBox>
     <div class="confirm-header" (mousedown)="startDragging($event)">
-      {{'Confirmar' }}
+      {{'Confirm' }}
     </div>
-    <p>{{  '¿Estás seguro de que quieres eliminar este elemento?' }}</p>
+    <p>{{  'Are you sure you want to eliminate this task?' }}</p>
     <div class="confirm-buttons">
-      <button (click)="confirmDelete()">✔️ {{  'Sí' }}</button>
+      <button (click)="confirmDelete()">✔️ {{  'Yes' }}</button>
       <button (click)="closeDialog()">❌ {{ 'No' }}</button>
     </div>
   </div>
