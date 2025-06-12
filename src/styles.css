@@ -12,6 +12,7 @@
   --button-primary: #0B6623; /* Verde profundo para botones principales */
   --button-hover: #66FF66; /* Verde neón para botones al pasar el mouse */
   --accent-color: #FDD835; /* Amarillo suave para acentos */
+  margin: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column; /* Apila los elementos en una columna */
   min-height: 100vh; /* Asegura que la altura ocupe toda la ventana */
+  margin: auto; 
+
 }
 
 /* Contenedor del título y botones */

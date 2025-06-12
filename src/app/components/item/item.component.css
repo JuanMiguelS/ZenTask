@@ -119,3 +119,21 @@
   border-bottom: 1px solid #ccc;
   user-select: none;
 }
+
+
+button.delete-btn {
+  background-color: rgba(0, 0, 0, 0.1); /* fondo translúcido */
+  color: var(--text-color);             /* color de texto variable */
+  border: none;
+  padding: 10px;
+  border-radius: 8px;                   /* bordes redondeados */
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* sombra */
+}
+
+button.delete-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* cambiar fondo al pasar mouse */
+  transform: scale(1.05);                /* ligero aumento */
+}
