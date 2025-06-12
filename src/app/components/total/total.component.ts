@@ -24,8 +24,12 @@ export class TuComponente {
 export class TotalComponent implements OnInit {
 @Input() total: number = 0;
 @Input()  message:string ='';
-constructor(){}
+ constructor(private translationService: TranslationService) {}
+
 ngOnInit(): void {
 }
 
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key); // Usamos el servicio para obtener la traducción
+  }
 }

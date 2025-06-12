@@ -1,17 +1,22 @@
 <div class="container">
-    <span>{{message}}</span>
-    <h2>{{total}}</h2>
-    <div class="row header-row">
-  <div class="title" style="margin-right: 1rem;">
-    <strong>Title</strong></div>
-  <div class="time"style="margin-left: 10rem;">
-    <strong>Total Time</strong></div>
-  <div class="timeLeft" style="margin-bottom: 1rem;">
-    <strong>Time Done</strong></div>
-  <div class="total" style="margin-bottom: 1rem;">
-    <strong>Time Left</strong></div>
-  <div class="actions" style="margin-bottom: 1rem;">
-    <strong>Action</strong></div>
-</div>
+  <span>{{ message }}</span>
+  <h2>{{ total }}</h2>
 
+  <div class="row header-row">
+    <div class="title" style="margin-right: 1rem;">
+      <strong>{{ getTranslation('Title') }}</strong>
+    </div>
+    <div class="time" style="margin-left: 10rem;">
+      <strong>{{ getTranslation('Total Time') }}</strong>
+    </div>
+    <div class="timeLeft" style="margin-bottom: 1rem;">
+      <strong>{{ getTranslation('Time Done') }}</strong>
+    </div>
+    <div class="total" style="margin-bottom: 1rem;">
+      <strong>{{ getTranslation('Time Left') }}</strong>
+    </div>
+    <div class="actions" style="margin-bottom: 1rem;">
+      <strong>{{ getTranslation('Action') }}</strong>
+    </div>
+  </div>
 </div>

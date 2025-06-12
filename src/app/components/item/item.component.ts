@@ -90,5 +90,8 @@ startDragging(event: MouseEvent): void {
   document.addEventListener('mouseup', onMouseUp);
 }
 
+  getTranslation(key: string): string {
+    return this.translationService.getTranslation(key); // Usamos el servicio para obtener la traducción
+  }
 
 }
