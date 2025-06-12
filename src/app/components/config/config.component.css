@@ -95,3 +95,38 @@ form button {
 form button:hover {
   background-color: #85664e;
 }
+
+
+
+
+/*for the qr*/
+.qr-block {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--card-background, #f9f9f9);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qr-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.qr-container {
+  margin: 0.5rem 0;
+}
+
+.qr-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.qr-link:hover {
+  text-decoration: underline;
+}
+

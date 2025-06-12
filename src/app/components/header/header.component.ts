@@ -9,7 +9,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule, QRCodeModule],
+  imports: [RouterModule, FormsModule, CommonModule, QRCodeModule,],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

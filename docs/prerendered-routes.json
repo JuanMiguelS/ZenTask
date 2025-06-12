@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/add",
+    "/app-calendar",
+    "/app-config",
+    "/app-counter-page",
+    "/timers"
+  ]
+}
