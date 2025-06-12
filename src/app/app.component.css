@@ -15,6 +15,7 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  
 }
 
 /* Estilo para el título de ZenTask *
@@ -89,3 +90,26 @@ h1::after {
   margin-left: 10px;
 }
 
+.theme-toggle-btn {
+  background-color: var(--button-primary);
+  color: var(--text-color);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.1);
+}
+
+body.dark-mode h1 {
+  color: var(--accent-color);
+  background: none;
+  box-shadow: none;
+  text-shadow: 2px 2px 4px rgba(199, 157, 242, 0.5);
+}

@@ -17,3 +17,31 @@
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-color);
 }
+body.dark-mode {
+  --background-color: #121212; /* Negro relajante */
+  --text-color: #ffffff; /* Letras blancas */
+  --card-background: #1e1e1e;
+  --menu-background: #1a1a1a;
+  --header-background: #551c4f;
+  --accent-color: #c79df2; /* Morado suave */
+  --button-primary: #674ea7; /* Morado profundo */
+  --button-hover: #845ec2;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-mode .main-title {
+  color: var(--accent-color);
+  background: none;
+  box-shadow: none;
+  text-shadow: 2px 2px 4px rgba(199, 157, 242, 0.5);
+}
+
+body.dark-mode .header-container {
+  background-color: var(--header-background);
+}
+
+body.dark-mode .content-container {
+  background-color: var(--card-background);
+}

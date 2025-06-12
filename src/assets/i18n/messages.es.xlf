@@ -10,7 +10,7 @@
        <source>Total hours left</source>
        <target>Total de horas restantes</target>
       </trans-unit>
-      <xliff version="1.2">
+
       <trans-unit id="Delete">
         <source>Delete</source>
         <target>Eliminar</target>
