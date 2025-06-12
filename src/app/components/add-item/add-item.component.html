@@ -12,13 +12,20 @@
         <label for="" i18n>Time</label>
         <input type=number name="time" id="" [(ngModel)]="time">
     </div>
-    <div>
-        <label for="" i18n> Time Left</label>
-        <input type=number name="timeLeft" id="" [(ngModel)]="timeLeft">
-    </div>
+  <label i18n>{{ getTranslation('Hours') }}</label>
+  <input type="number" [(ngModel)]="hour" min="0" name="hours" required>
+</div>
+<div>
+  <label i18n>{{ getTranslation('Minutes') }}</label>
+  <input type="number" [(ngModel)]="minute" min="0" max="59" name="minutes" required>
+</div>
+<div>
+  <label i18n>{{ getTranslation('Seconds') }}</label>
+  <input type="number" [(ngModel)]="sec" min="0" max="59" name="seconds" required>
+</div>
     <input type="submit" value="Confirm" i18n>
 
-   
+
 </form>
 
 

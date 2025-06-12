@@ -1,23 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../Models/Item';
-import { AddItemComponent } from '../components/add-item/add-item.component';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
-  [x: string]: any;
+  items: Item[] = [
+    new Item(0, 'study', 3900, 1200, false),        // 1h 5min
+    new Item(1, 'work on code', 7200, 1800, false)  // 2h 0min
+  ];
 
-  items:Item[] =  [
-    { id: 0, title: 'study', time: 10.5, timeDone: 4, completed: false },
-    { id: 1, title: 'work on code', time: 8, timeDone: 3, completed: false }
- ];
+  constructor() {
+    // Convertimos tiempos iniciales a formato hora:min:sec
+    this.items.forEach(item => this.setTimeParts(item));
+  }
 
-  constructor() { }
-
-  getItems(){
+  getItems() {
     return this.items;
   }
-  addItems(item:Item){
-    this.items.unshift(item);
+
+addItems(item: Item) {
+  // Si el tiempo ya se calculó en AddItemComponent, no recalcular aquí
+  this.items.unshift(item);
+}
+
+  private setTimeParts(item: Item): void {
+    const totalSeconds = item.time;
+    item.hour = Math.floor(totalSeconds / 3600);
+    item.minute = Math.floor((totalSeconds % 3600) / 60);
+    item.sec = Math.floor(totalSeconds % 60);
   }
 }

@@ -38,6 +38,38 @@ export class TimerService {
     };
     this.addTimer(timer);
   }
+  private lastId = 0;
+generateId(): number {
+  return ++this.lastId;
+}
+
+  addTimerFromParts(
+  name: string,
+  hours: number,
+  minutes: number,
+  seconds: number,
+  repeat: boolean,
+  restMinutes: number
+): void {
+  const duration = hours * 3600 + minutes * 60 + seconds;
+  if (duration > 0) {
+    const newTimer: Timer = {
+      id: this.generateId(), // suponiendo que generamos id interno
+      name,
+      duration,
+      originalDuration: duration,
+      remaining: duration,
+      isPaused: true,
+      isStarted: false,
+      repeat,
+      restPeriod: repeat ? restMinutes * 60 : 0
+    };
+    this.addTimer(newTimer);
+  } else {
+    alert('Total time must be greater than zero');
+  }
+}
+
 
   clearTimers(): void {
     this.timersSubject.next([]);

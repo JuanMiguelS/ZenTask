@@ -1,16 +1,18 @@
 <div class="main-container">
-  <app-total [message]="totalMessage" [total]="total"></app-total>
+<p>{{ totalMessage }}</p>
+
+
 
   <div *ngFor="let item of items" class="item">
-    <app-item 
+    <app-item
       [item]="item"
       (deleteItem)="deleteItem($event)"
       (toggleItem)="toggleItem($event)">
     </app-item>
 
-    <!-- Botón dentro de la tarjeta -->
     <div class="create-timer-button-container">
-      <button (click)="sendToTimer(item)">{{ 'Create Timer' | translate }}</button>
+<button (click)="sendToTimer(item)">{{ 'Create Timer' | translate }}</button>
+
     </div>
   </div>
 </div>
