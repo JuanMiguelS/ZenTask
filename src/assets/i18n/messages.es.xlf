@@ -3,8 +3,8 @@
   <file source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="Settings" datatype="html">
-        <source>Settings</source>
-        <target>Configuración</target>
+        <source>Language</source>
+        <target>Idioma</target>
       </trans-unit>
       <trans-unit id="Total hours left">
        <source>Total hours left</source>
@@ -73,7 +73,7 @@
         <source>Add Event</source>
         <target>Añadir Evento</target>
       </trans-unit>
-      
+
       <trans-unit id="calendar-select-day-alert" datatype="html">
         <source>Select a day from the calendar before introducing an event.</source>
         <target>Selecciona un día del calendario antes de añadir un evento.</target>
@@ -193,6 +193,41 @@
         <source>You have {count} event(s) in the next 7 days.</source>
         <target>Tienes {count} evento(s) en los próximos 7 días.</target>
       </trans-unit>
+
+      <trans-unit id="Confirm">
+        <source>Confirm</source>
+        <target>Confirmar</target>
+      </trans-unit>
+      <trans-unit id="Yes">
+        <source>Yes</source>
+        <target>Si</target>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to eliminate this task?">
+        <source>Are you sure you want to eliminate this task?</source>
+        <target>¿Estás de acuerdo que quieres eliminar esta tarea?</target>
+      </trans-unit>
+      <trans-unit id="Title">
+        <source>Title</source>
+        <target>Título</target>
+      </trans-unit>
+      <trans-unit id="Total Time">
+        <source>Total Title</source>
+        <target>Tiempo Total</target>
+      </trans-unit>
+      <trans-unit id="Time Done">
+        <source>Time Done</source>
+        <target>Tiempo Completado</target>
+      </trans-unit>
+      <trans-unit id="Time Left">
+        <source>Time Left</source>
+        <target>Tiempo Restante</target>
+      </trans-unit>
+      <trans-unit id="Action">
+        <source>Action</source>
+        <target>Acción</target>
+      </trans-unit>
+
+
 
 
 
