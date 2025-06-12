@@ -33,10 +33,13 @@ export class ItemsComponent implements OnInit, OnDestroy {
     private translationService: TranslationService,
     private timerService: TimerService,
     private router: Router
+
   ) {}
 
 
   ngOnInit(): void {
+
+
   this.items = this.itemService.getItems();
   this.calculateTotal();
   this.updateTotalMessage();
@@ -44,7 +47,16 @@ export class ItemsComponent implements OnInit, OnDestroy {
   this.languageSubscription = this.translationService.getLanguageObservable().subscribe(() => {
     this.updateTotalMessage();
   });
+
+
+
+
 }
+getTranslation(key: string): string {
+  return this.translationService.getTranslation(key);
+}
+
+
 
 calculateTotal() {
   this.total = this.items
@@ -56,7 +68,7 @@ calculateTotal() {
 }
 
 private updateTotalMessage() {
-  const baseMessage = this.translationService.getTranslation('Total hours left');
+  const baseMessage = this.translationService.getTranslation('Total time left');
   this.totalMessage = `${baseMessage}: ${this.formatTime(this.total)}`;
 }
 

@@ -1,6 +1,18 @@
-<div class="main-container">
-<p>{{ totalMessage }}</p>
 
+<div class="container">
+  <div class="total-box">
+      <p>{{ totalMessage }}</p>
+  </div>
+
+
+  <div class="row header-row" >
+    <div class="header-label" style="margin-right: 8 rem;">{{ getTranslation('Title') }}</div>
+    <div class="header-label" style="margin-left: 11.5rem;">{{ getTranslation('Total Time') }}</div>
+    <div class="header-label">{{ getTranslation('Time Done') }}</div>
+    <div class="header-label">{{ getTranslation('Time Left') }}</div>
+    <div class="header-label">{{ getTranslation('Action') }}</div>
+  </div>
+</div>
 
 
   <div *ngFor="let item of items" class="item">
@@ -15,4 +27,3 @@
 
     </div>
   </div>
-</div>
