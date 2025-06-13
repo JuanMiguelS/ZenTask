@@ -14,16 +14,6 @@ import { QRCodeComponent, QRCodeModule } from 'angularx-qrcode';
         {{ lang | uppercase }}
       </button>
     </div>
-    <div class="qr-block">
-  <h3 class="qr-title">🚀 Zentask Web App For Mobile</h3>
-  <div class="qr-container">
-    <qrcode
-      [qrdata]="'https://zentask.app'"
-      [width]="128"
-      [errorCorrectionLevel]="'M'">
-    </qrcode>
-  </div>
-</div>
   `,
   styles: [
     `
