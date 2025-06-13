@@ -1,13 +1,18 @@
 <div class="game-container">
   <h2>Color Puzzle</h2>
 
-  <!-- Selector de color -->
-  <div class="color-selector">
-    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color">
-    </button>
+  <!-- Show the target color -->
+  <div class="target-color">
+    <p>Target Color:</p>
+    <div class="target-color-box" [style.background-color]="targetColor"></div>
   </div>
 
-  <!-- Cuadrícula de bloques de colores -->
+  <!-- Color selector -->
+  <div class="color-selector">
+    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color"></button>
+  </div>
+
+  <!-- Color block grid -->
   <div class="grid">
     <div *ngFor="let row of grid; let i = index">
       <div *ngFor="let block of row; let j = index" class="grid-block"
@@ -17,14 +22,39 @@
     </div>
   </div>
 
-  <!-- Contador de movimientos -->
+  <!-- Moves counter -->
   <div class="moves-count">
-    <p>Movimientos restantes: {{ moves }}</p>
+    <p>Remaining Moves: {{ moves }}</p>
   </div>
 
-  <!-- Botones para reiniciar o generar otro puzzle -->
+  <!-- Buttons to restart or generate a new puzzle -->
   <div class="controls">
-    <button (click)="restartGame()">Reiniciar</button>
-    <button (click)="generateNewPuzzle()">Hacer otro</button>
+    <button (click)="restartGame()">Restart</button>
+    <button (click)="generateNewPuzzle()">New Puzzle</button>
+  </div>
+
+  <!-- Button to show instructions -->
+  <button class="instructions-button" (click)="toggleInstructions()">How to Play?</button>
+
+  <!-- Instructions modal -->
+  <div class="instructions-modal" [style.display]="instructionsVisible ? 'flex' : 'none'">
+    <div class="modal-content">
+      <h3>Game Instructions</h3>
+      <p>
+        1.- The objective of the game is to fill the entire grid with the same color. <br><br>
+
+        2.- To do this, select a color and click on any block of the grid. <br><br>
+
+        3.- All adjacent blocks to the selected block will change to the selected color. <br><br>
+
+        4.- You have a limited number of moves to achieve this.
+      </p>
+      <button (click)="toggleInstructions()">Close</button>
+    </div>
+  </div>
+
+  <!-- Block the access to the game tab if the task is not completed -->
+  <div *ngIf="!gameAccessAllowed">
+    <p>You must complete a task before accessing the game.</p>
   </div>
 </div>
