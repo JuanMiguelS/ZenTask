@@ -24,6 +24,11 @@ addItems(item: Item) {
   this.items.unshift(item);
 }
 
+  // Verificar si alguna tarea está completada
+  isAnyTaskCompleted(): boolean {
+    return this.items.some(item => item.completed);
+  }
+
   private setTimeParts(item: Item): void {
     const totalSeconds = item.time;
     item.hour = Math.floor(totalSeconds / 3600);

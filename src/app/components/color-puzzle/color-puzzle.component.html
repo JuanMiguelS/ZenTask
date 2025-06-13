@@ -1,13 +1,19 @@
 <div class="game-container">
-  <h2>Color Puzzle</h2>
+  <h2>{{ 'COLOR_PUZZLE' | translate }}</h2> <!-- Traducción para 'Color Puzzle' -->
 
-  <!-- Selector de color -->
+  <!-- Show the target color -->
+  <div class="target-color">
+    <p>{{ 'TARGET_COLOR' | translate }}:</p> <!-- Traducción para 'Target Color' -->
+    <div class="target-color-box" [style.background-color]="targetColor"></div>
+  </div>
+
+  <!-- Color selector -->
   <div class="color-selector">
     <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color">
     </button>
   </div>
 
-  <!-- Cuadrícula de bloques de colores -->
+  <!-- Color block grid -->
   <div class="grid">
     <div *ngFor="let row of grid; let i = index">
       <div *ngFor="let block of row; let j = index" class="grid-block"
@@ -17,14 +23,35 @@
     </div>
   </div>
 
-  <!-- Contador de movimientos -->
+  <!-- Moves counter -->
   <div class="moves-count">
-    <p>Movimientos restantes: {{ moves }}</p>
+    <p>{{ 'REMAINING_MOVES' | translate }}: {{ moves }}</p> <!-- Traducción para 'Remaining Moves' -->
   </div>
 
-  <!-- Botones para reiniciar o generar otro puzzle -->
+  <!-- Buttons to restart or generate a new puzzle -->
   <div class="controls">
-    <button (click)="restartGame()">Reiniciar</button>
-    <button (click)="generateNewPuzzle()">Hacer otro</button>
+    <button (click)="restartGame()">{{ 'RESTART' | translate }}</button> <!-- Traducción para 'Restart' -->
+    <button (click)="generateNewPuzzle()">{{ 'NEW_PUZZLE' | translate }}</button> <!-- Traducción para 'New Puzzle' -->
   </div>
+
+  <!-- Button to show instructions -->
+  <button class="instructions-button" (click)="toggleInstructions()">{{ 'HOW_TO_PLAY' | translate }}</button> <!-- Traducción para 'How to Play?' -->
+
+  <!-- Instructions modal -->
+  <div class="instructions-modal" [style.display]="instructionsVisible ? 'flex' : 'none'">
+    <div class="modal-content">
+      <h3>{{ 'GAME_INSTRUCTIONS' | translate }}</h3> <!-- Traducción para 'Game Instructions' -->
+      <p>
+        1.- {{ 'INSTRUCTION_1' | translate }} <br><br> <!-- Traducción de la instrucción 1 -->
+        2.- {{ 'INSTRUCTION_2' | translate }} <br><br> <!-- Traducción de la instrucción 2 -->
+        3.- {{ 'INSTRUCTION_3' | translate }} <br><br> <!-- Traducción de la instrucción 3 -->
+        4.- {{ 'INSTRUCTION_4' | translate }} <br><br> <!-- Traducción de la instrucción 4 -->
+      </p>
+      <button (click)="toggleInstructions()">{{ 'CLOSE' | translate }}</button> <!-- Traducción para 'Close' -->
+    </div>
+  </div>
+
+  <!-- Block the access to the game tab if the task is not completed -->
+  
+  
 </div>

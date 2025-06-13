@@ -1,7 +1,6 @@
 .counter-page {
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #e8f5e9; /* verde claro */
   min-height: 100vh;
 }
 
@@ -21,7 +20,7 @@ button {
 }
 
 .add-timer-btn {
-  background-color: #2e7d32; /* verde oscuro brillante */
+  background-color: #9e7f5a; /* verde oscuro brillante */
   color: white;
   margin-bottom: 1.5rem;
 }
@@ -104,8 +103,6 @@ button {
 .dialog {
   margin-top: 2rem;
   padding: 1rem;
-  border: 1px solid #c8e6c9;
-  background: #ffffff;
   border-radius: 10px;
   max-width: 400px;
 }
@@ -123,6 +120,7 @@ button {
   margin-bottom: 0.5rem;
   border-radius: 6px;
   border: 1px solid #a5d6a7;
-  background-color: #f1f8e9;
+  background-color: #fbfbfb;
   color: #1b5e20;
 }
+
