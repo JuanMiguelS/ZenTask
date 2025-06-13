@@ -48,6 +48,11 @@
         <target>Main Page</target>
       </trans-unit>
 
+  <trans-unit id="Have a Break!" datatype="html">
+    <source>Have a Break!</source>
+    <target>Have a Break!</target>
+  </trans-unit>
+
       <trans-unit id="Add New Task" datatype="html">
         <source>Add New Task</source>
         <target>Add New Task</target>
@@ -223,6 +228,61 @@
       <trans-unit id="Background Music?">
         <source>¿Música de Fondo?</source>
         <target>Background Music?</target>
+      </trans-unit>
+
+            <trans-unit id="COLOR_PUZZLE">
+        <source>Color Puzzle</source>
+        <target>Color Puzzle</target> <!-- El mismo texto en inglés -->
+      </trans-unit>
+      <trans-unit id="TARGET_COLOR">
+        <source>Target Color</source>
+        <target>Target Color</target>
+      </trans-unit>
+      <trans-unit id="REMAINING_MOVES">
+        <source>Remaining Moves</source>
+        <target>Remaining Moves</target>
+      </trans-unit>
+      <trans-unit id="RESTART">
+        <source>Restart</source>
+        <target>Restart</target>
+      </trans-unit>
+      <trans-unit id="NEW_PUZZLE">
+        <source>New Puzzle</source>
+        <target>New Puzzle</target>
+      </trans-unit>
+      <trans-unit id="HOW_TO_PLAY">
+        <source>How to Play?</source>
+        <target>How to Play?</target>
+      </trans-unit>
+      <trans-unit id="GAME_INSTRUCTIONS">
+        <source>Game Instructions</source>
+        <target>Game Instructions</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_1">
+        <source>The objective of the game is to fill the entire grid with the same color.</source>
+        <target>The objective of the game is to fill the entire grid with the same color.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_2">
+        <source>To do this, select a color and click on any block of the grid.</source>
+        <target>To do this, select a color and click on any block of the grid.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_3">
+        <source>All adjacent blocks to the selected block will change to the selected color.</source>
+        <target>All adjacent blocks to the selected block will change to the selected color.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_4">
+        <source>You have a limited number of moves to achieve this.</source>
+        <target>You have a limited number of moves to achieve this.</target>
+      </trans-unit>
+
+      <trans-unit id="VictoryMessage" datatype="html">
+        <source>You won! You achieved the target color!. </source>
+        <target>You won! You achieved the target color!. </target>
+      </trans-unit>
+
+      <trans-unit id="CLOSE">
+        <source>Close</source>
+        <target>Close</target>
       </trans-unit>
 
 
