@@ -27,49 +27,50 @@ export class ItemsComponent implements OnInit, OnDestroy {
   total: number = 0;           // Total en segundos (número)
   items: Item[] = [];
   languageSubscription: Subscription | undefined;
-  gameAccessAllowed: boolean = false;  // Variable para controlar el acceso al juego
 
   constructor(
     private itemService: ItemService,
     private translationService: TranslationService,
     private timerService: TimerService,
     private router: Router
+
   ) {}
 
+
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
-    this.calculateTotal();
+
+
+  this.items = this.itemService.getItems();
+  this.calculateTotal();
+  this.updateTotalMessage();
+
+  this.languageSubscription = this.translationService.getLanguageObservable().subscribe(() => {
     this.updateTotalMessage();
-    this.checkGameAccess();  // Verificar el acceso al juego al iniciar
+  });
 
-    this.languageSubscription = this.translationService.getLanguageObservable().subscribe(() => {
-      this.updateTotalMessage();
-    });
-  }
 
-  // Comprobar si se puede acceder al juego
-  checkGameAccess(): void {
-    // Verificar si alguna tarea está completada
-    this.gameAccessAllowed = this.items.some(item => item.completed);
-  }
 
-  getTranslation(key: string): string {
-    return this.translationService.getTranslation(key);
-  }
 
-  calculateTotal() {
-    this.total = this.items
-      .filter(x => !x.completed)
-      .map(item => item.time - item.timeDone)
-      .reduce((acc, curr) => acc + curr, 0);
+}
+getTranslation(key: string): string {
+  return this.translationService.getTranslation(key);
+}
 
-    this.updateTotalMessage();
-  }
 
-  private updateTotalMessage() {
-    const baseMessage = this.translationService.getTranslation('Total time left');
-    this.totalMessage = `${baseMessage}: ${this.formatTime(this.total)}`;
-  }
+
+calculateTotal() {
+  this.total = this.items
+    .filter(x => !x.completed)
+    .map(item => item.time - item.timeDone)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  this.updateTotalMessage();
+}
+
+private updateTotalMessage() {
+  const baseMessage = this.translationService.getTranslation('Total time left');
+  this.totalMessage = `${baseMessage}: ${this.formatTime(this.total)}`;
+}
 
   ngOnDestroy(): void {
     this.languageSubscription?.unsubscribe();
@@ -81,10 +82,10 @@ export class ItemsComponent implements OnInit, OnDestroy {
   }
 
   toggleItem(item: Item) {
-    item.completed = !item.completed;  // Alterna el estado de completado
     this.calculateTotal();
-    this.checkGameAccess();  // Verifica el acceso al juego cuando se cambia el estado de la tarea
   }
+
+
 
   get formattedTotal(): string {
     return this.formatTime(this.total);
@@ -105,15 +106,16 @@ export class ItemsComponent implements OnInit, OnDestroy {
   }
 
   sendToTimer(item: Item) {
-    // Calcular horas, minutos, segundos restantes de esta tarea
-    const remainingSeconds = item.time - item.timeDone;
-    const hours = Math.floor(remainingSeconds / 3600);
-    const minutes = Math.floor((remainingSeconds % 3600) / 60);
-    const seconds = remainingSeconds % 60;
+  // Calcular horas, minutos, segundos restantes de esta tarea
+  const remainingSeconds = item.time - item.timeDone;
+  const hours = Math.floor(remainingSeconds / 3600);
+  const minutes = Math.floor((remainingSeconds % 3600) / 60);
+  const seconds = remainingSeconds % 60;
 
-    // Añadir el timer directamente con partes (sin usar string)
-    this.timerService.addTimerFromParts(item.title, hours, minutes, seconds, false, 0);
+  // Añadir el timer directamente con partes (sin usar string)
+  this.timerService.addTimerFromParts(item.title, hours, minutes, seconds, false, 0);
 
-    this.router.navigate(['/timers']);
-  }
+  this.router.navigate(['/timers']);
+}
+
 }

@@ -49,6 +49,11 @@
         <target>Página Principal</target>
       </trans-unit>
 
+        <trans-unit id="Have a Break!" datatype="html">
+          <source>Have a Break!</source>
+          <target>¡Tómate un Descanso!</target>
+      </trans-unit>
+
       <trans-unit id="Add New Task" datatype="html">
         <source>Add New Task</source>
         <target>Añadir Nueva Tarea</target>
@@ -229,6 +234,61 @@
       <trans-unit id="Background Music?">
         <source>Background Music?</source>
         <target>¿Música de Fondo?</target>
+      </trans-unit>
+
+      <trans-unit id="COLOR_PUZZLE">
+        <source>Color Puzzle</source>
+        <target>Rompecabezas de Colores</target>
+      </trans-unit>
+      <trans-unit id="TARGET_COLOR">
+        <source>Target Color</source>
+        <target>Color Objetivo</target>
+      </trans-unit>
+      <trans-unit id="REMAINING_MOVES">
+        <source>Remaining Moves</source>
+        <target>Movimientos Restantes</target>
+      </trans-unit>
+      <trans-unit id="RESTART">
+        <source>Restart</source>
+        <target>Reiniciar</target>
+      </trans-unit>
+      <trans-unit id="NEW_PUZZLE">
+        <source>New Puzzle</source>
+        <target>Nuevo Rompecabezas</target>
+      </trans-unit>
+      <trans-unit id="HOW_TO_PLAY">
+        <source>How to Play?</source>
+        <target>¿Cómo Jugar?</target>
+      </trans-unit>
+      <trans-unit id="GAME_INSTRUCTIONS">
+        <source>Game Instructions</source>
+        <target>Instrucciones del Juego</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_1">
+        <source>The objective of the game is to fill the entire grid with the same color.</source>
+        <target>El objetivo del juego es llenar toda la cuadrícula con el mismo color.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_2">
+        <source>To do this, select a color and click on any block of the grid.</source>
+        <target>Para hacer esto, selecciona un color y haz clic en cualquier cuadro de la cuadrícula.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_3">
+        <source>All adjacent blocks to the selected block will change to the selected color.</source>
+        <target>Todos los cuadros adyacentes al cuadro seleccionado cambiarán al color seleccionado.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_4">
+        <source>You have a limited number of moves to achieve this.</source>
+        <target>Tienes un número limitado de movimientos para lograrlo.</target>
+      </trans-unit>
+
+      <trans-unit id="VictoryMessage" datatype="html">
+        <source>You won! You achieved the target color!. </source>
+        <target>¡Has ganado! ¡Obtuviste el color correcto!. </target>
+      </trans-unit>
+
+      <trans-unit id="CLOSE">
+        <source>Close</source>
+        <target>Cerrar</target>
       </trans-unit>
 
 

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service'; // Importa el servicio de Item
+import { ItemService } from '../../services/item.service'; // Importar el servicio de Item
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-color-puzzle',
   standalone: true,
   templateUrl: './color-puzzle.component.html',
   styleUrls: ['./color-puzzle.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, TranslatePipe]
 })
 export class ColorPuzzleComponent implements OnInit {
   grid: string[][] = [];
@@ -30,13 +32,13 @@ export class ColorPuzzleComponent implements OnInit {
   };
 
   currentLevel: 'easy' | 'medium' | 'hard' = 'easy';
-  gameAccessAllowed: boolean = false;  // Añadimos esta propiedad para controlar el acceso al juego
+  gameAccessAllowed: boolean = false;  // Propiedad para controlar el acceso al juego
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private translationService: TranslationService) { }
 
   ngOnInit(): void {
     this.initGrid();
-    this.checkGameAccess();  // Verifica si se puede acceder al juego
+    this.checkGameAccess();  // Verificar el acceso al juego al iniciar el componente
   }
 
   // Establecer el color objetivo
@@ -62,8 +64,12 @@ export class ColorPuzzleComponent implements OnInit {
       }
     }
 
-    console.log(this.grid);
     this.setTargetColor();
+  }
+
+  // Verificar si el acceso al juego debe ser permitido
+  checkGameAccess(): void {
+    this.gameAccessAllowed = this.itemService.isAnyTaskCompleted();  // Si alguna tarea está completada, habilitar el acceso
   }
 
   // Selección de color
@@ -77,7 +83,6 @@ export class ColorPuzzleComponent implements OnInit {
     const buttons = document.querySelectorAll('.color-selector button');
     const buttonsArray = Array.from(buttons) as HTMLElement[];
 
-    // Limpiar la clase 'selected' de todos los botones
     buttonsArray.forEach((button) => {
       button.classList.remove('selected');
     });
@@ -112,7 +117,6 @@ export class ColorPuzzleComponent implements OnInit {
 
     this.grid[row][col] = this.selectedColor;
 
-    // Recursividad para llenar bloques adyacentes
     this.fillColor(row - 1, col, targetColor);
     this.fillColor(row + 1, col, targetColor);
     this.fillColor(row, col - 1, targetColor);
@@ -130,7 +134,7 @@ export class ColorPuzzleComponent implements OnInit {
     if (allMatch) {
       this.grid = this.grid.map(row => row.map(() => this.targetColor));
       setTimeout(() => {
-        alert('You won! You achieved the target color!');
+        alert(this.translationService.getTranslation('VictoryMessage'));
         this.restartGame();
       }, 500);
     }
@@ -147,11 +151,5 @@ export class ColorPuzzleComponent implements OnInit {
     this.initGrid();
     this.moves = this.difficultyLevels[this.currentLevel].moves;
     this.setTargetColor();
-  }
-
-  // Verificar si el acceso al juego debe ser permitido
-  checkGameAccess(): void {
-    const items = this.itemService.getItems();  // Obtener las tareas desde el servicio
-    this.gameAccessAllowed = items.some(item => item.completed);  // Si alguna tarea está completada, habilitar el acceso
   }
 }

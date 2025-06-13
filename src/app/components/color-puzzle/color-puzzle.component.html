@@ -1,15 +1,16 @@
 <div class="game-container">
-  <h2>Color Puzzle</h2>
+  <h2>{{ 'COLOR_PUZZLE' | translate }}</h2> <!-- Traducción para 'Color Puzzle' -->
 
   <!-- Show the target color -->
   <div class="target-color">
-    <p>Target Color:</p>
+    <p>{{ 'TARGET_COLOR' | translate }}:</p> <!-- Traducción para 'Target Color' -->
     <div class="target-color-box" [style.background-color]="targetColor"></div>
   </div>
 
   <!-- Color selector -->
   <div class="color-selector">
-    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color"></button>
+    <button *ngFor="let color of colors" (click)="selectColor(color)" [style.background-color]="color">
+    </button>
   </div>
 
   <!-- Color block grid -->
@@ -24,37 +25,33 @@
 
   <!-- Moves counter -->
   <div class="moves-count">
-    <p>Remaining Moves: {{ moves }}</p>
+    <p>{{ 'REMAINING_MOVES' | translate }}: {{ moves }}</p> <!-- Traducción para 'Remaining Moves' -->
   </div>
 
   <!-- Buttons to restart or generate a new puzzle -->
   <div class="controls">
-    <button (click)="restartGame()">Restart</button>
-    <button (click)="generateNewPuzzle()">New Puzzle</button>
+    <button (click)="restartGame()">{{ 'RESTART' | translate }}</button> <!-- Traducción para 'Restart' -->
+    <button (click)="generateNewPuzzle()">{{ 'NEW_PUZZLE' | translate }}</button> <!-- Traducción para 'New Puzzle' -->
   </div>
 
   <!-- Button to show instructions -->
-  <button class="instructions-button" (click)="toggleInstructions()">How to Play?</button>
+  <button class="instructions-button" (click)="toggleInstructions()">{{ 'HOW_TO_PLAY' | translate }}</button> <!-- Traducción para 'How to Play?' -->
 
   <!-- Instructions modal -->
   <div class="instructions-modal" [style.display]="instructionsVisible ? 'flex' : 'none'">
     <div class="modal-content">
-      <h3>Game Instructions</h3>
+      <h3>{{ 'GAME_INSTRUCTIONS' | translate }}</h3> <!-- Traducción para 'Game Instructions' -->
       <p>
-        1.- The objective of the game is to fill the entire grid with the same color. <br><br>
-
-        2.- To do this, select a color and click on any block of the grid. <br><br>
-
-        3.- All adjacent blocks to the selected block will change to the selected color. <br><br>
-
-        4.- You have a limited number of moves to achieve this.
+        1.- {{ 'INSTRUCTION_1' | translate }} <br><br> <!-- Traducción de la instrucción 1 -->
+        2.- {{ 'INSTRUCTION_2' | translate }} <br><br> <!-- Traducción de la instrucción 2 -->
+        3.- {{ 'INSTRUCTION_3' | translate }} <br><br> <!-- Traducción de la instrucción 3 -->
+        4.- {{ 'INSTRUCTION_4' | translate }} <br><br> <!-- Traducción de la instrucción 4 -->
       </p>
-      <button (click)="toggleInstructions()">Close</button>
+      <button (click)="toggleInstructions()">{{ 'CLOSE' | translate }}</button> <!-- Traducción para 'Close' -->
     </div>
   </div>
 
   <!-- Block the access to the game tab if the task is not completed -->
-  <div *ngIf="!gameAccessAllowed">
-    <p>You must complete a task before accessing the game.</p>
-  </div>
+  
+  
 </div>
