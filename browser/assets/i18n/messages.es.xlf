@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="Settings" datatype="html">
+        <source>Language</source>
+        <target>Idioma</target>
+      </trans-unit>
+      <trans-unit id="Total time left">
+       <source>Total tme left</source>
+       <target>Tiempo total restante</target>
+      </trans-unit>
+
+      <trans-unit id="Delete">
+        <source>Delete</source>
+        <target>Eliminar</target>
+      </trans-unit>
+     <trans-unit id="Register New Task">
+  <source>Register New Task</source>
+  <target>Registrar nueva tarea</target>
+</trans-unit>
+
+<trans-unit id="Id">
+  <source>Id</source>
+  <target>Id</target>
+</trans-unit>
+
+<trans-unit id="Name Of The Task">
+  <source>Name of the Task</source>
+  <target>Nombre de la tarea</target>
+</trans-unit>
+
+<trans-unit id="Time">
+  <source>Time</source>
+  <target>Tiempo</target>
+</trans-unit>
+
+<trans-unit id="Time Left">
+  <source>Time Left</source>
+  <target>Tiempo restante</target>
+</trans-unit>
+
+<trans-unit id="Confirm">
+  <source>Confirm</source>
+  <target>Confirmar</target>
+</trans-unit>
+  <trans-unit id="Main Page" datatype="html">
+        <source>Main Page</source>
+        <target>Página Principal</target>
+      </trans-unit>
+
+        <trans-unit id="Have a Break!" datatype="html">
+          <source>Have a Break!</source>
+          <target>¡Tómate un Descanso!</target>
+      </trans-unit>
+
+      <trans-unit id="Add New Task" datatype="html">
+        <source>Add New Task</source>
+        <target>Añadir Nueva Tarea</target>
+      </trans-unit>
+
+      <trans-unit id="Configuration" datatype="html">
+        <source>Configuration</source>
+        <target>Configuración</target>
+      </trans-unit>
+
+      <trans-unit id="Timers" datatype="html">
+        <source>Timers</source>
+        <target>Temporizadores</target>
+      </trans-unit>
+
+      <trans-unit id="Calendar" datatype="html">
+        <source>Calendar</source>
+        <target>Calendario</target>
+      </trans-unit>
+
+      <trans-unit id="Add Event" datatype="html">
+        <source>Add Event</source>
+        <target>Añadir Evento</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-select-day-alert" datatype="html">
+        <source>Select a day from the calendar before introducing an event.</source>
+        <target>Selecciona un día del calendario antes de añadir un evento.</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-prompt-title" datatype="html">
+        <source>Introduce the name of the event:</source>
+        <target>Introduce el nombre del evento:</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-event-added" datatype="html">
+        <source>Event "{title}" added.</source>
+        <target>Evento "{title}" añadido.</target>
+      </trans-unit>
+
+      <trans-unit id="TimerManagementTitle" datatype="html">
+        <source>Management of Timers</source>
+        <target>Gestión de temporizadores</target>
+      </trans-unit>
+
+      <trans-unit id="AddTimerBtn" datatype="html">
+        <source>Add Timer</source>
+        <target>Añadir temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="RestLabel" datatype="html">
+        <source>(Rest)</source>
+        <target>(Descanso)</target>
+      </trans-unit>
+
+      <trans-unit id="BeginBtn" datatype="html">
+        <source>Begin</source>
+        <target>Iniciar</target>
+      </trans-unit>
+
+      <trans-unit id="PauseBtn" datatype="html">
+        <source>Pause</source>
+        <target>Pausar</target>
+      </trans-unit>
+
+      <trans-unit id="ResumeBtn" datatype="html">
+        <source>Resume</source>
+        <target>Reanudar</target>
+      </trans-unit>
+
+      <trans-unit id="RestartBtn" datatype="html">
+        <source>Restart</source>
+        <target>Reiniciar</target>
+      </trans-unit>
+
+      <trans-unit id="RemoveBtn" datatype="html">
+        <source>✖</source>
+        <target>✖</target> <!-- Esto normalmente no se traduce, es un símbolo -->
+      </trans-unit>
+
+      <trans-unit id="AddNewTimerTitle" datatype="html">
+        <source>Add new Timer</source>
+        <target>Añadir nuevo temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="TimerNameLabel" datatype="html">
+        <source>Name:</source>
+        <target>Nombre:</target>
+      </trans-unit>
+
+      <trans-unit id="HoursLabel" datatype="html">
+        <source>Hours:</source>
+        <target>Horas:</target>
+      </trans-unit>
+
+      <trans-unit id="MinutesLabel" datatype="html">
+        <source>Minutes:</source>
+        <target>Minutos:</target>
+      </trans-unit>
+
+      <trans-unit id="SecondsLabel" datatype="html">
+        <source>Seconds:</source>
+        <target>Segundos:</target>
+      </trans-unit>
+
+      <trans-unit id="RepeatLabel" datatype="html">
+        <source>Repeat after rest?</source>
+        <target>¿Repetir tras descanso?</target>
+      </trans-unit>
+
+      <trans-unit id="RestPeriodLabel" datatype="html">
+        <source>Rest Period (minutes):</source>
+        <target>Tiempo de descanso (minutos):</target>
+      </trans-unit>
+
+      <trans-unit id="ConfirmBtn" datatype="html">
+        <source>Confirm</source>
+        <target>Confirmar</target>
+      </trans-unit>
+
+      <trans-unit id="CancelBtn" datatype="html">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+      </trans-unit>
+
+      <trans-unit id="InvalidTimerAlert" datatype="html">
+        <source>Please enter a valid name and correct time values.</source>
+        <target>Por favor, introduce un nombre válido y valores de tiempo correctos.</target>
+      </trans-unit>
+
+      <trans-unit id="TotalTimeZeroAlert" datatype="html">
+        <source>Total time must be greater than 0.</source>
+        <target>El tiempo total debe ser mayor a 0.</target>
+      </trans-unit>
+
+      <trans-unit id="Create Timer" datatype="html">
+        <source>Create Timer</source>
+        <target>Crear Temporizador</target>
+      </trans-unit>
+
+      <trans-unit id="calendar-upcoming-events" datatype="html">
+        <source>You have {count} event(s) in the next 7 days.</source>
+        <target>Tienes {count} evento(s) en los próximos 7 días.</target>
+      </trans-unit>
+
+      <trans-unit id="Confirm">
+        <source>Confirm</source>
+        <target>Confirmar</target>
+      </trans-unit>
+      <trans-unit id="Yes">
+        <source>Yes</source>
+        <target>Si</target>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to eliminate this task?">
+        <source>Are you sure you want to eliminate this task?</source>
+        <target>¿Estás de acuerdo que quieres eliminar esta tarea?</target>
+      </trans-unit>
+      <trans-unit id="Title">
+        <source>Title</source>
+        <target>Título</target>
+      </trans-unit>
+      <trans-unit id="Total Time">
+        <source>Total Title</source>
+        <target>Tiempo Total</target>
+      </trans-unit>
+      <trans-unit id="Time Done">
+        <source>Time Done</source>
+        <target>Tiempo Completado</target>
+      </trans-unit>
+      <trans-unit id="Time Left">
+        <source>Time Left</source>
+        <target>Tiempo Restante</target>
+      </trans-unit>
+      <trans-unit id="Action">
+        <source>Action</source>
+        <target>Acción</target>
+      </trans-unit>
+      <trans-unit id="Background Music?">
+        <source>Background Music?</source>
+        <target>¿Música de Fondo?</target>
+      </trans-unit>
+
+      <trans-unit id="COLOR_PUZZLE">
+        <source>Color Puzzle</source>
+        <target>Rompecabezas de Colores</target>
+      </trans-unit>
+      <trans-unit id="TARGET_COLOR">
+        <source>Target Color</source>
+        <target>Color Objetivo</target>
+      </trans-unit>
+      <trans-unit id="REMAINING_MOVES">
+        <source>Remaining Moves</source>
+        <target>Movimientos Restantes</target>
+      </trans-unit>
+      <trans-unit id="RESTART">
+        <source>Restart</source>
+        <target>Reiniciar</target>
+      </trans-unit>
+      <trans-unit id="NEW_PUZZLE">
+        <source>New Puzzle</source>
+        <target>Nuevo Rompecabezas</target>
+      </trans-unit>
+      <trans-unit id="HOW_TO_PLAY">
+        <source>How to Play?</source>
+        <target>¿Cómo Jugar?</target>
+      </trans-unit>
+      <trans-unit id="GAME_INSTRUCTIONS">
+        <source>Game Instructions</source>
+        <target>Instrucciones del Juego</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_1">
+        <source>The objective of the game is to fill the entire grid with the same color.</source>
+        <target>El objetivo del juego es llenar toda la cuadrícula con el mismo color.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_2">
+        <source>To do this, select a color and click on any block of the grid.</source>
+        <target>Para hacer esto, selecciona un color y haz clic en cualquier cuadro de la cuadrícula.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_3">
+        <source>All adjacent blocks to the selected block will change to the selected color.</source>
+        <target>Todos los cuadros adyacentes al cuadro seleccionado cambiarán al color seleccionado.</target>
+      </trans-unit>
+      <trans-unit id="INSTRUCTION_4">
+        <source>You have a limited number of moves to achieve this.</source>
+        <target>Tienes un número limitado de movimientos para lograrlo.</target>
+      </trans-unit>
+
+      <trans-unit id="VictoryMessage" datatype="html">
+        <source>You won! You achieved the target color!. </source>
+        <target>¡Has ganado! ¡Obtuviste el color correcto!. </target>
+      </trans-unit>
+
+      <trans-unit id="CLOSE">
+        <source>Close</source>
+        <target>Cerrar</target>
+      </trans-unit>
+
+
+
+
+
+
+
+
+    </body>
+  </file>
+</xliff>

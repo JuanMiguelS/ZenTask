@@ -1,8 +1,0 @@
-ng serve
-npm install 
--language
-ng add @angular/localize
-ng extract-i18n --output-path src/locale
- --al añadir traducciones
-    ng build --localize
-    ng serve (nuevo server con la traduccion)

@@ -1,8 +1,0 @@
-<h2 i18n="@@Settings">Language</h2>
-
-<!-- Botones para cambiar de idioma -->
-<div>
-  <button *ngFor="let lang of supportedLanguages" (click)="switchLanguage(lang)">
-    {{ lang | uppercase }} <!-- Muestra el idioma en mayúsculas -->
-  </button>
-</div>
